@@ -20,8 +20,17 @@
         <div class="container">
             <div class="flex_row">
                 <h2 id="menu_name">
-                    <span>Brann's Portfolio</span> 
+                    <span class="curr_name">Brann's Portfolio</span> 
                     <span class="material-symbols-outlined">expand_more</span>
+                    <ul class="menu_list">
+                        <li><a href="#intro">Introduce</a></li>
+                        <li><a href="#history">Work Experience</a></li>
+                        <li><a href="#personality">Personality</a></li>
+                        <li><a href="#project"></a>Projects</li>
+                        <li><a href="#example"></a>Major Works</li>
+                        <li><a href="#goal">Goal</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </h2>
                 <a href="#" id="menu_icon">
                     <span class="icon_bar bar1"></span>
@@ -34,27 +43,51 @@
     <div class="main_content">
         <section class="se1" id="main_view">
             <div class="container">
-                <h3>
-                    안녕하세요<br>
-                    <span>웹퍼블리셔</span> <span>이상오</span>입니다.
+                <h3 class="main_title">
+                    I'm <strong>Brann</strong>
                 </h3>
+                <p class="sub_title">
+                   <span class="t1">E <small>fficent</small></span>
+                   <span class="t2">S <small>upportive</small></span>
+                   <span class="t3">G <small>rowing</small></span><br>
+                   Web Publisher
+                </p>
+
+                <!-- 알파벳 호버시 단어 전체 내용 노출 & 배경 색상 변화 -->
+                <!-- 여러 요소들을 추가하여 동적으로 보이도록 구성 -->
+                <!-- 마우스 위치에 따라 변화하는 요소 추가 -->
             </div>
         </section>
         <!--//main_view-->
-        <section class="se2" id="intro">
+        <section class="se2" id="intro" nv-title="Introduce">
             <div class="container">
-                <h3>저는 00 사람입니다</h3>
+                <h3>단 한 페이지</h3>
                 <div class="flex_row">
-                    <div class="col">
-                        <dl>
-                            <dt>학력/경력</dt>
-                            <dd>경북대학교 영어영문학과 학사(09.03~15.02)</dd>
-                            <dd>메일플러그 홈페이지 제작부 퍼블리셔(17.10~22.08)</dd>
+                    <div class="col col_8">
+                        <dl class="summary_dl">
+                            <dt>경력</dt>
+                            <dd>메일플러그 홈페이지 제작부 파트장(17.10~22.08)
+                                <ul class="li_dot">
+                                    <li>대학교 홈페이지 웹표준, 웹접근성  테스트 통과 경험</li>
+                                    <li>시멘틱 마크업을 준수하는 반응형 홈페이지 개발</li>
+                                    <li>크로스 브라우징 <small>(Chrome / Safari / MS Edge / Firefox)</small> 검수 진행</li>
+                                </ul>
+                            </dd>
                         </dl>
                     </div>
+                    <div class="col col_4">
+                        <dl class="summary_dl">
+                            <dt>학력</dt>
+                            <dd>경북대학교 영어영문학과 학사(09.03~15.02)</dd>
+                            <dt>자격증</dt>
+                            <dd>웹디자인 기능사 / GTQ 1급 / GTQi 1급</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="flex_row">
                     <div class="col">
-                        <dl>
-                            <dt>다루는 기술</dt>
+                        <dl class="summary_dl">
+                            <dt>개발언어</dt>
                             <dd>HTML5</dd>
                             <dd>CSS3 / Sass</dd>
                             <dd>Js / Jquery</dd>
@@ -63,61 +96,144 @@
                         </dl>
                     </div>
                     <div class="col">
-                        <dl>
+                        <dl class="summary_dl">
                             <dt>사용하는 툴</dt>
                             <dd>Adobe Photoshop</dd>
                             <dd>Adobe Illustrator</dd>
-                            <dd>Git</dd>
-                            <dd>Jira / Confluence</dd>
+                            <dd>Imweb <small>(아임웹)</small></dd>
                             <dd>Xshell</dd>
                             <dd>Google Analytics</dd>
+                            <dd>Naver Search Advisor</dd>
+                        </dl>
+                    </div>
+                    <div class="col">
+                        <dl class="summary_dl">
+                            <dt>협업 툴</dt>
+                            <dd>Git</dd>
+                            <dd>Jira / Confluence</dd>
+                            <dd>Notion</dd>
+                            <dd>Zeplin</dd>
                         </dl>
                     </div>
                 </div>
             </div>
         </section>
         <!--//intro-->
-        <section class="se3" id="history">
+        <section class="se3" id="history" nv-title="Work Experience">
             <div class="container">
-    
+                <div class="txt_box">
+                    <h3 class="main_line">
+                        모든 것이 서툴고 새로 배워야했던 신입으로 시작해 <br>
+                        작업물이 수상하는 기쁨을 맛보기도 하고 <br>
+                        파트장이라는 직책을 통해 다양한 경험을 쌓으며 <br>
+                        퍼블리싱을 너머 빌더 개발작업까지 해왔습니다
+                    </h3>
+                    <p class="sub_line">
+                        <span class="l1"></span>
+                        <span class="l2"></span>
+                        기업 랜딩페이지, 대학교, 쇼핑몰 등 430여개 홈페이지를 제작 //제작사례 버튼<br>
+                        시사저널e '신도시 30년' - 2020 인터넷신문 언론대상 수상 //주요 제작사례 버튼<br>
+                        신입사원 교육 / 제작 프로세스 수정 / 공용 컴포넌트 개발 <br>
+                        PHP/Codeigniter를 활용한 자사 빌더 기능 개선 기획 및 개발  //관심사 버튼
+                    </p>
+                </div>
+                
             </div>
         </section>
         <!--//history-->
-        <section class="se4" id="personality">
+        <section class="se4" id="personality" nv-title="Personality">
             <div class="container">
-    
+                <h3>차분하며, 책임감 있으며, <br>
+                    팀으로 일하는 것을 중요하게 생각합니다</h3>
+                <ul class="personality_li">
+                    <li> 모든 업무는 정해진 기간에 맞춰 정확히 마무리 합니다.</li>
+                    <li> 불필요한 작업을 최소화하여 효율적인 작업환경을 구축합니다.</li>
+                    <li> 홈페이지는 함께 완성해 나가는 작업임을 인지하고 협력합니다.</li>
+                    <li> 늘 같은 위치에 머무르지 않고 새로운 것들을 배웁니다.</li>
+                </ul>
+
+                <!-- 한줄씩 차례대로 강조되는 효과와 함께 관련 이미지 등장하는 애니메이션 -->
             </div>
         </section>
         <!--//personality-->
-        <section class="se5" id="study">
+        <section class="se5" id="study" nv-title="">
             <div class="container">
-    
+                <h3></h3>
             </div>
         </section>
         <!--//study-->
-        <section class="se6" id="project">
+        <section class="se6" id="project" nv-title="Projects">
             <div class="container">
-    
+                <h3 class="main_title">
+                    브랜드, 브랜드 그리고 브랜드
+                </h3>
+                <p class="sub_title">
+                    브랜드의 정체성은 살리고, 가독성이 좋은 UX/UI를 고민합니다
+                </p>
+                <div class="flex_row">
+                    <div class="col">
+                        <ul>
+                            <li>포항공대 기계공학과</li>
+                            <li>서울여대 </li>
+                            <li>인하대</li>
+                            <li>웨스턴동물병원</li>
+                            <li>선진병원</li>
+                            <li>피츠인솔</li>
+                            <li>한양 쓰리디프린트</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>에치와이 프레시 매니저 채용</li>
+                            <li>예건건축</li>
+                            <li>빅펀치 엔터테인먼트</li>
+                            <li>아셈노인인권센터</li>
+                            <li>법무법인 계양</li>
+                            <li>관세법인 한주</li>
+                            <li>형사전문로펌 온강</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="info_text">
+                    * 텍스트 자료를 기반으로 레이아웃 구성 및 퍼블리싱 작업 기여
+                </p>
             </div>
         </section>
         <!--//project-->
-        <section class="se7" id="example">
+        <section class="se7" id="example" nv-title="Major Works">
             <div class="container">
-    
+                <h3 class="main_title">
+                    주요 프로젝트 소개
+                </h3>
             </div>
         </section>
         <!--//example-->
-        <section class="se8" id="goal">
+        <section class="se8" id="goal" nv-title="Goal">
             <div class="container">
-    
+                <h3 class="main_title">
+                    린치핀
+                </h3>
             </div>
         </section>
         <!--//goal-->
     </div>
 
+    <aside id="nav_scroll">
+        <div id="scroll_bar">
+            <span class="current_indicator"></span>
+        </div>
+        <a href="#" id="scroll_top">🔺</a>
+    </aside>
+    <!-- //nav_scroll -->
+
     <footer id="contact">
         <div class="container">
-
+            <h3>CONTACT</h3>
+            <ul class="contact_li">
+                <li>E-mail. ras301@naver.com</li>
+                <li>자기소개서 보기</li>
+                <li><a href="mailto:ras301@naver.com" class="mail_btn">Send</a></li>
+            </ul>
         </div>
     </footer>
     <!--//contact-->
