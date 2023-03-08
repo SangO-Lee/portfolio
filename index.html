@@ -16,6 +16,9 @@
     <script src="./js/custom.js"></script>
 </head>
 <body>
+    <div id="loading">
+        <!-- loading page -->
+    </div>
     <nav id="navi">
         <div class="container">
             <div class="flex_row">
@@ -23,6 +26,7 @@
                     <span class="curr_name">Brann's Portfolio</span> 
                     <span class="material-symbols-outlined">expand_more</span>
                     <ul class="menu_list">
+                        <li><a href="#main_view"><strong>Brann's Portfolio</strong></a></li>
                         <li><a href="#intro">Introduce</a></li>
                         <li><a href="#history">Work Experience</a></li>
                         <li><a href="#personality">Personality</a></li>
@@ -32,21 +36,24 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </h2>
-                <a href="#" id="menu_icon">
+                <ul class="top_link">
+                    <li><a href="">자기소개서 보기</a></li>
+                    <li><a href="">이메일 보내기</a></li>
+                </ul>
+                <!-- <a href="#" id="menu_icon">
                     <span class="icon_bar bar1"></span>
                     <span class="icon_bar bar2"></span>
                     <span class="icon_bar bar3"></span>
-                </a>
+                </a> -->
             </div>
         </div>
     </nav>
     <div class="main_content">
         <section class="se1" id="main_view">
             <div class="container">
-                <h3 class="main_title">
-                    I'm <strong>Brann</strong>
-                </h3>
+                
                 <p class="sub_title">
+                    I'm a <br>
                    <span class="t1">E <small>fficent</small></span>
                    <span class="t2">S <small>upportive</small></span>
                    <span class="t3">G <small>rowing</small></span><br>
@@ -61,59 +68,61 @@
         <!--//main_view-->
         <section class="se2" id="intro" nv-title="Introduce">
             <div class="container">
-                <h3>단 한 페이지</h3>
-                <div class="flex_row">
-                    <div class="col col_8">
-                        <dl class="summary_dl">
-                            <dt>경력</dt>
-                            <dd>메일플러그 홈페이지 제작부 파트장(17.10~22.08)
-                                <ul class="li_dot">
-                                    <li>대학교 홈페이지 웹표준, 웹접근성  테스트 통과 경험</li>
-                                    <li>시멘틱 마크업을 준수하는 반응형 홈페이지 개발</li>
-                                    <li>크로스 브라우징 <small>(Chrome / Safari / MS Edge / Firefox)</small> 검수 진행</li>
-                                </ul>
-                            </dd>
-                        </dl>
+                <h3>단 한 페이지로 요약해드립니다</h3>
+                <div class="summary_wrap">
+                    <div class="flex_row">
+                        <div class="col col_8">
+                            <dl>
+                                <dt>경력</dt>
+                                <dd>메일플러그 홈페이지 제작부 파트장(17.10~22.08)
+                                    <ul class="li_dot">
+                                        <li>대학교 홈페이지 웹표준, 웹접근성  테스트 통과 경험</li>
+                                        <li>시멘틱 마크업을 준수하는 반응형 홈페이지 개발</li>
+                                        <li>크로스 브라우징 <small>(Chrome / Safari / MS Edge / Firefox)</small> 검수 진행</li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col col_4">
+                            <dl>
+                                <dt>학력</dt>
+                                <dd>경북대학교 영어영문학과 학사(09.03~15.02)</dd>
+                                <dt>자격증</dt>
+                                <dd>웹디자인 기능사 / GTQ 1급 / GTQi 1급</dd>
+                            </dl>
+                        </div>
                     </div>
-                    <div class="col col_4">
-                        <dl class="summary_dl">
-                            <dt>학력</dt>
-                            <dd>경북대학교 영어영문학과 학사(09.03~15.02)</dd>
-                            <dt>자격증</dt>
-                            <dd>웹디자인 기능사 / GTQ 1급 / GTQi 1급</dd>
-                        </dl>
-                    </div>
-                </div>
-                <div class="flex_row">
-                    <div class="col">
-                        <dl class="summary_dl">
-                            <dt>개발언어</dt>
-                            <dd>HTML5</dd>
-                            <dd>CSS3 / Sass</dd>
-                            <dd>Js / Jquery</dd>
-                            <dd>PHP / CodeIgniter</dd>
-                            <dd>Mysql</dd>
-                        </dl>
-                    </div>
-                    <div class="col">
-                        <dl class="summary_dl">
-                            <dt>사용하는 툴</dt>
-                            <dd>Adobe Photoshop</dd>
-                            <dd>Adobe Illustrator</dd>
-                            <dd>Imweb <small>(아임웹)</small></dd>
-                            <dd>Xshell</dd>
-                            <dd>Google Analytics</dd>
-                            <dd>Naver Search Advisor</dd>
-                        </dl>
-                    </div>
-                    <div class="col">
-                        <dl class="summary_dl">
-                            <dt>협업 툴</dt>
-                            <dd>Git</dd>
-                            <dd>Jira / Confluence</dd>
-                            <dd>Notion</dd>
-                            <dd>Zeplin</dd>
-                        </dl>
+                    <div class="flex_row">
+                        <div class="col">
+                            <dl>
+                                <dt>개발언어</dt>
+                                <dd>HTML5</dd>
+                                <dd>CSS3 / Sass</dd>
+                                <dd>Js / Jquery</dd>
+                                <dd>PHP / CodeIgniter</dd>
+                                <dd>Mysql</dd>
+                            </dl>
+                        </div>
+                        <div class="col">
+                            <dl>
+                                <dt>사용하는 툴</dt>
+                                <dd>Adobe Photoshop</dd>
+                                <dd>Adobe Illustrator</dd>
+                                <dd>Imweb <small>(아임웹)</small></dd>
+                                <dd>Xshell</dd>
+                                <dd>Google Analytics</dd>
+                                <dd>Naver Search Advisor</dd>
+                            </dl>
+                        </div>
+                        <div class="col">
+                            <dl>
+                                <dt>협업 툴</dt>
+                                <dd>Git</dd>
+                                <dd>Jira / Confluence</dd>
+                                <dd>Notion</dd>
+                                <dd>Zeplin</dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,11 +165,12 @@
             </div>
         </section>
         <!--//personality-->
-        <section class="se5" id="study" nv-title="">
+        <!-- <section class="se5" id="study" nv-title="">
             <div class="container">
                 <h3></h3>
+                
             </div>
-        </section>
+        </section> -->
         <!--//study-->
         <section class="se6" id="project" nv-title="Projects">
             <div class="container">
@@ -179,6 +189,7 @@
                             <li>웨스턴동물병원</li>
                             <li>선진병원</li>
                             <li>피츠인솔</li>
+                            <li>오메르데이스파</li>
                             <li>한양 쓰리디프린트</li>
                         </ul>
                     </div>
@@ -191,6 +202,7 @@
                             <li>법무법인 계양</li>
                             <li>관세법인 한주</li>
                             <li>형사전문로펌 온강</li>
+                            <li>외 430여개 홈페이지 제작</li>
                         </ul>
                     </div>
                 </div>
@@ -205,27 +217,94 @@
                 <h3 class="main_title">
                     주요 프로젝트 소개
                 </h3>
+
+                <div id="major_wrap">
+                    <article class="example1">
+                        <img src="./img/example1.jpg" alt="시사저널e - '신도시 30년'">
+                        <div class="txt_box">
+                            <h5>
+                                시사저널e - '신도시 30년'
+                            </h5>
+                            <p class="period">
+                                레이아웃 기획 및 퍼블리싱 <span>12 Days</span>
+                            </p>
+                            <p class="des">
+                                시사저널e의 특별기획 프로젝트로 2020 인터넷신문 언론대상을 수상했습니다.
+                                전반적으로 매거진과 같은 느낌을 주기위해 다양한 레이아웃으로 텍스트를 배치하였습니다. 
+                                가독성을 놓치지 않으면서 디지털 뉴스만의 이점으로 시각화 자료를 쉽게 비교하여 볼 수 있도록 작업하였습니다.
+                            </p>
+                            <a href="http://newtown.sisajournal-e.com/" target="_blank" class="more">more</a>
+                        </div>
+                    </article>
+                    <article class="example2">
+                        <img src="./img/example2.jpg" alt="포항공과대학 기계공학과">
+                        <div class="txt_box">
+                            <h5>
+                                포항공과대학 기계공학과
+                            </h5>
+                            <p class="period">
+                                레이아웃 기획 및 퍼블리싱 <span>14 Days</span>
+                            </p>
+                            <p class="des">
+                                포항공과대학 학과 작업 중 첫 번째 작업물입니다. 
+                                메인페이지에서 학과 관련 정보를 쉽게 찾아볼 수 있고, 다국어 기능을 지원합니다. 
+                                기존 빌더에서 지원되지 않았던 메인 캘린더 위젯을 추가하고, 고객 요청에 따라 동영상 게시판을 개발하여 유튜브와 비메오 영상을 쉽게 삽입하도록 작업하였습니다.
+                            </p>
+                            <a href="https://me.postech.ac.kr/" target="_blank" class="more">more</a>
+                        </div>
+                    </article>
+                    <article class="example3">
+                        <img src="./img/example3.jpg" alt="오메르데이스파">
+                        <div class="txt_box">
+                            <h5>
+                                오메르데이스파
+                            </h5>
+                            <p class="period">
+                                레이아웃 기획 및 퍼블리싱 <span>5 Days</span>
+                            </p>
+                            <p class="des">
+                                풀페이지 형태로 작업된 랜딩 페이지입니다.
+                                동적인 요소가 많았으면 한다는 요청에 따라 스크롤 이벤트로 동작을 추가하고, 인트로 페이지를 삽입하였습니다.
+                                업체의 무드를 강조하기 위해 이미지를 적극적으로 이용하여 톤앤매너를 정리했습니다.
+                            </p>
+                            <a href="http://www.ormerdayspa.com/" target="_blank" class="more">more</a>
+                        </div>
+                    </article>
+                    <article class="example4">
+                        <img src="./img/example.jpg" alt="한양3D팩토리">
+                        <div class="txt_box">
+                            <h5>
+                                한양3D팩토리
+                            </h5>
+                            <p class="period">
+                                퍼블리싱 및 반응형 작업 <span>6 Days</span>
+                            </p>
+                            <p class="des">
+                                제공받은 PC버전의 시안을 바탕으로 제작된 홈페이지 입니다. 
+                                시안의 디자인을 유지하면서 반응형으로 조절되도록 작업하는 것에 중점을 맞추었습니다. 
+                                기본적으로 빌더에서 제공되는 폼이나 게시판 형태를 커스터마이징 하여 기능적인 만족도를 높였습니다.
+                            </p>
+                            <a href="http://hanyang3d.kr/" target="_blank" class="more">more</a>
+                        </div>
+                    </article>
+                </div>
+                <!-- 모여있다가 흩어지는 이펙트 - 애플 -->
             </div>
         </section>
         <!--//example-->
         <section class="se8" id="goal" nv-title="Goal">
-            <div class="container">
+            <div class="container wide">
                 <h3 class="main_title">
-                    린치핀
+                    이런 동료를 찾으신다면
                 </h3>
+                <p>
+                    
+                </p>
             </div>
         </section>
         <!--//goal-->
     </div>
-
-    <aside id="nav_scroll">
-        <div id="scroll_bar">
-            <span class="current_indicator"></span>
-        </div>
-        <a href="#" id="scroll_top">🔺</a>
-    </aside>
-    <!-- //nav_scroll -->
-
+    <!-- //main_content -->
     <footer id="contact">
         <div class="container">
             <h3>CONTACT</h3>
@@ -237,5 +316,12 @@
         </div>
     </footer>
     <!--//contact-->
+    <aside id="nav_scroll">
+        <div id="scroll_bar">
+            <span class="current_indicator"></span>
+        </div>
+        <a href="#" id="scroll_top">🔺</a>
+    </aside>
+    <!-- //nav_scroll -->
 </body>
 </html>
