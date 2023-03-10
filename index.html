@@ -26,14 +26,14 @@
                     <span class="curr_name">Brann's Portfolio</span> 
                     <span class="material-symbols-outlined">expand_more</span>
                     <ul class="menu_list">
-                        <li><a href="#main_view"><strong>Brann's Portfolio</strong></a></li>
-                        <li><a href="#intro">Introduce</a></li>
-                        <li><a href="#history">Work Experience</a></li>
-                        <li><a href="#personality">Personality</a></li>
-                        <li><a href="#project"></a>Projects</li>
-                        <li><a href="#example"></a>Major Works</li>
-                        <li><a href="#goal">Goal</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a use='scroll' href="#main_view"><strong>Brann's Portfolio</strong></a></li>
+                        <li><a use='scroll' href="#intro">Introduce</a></li>
+                        <li><a use='scroll' href="#history">Work Experience</a></li>
+                        <li><a use='scroll' href="#personality">Personality</a></li>
+                        <li><a use='scroll' href="#project">Projects</a></li>
+                        <li><a use='scroll' href="#example">Major Works</a></li>
+                        <li><a use='scroll' href="#goal">Goal</a></li>
+                        <li><a use='scroll' href="#contact">Contact</a></li>
                     </ul>
                 </h2>
                 <ul class="top_link">
@@ -50,13 +50,16 @@
     </nav>
     <div class="main_content">
         <section class="se1" id="main_view">
+            <video autoplay muted loop playsinline controls="false" id="main_bg">
+                <source src="./img/main_bg.mp4" type="video/mp4">
+            </video>
             <div class="container">
                 
                 <p class="sub_title">
-                    I'm a <br>
-                   <span class="t1">E <small>fficent</small></span>
-                   <span class="t2">S <small>upportive</small></span>
-                   <span class="t3">G <small>rowing</small></span><br>
+                    I'm an <br>
+                   <span class="t1">E<small>fficent</small></span>
+                   <span class="t2">S<small>upportive</small></span>
+                   <span class="t3">G<small>rowing</small></span><br>
                    Web Publisher
                 </p>
 
@@ -318,9 +321,15 @@
     <!--//contact-->
     <aside id="nav_scroll">
         <div id="scroll_bar">
-            <span class="current_indicator"></span>
+            <div class="inner">
+                <span class="current_indicator"></span>
+            </div>
         </div>
-        <a href="#" id="scroll_top">🔺</a>
+        <a href="#" use='scroll' title="사이트 최상단 바로가기" id="scroll_top">
+            <span class="material-symbols-outlined">
+                expand_less
+            </span>
+        </a>
     </aside>
     <!-- //nav_scroll -->
 </body>
