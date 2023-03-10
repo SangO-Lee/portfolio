@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brann's Portfolio</title>
     <!-- meta -->
+    <meta name="author" content="Brann Lee">
+    <meta name="description" content="웹퍼블리셔 이상오의 포트폴리오 사이트입니다.">
+    <meta name="keyword" content="웹퍼블리셔, 퍼블리싱, 프론트엔드, 포트폴리오">
 
     <!-- asset -->
     <link rel="stylesheet" href="./css/custom.css">
@@ -24,7 +27,7 @@
             <div class="flex_row">
                 <h2 id="menu_name">
                     <span class="curr_name">Brann's Portfolio</span> 
-                    <span class="material-symbols-outlined">expand_more</span>
+                    <span class="icon material-symbols-outlined">expand_more</span>
                     <ul class="menu_list">
                         <li><a use='scroll' href="#main_view"><strong>Brann's Portfolio</strong></a></li>
                         <li><a use='scroll' href="#intro">Introduce</a></li>
@@ -54,13 +57,18 @@
                 <source src="./img/main_bg.mp4" type="video/mp4">
             </video>
             <div class="container">
-                
-                <p class="sub_title">
-                    I'm an <br>
-                   <span class="t1">E<small>fficent</small></span>
-                   <span class="t2">S<small>upportive</small></span>
+                <p class="top_title">
+                    <span class="t1">효율적이고</span>
+                    <span class="t2">협력하며</span>
+                    <span class="t3">성장하는</span>
+                </p>
+                <p class="middle_title">
+                   <span class="t1">E<small>fficent</small></span> 
+                   <span class="t2">S<small>upportive</small></span> 
                    <span class="t3">G<small>rowing</small></span><br>
-                   Web Publisher
+                </p>
+                <p class="bottom_title">
+                    웹퍼블리셔 이상오 입니다
                 </p>
 
                 <!-- 알파벳 호버시 단어 전체 내용 노출 & 배경 색상 변화 -->
@@ -71,7 +79,7 @@
         <!--//main_view-->
         <section class="se2" id="intro" nv-title="Introduce">
             <div class="container">
-                <h3>단 한 페이지로 요약해드립니다</h3>
+                <h3 class="main_title">단 <span class="emp">한 페이지</span>로 <br>보여드립니다</h3>
                 <div class="summary_wrap">
                     <div class="flex_row">
                         <div class="col col_8">
@@ -89,7 +97,7 @@
                         <div class="col col_4">
                             <dl>
                                 <dt>학력</dt>
-                                <dd>경북대학교 영어영문학과 학사(09.03~15.02)</dd>
+                                <dd>경북대학교 영어영문학과 학사</dd>
                                 <dt>자격증</dt>
                                 <dd>웹디자인 기능사 / GTQ 1급 / GTQi 1급</dd>
                             </dl>
@@ -97,33 +105,33 @@
                     </div>
                     <div class="flex_row">
                         <div class="col">
-                            <dl>
+                            <dl class="skill_dl">
                                 <dt>개발언어</dt>
-                                <dd>HTML5</dd>
-                                <dd>CSS3 / Sass</dd>
-                                <dd>Js / Jquery</dd>
-                                <dd>PHP / CodeIgniter</dd>
-                                <dd>Mysql</dd>
+                                <dd><span>HTML5</span></dd>
+                                <dd><span>CSS3 / Sass</span></dd>
+                                <dd><span>Js / Jquery</span></dd>
+                                <dd><span>PHP / CodeIgniter</span></dd>
+                                <dd><span>Mysql</span></dd>
                             </dl>
                         </div>
                         <div class="col">
-                            <dl>
+                            <dl class="skill_dl">
                                 <dt>사용하는 툴</dt>
-                                <dd>Adobe Photoshop</dd>
-                                <dd>Adobe Illustrator</dd>
-                                <dd>Imweb <small>(아임웹)</small></dd>
-                                <dd>Xshell</dd>
-                                <dd>Google Analytics</dd>
-                                <dd>Naver Search Advisor</dd>
+                                <dd><span>Adobe Photoshop</span></dd>
+                                <dd><span>Adobe Illustrator</span></dd>
+                                <dd><span>Imweb <small>(아임웹)</small></span></dd>
+                                <dd><span>Xshell</span></dd>
+                                <dd><span>Google <br>Analytics</span></dd>
+                                <dd><span>Naver Search Advisor</span></dd>
                             </dl>
                         </div>
                         <div class="col">
-                            <dl>
+                            <dl class="skill_dl">
                                 <dt>협업 툴</dt>
-                                <dd>Git</dd>
-                                <dd>Jira / Confluence</dd>
-                                <dd>Notion</dd>
-                                <dd>Zeplin</dd>
+                                <dd><span>Git</span></dd>
+                                <dd><span>Jira / Confluence</span></dd>
+                                <dd><span>Notion</span></dd>
+                                <dd><span>Zeplin</span></dd>
                             </dl>
                         </div>
                     </div>
@@ -133,30 +141,45 @@
         <!--//intro-->
         <section class="se3" id="history" nv-title="Work Experience">
             <div class="container">
-                <div class="txt_box">
-                    <h3 class="main_line">
-                        모든 것이 서툴고 새로 배워야했던 신입으로 시작해 <br>
-                        작업물이 수상하는 기쁨을 맛보기도 하고 <br>
-                        파트장이라는 직책을 통해 다양한 경험을 쌓으며 <br>
-                        퍼블리싱을 너머 빌더 개발작업까지 해왔습니다
-                    </h3>
-                    <p class="sub_line">
-                        <span class="l1"></span>
-                        <span class="l2"></span>
-                        기업 랜딩페이지, 대학교, 쇼핑몰 등 430여개 홈페이지를 제작 //제작사례 버튼<br>
-                        시사저널e '신도시 30년' - 2020 인터넷신문 언론대상 수상 //주요 제작사례 버튼<br>
-                        신입사원 교육 / 제작 프로세스 수정 / 공용 컴포넌트 개발 <br>
-                        PHP/Codeigniter를 활용한 자사 빌더 기능 개선 기획 및 개발  //관심사 버튼
-                    </p>
+                <div id="history_wrap">
+                    <div class="txt_box">
+                        <h3 class="main_line">
+                            <span class="t1 active">모든 것이 새롭고 서툴렀던 신입에서 </span>
+                            <span class="t2">작업물이 수상하는 기쁨을 맛보기도 하고 </span>
+                            <span class="t3">파트장이라는 직책을 통해 다양한 경험을 쌓으며 </span>
+                            <span class="t4">퍼블리싱을 너머 빌더 개발작업까지 해왔습니다</span>
+                        </h3>
+                        <p class="sub_line">
+                            <span class="t1 active">기업 랜딩페이지, 대학교, 쇼핑몰 등 <strong>430여개 홈페이지</strong>를 제작</span>
+                            <span class="t2">시사저널e '신도시 30년' - <strong>2020 인터넷신문 언론대상 수상</strong></span>
+                            <span class="t3">신입사원 교육 / 제작 프로세스 개선 / 공용 컴포넌트 개발 </span>
+                            <span class="t4">PHP/Codeigniter를 활용한 <strong>자사 빌더 기능개선 기획 및 개발</strong></span>
+                            
+                        </p>
+                    </div>
+                    <div id="history_content">
+                        <article id="at1">
+                            <img src="history1.jpg" alt="history1" class="history_img">
+                        </article>
+                        <article id="at2">
+                            <img src="history2.jpg" alt="history2" class="history_img">
+                        </article>
+                        <article id="at3">
+                            <img src="history3.jpg" alt="history3" class="history_img">
+                        </article>
+                        <article id="at4">
+                            <img src="history4.jpg" alt="history4" class="history_img">
+                        </article>
+                    </div>
                 </div>
-                
             </div>
         </section>
         <!--//history-->
         <section class="se4" id="personality" nv-title="Personality">
             <div class="container">
-                <h3>차분하며, 책임감 있으며, <br>
-                    팀으로 일하는 것을 중요하게 생각합니다</h3>
+                <h3 class="main_title">
+                    <span class="emp">차분하고</span> <span class="emp">책임감</span> 있으며 <br>
+                    <span class="emp">팀으로 일하는 것</span>을 <br>중요하게 생각합니다</h3>
                 <ul class="personality_li">
                     <li> 모든 업무는 정해진 기간에 맞춰 정확히 마무리 합니다.</li>
                     <li> 불필요한 작업을 최소화하여 효율적인 작업환경을 구축합니다.</li>
@@ -178,7 +201,7 @@
         <section class="se6" id="project" nv-title="Projects">
             <div class="container">
                 <h3 class="main_title">
-                    브랜드, 브랜드 그리고 브랜드
+                    브랜드, 브랜드 그리고 <span class="emp">브랜드</span>
                 </h3>
                 <p class="sub_title">
                     브랜드의 정체성은 살리고, 가독성이 좋은 UX/UI를 고민합니다
