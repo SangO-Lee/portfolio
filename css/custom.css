@@ -564,11 +564,15 @@ small{
     min-height:100vh;
     border-bottom:1px solid rgb(255 255 255 / 20%); 
     overflow: hidden;
+    opacity: 0.3;
+    background:url('../img/history.png') no-repeat center bottom / 95%;
 }
-#history_content article.active{
-    background:rgb(255 255 255 / 20%);
-}
+/* #history_content article.active{
+    background-size:100%;
+    opacity: 1;
+} */
 #history_content .history_img{
+    display: none;
     position:absolute;
     left:50%;
     bottom:0;
