@@ -34,14 +34,20 @@ function scrollBar (){
     _windowTop = $(window).scrollTop();
     _pageHeight = $('body').height() - $(window).height();
     var _ratio = _windowTop / _pageHeight * 100;
-    
-    console.log(_ratio);
     $('#scroll_bar .current_indicator').css('top', _ratio + '%');
 }
 
 //window scroll 시
 $(window).on('scroll',function(){
     scrollBar();
+
+    //main_bg
+    if(_windowTop < 1000){
+        $('#main_bg').show();
+    }else{
+        $('#main_bg').hide();
+    }
+   
 });
 
 $(function(){
