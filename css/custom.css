@@ -512,7 +512,9 @@ small{
     }
 }
 /* history */
-
+#history{
+    padding-bottom: 0;
+}
 #history_wrap{
     position:relative;
 }
@@ -521,7 +523,7 @@ small{
     position:sticky;
     left:0;
     top:120px;
-    margin-bottom: calc(100vh - 320px);
+    margin-bottom: calc(100vh - 200px);
     width:100%;
     color:#cecece;
 }
@@ -567,10 +569,7 @@ small{
     opacity: 0.3;
     background:url('../img/history.png') no-repeat center bottom / 95%;
 }
-/* #history_content article.active{
-    background-size:100%;
-    opacity: 1;
-} */
+
 #history_content .history_img{
     display: none;
     position:absolute;
