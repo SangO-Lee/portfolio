@@ -104,10 +104,8 @@ function scrollClassing(tgt){
 
     var _activeIdx = $('#history_content .active').index();
     if(_activeIdx < 0) _activeIdx = 0;
-    $('#history_wrap .main_line span').eq(_activeIdx).addClass('active').siblings().removeClass('active');
-    $('#history_wrap .sub_line span').eq(_activeIdx).addClass('active').siblings().removeClass('active');
-    console.log(_activeIdx);
-}
+    $('#history_wrap .main_line span,#history_wrap .sub_line span').eq(_activeIdx).addClass('active').siblings().removeClass('active');
+ }
 
 
 $(window).on('scroll',function(){
@@ -145,12 +143,29 @@ $(function(){
     });
 
     //personality
-    $('.personality_li li').on('mouseover',function(){
-        $(this).addClass('active').siblings().removeClass('active');
-        var _iconIdx = $('.personality_li .active').index();
-        console.log(_iconIdx);
+    // $('.personality_li li').on('mouseover',function(){
+    //     $(this).addClass('active').siblings().removeClass('active');
+    //     var _iconIdx = $('.personality_li .active').index();
+    //     console.log(_iconIdx);
+    //     $('.personality_icon li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
+    // });
+    
+    var _personalityLength = $('.personality_li li').length - 1;
+    var _iconIdx = $('.personality_li .active').index();
+    var _personalityLoop = setInterval(() => {
+        _iconIdx != _personalityLength ? _iconIdx++ : _iconIdx = 0;
+        $('.personality_li li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
         $('.personality_icon li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
-        
+    }, 2000);
+    _personalityLoop;
+
+    //project
+    $('.project_li li').on('mouseover',function(){
+        var _projectName = $(this).attr('data-img');
+        if(_projectName != 0){
+            $(this).addClass('active').siblings().removeClass('active');
+            $(this).siblings('.bg').children('.' + _projectName).addClass('active').siblings().removeClass('active');
+        }
     });
 
     //작업용
