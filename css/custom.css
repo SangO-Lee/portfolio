@@ -7,12 +7,14 @@
 *{
     box-sizing: border-box;
 }
+html{scroll-behavior: smooth;}
 body,html{
     font-size:16px;
     line-height:1.6;
     font-family: 'Noto Sans KR', 'Roboto', sans-serif;
     color:#f5f5f7;
     background:#161617;
+    /* scroll-behavior: smooth; */
 }
 h1{
     font-size:60px;
@@ -68,7 +70,7 @@ small{
     margin-right:auto;
 }
 .container.wide{
-    min-width: 90vw;
+    width:1200px;
 }
 .container:after{
     content:'';
@@ -120,7 +122,7 @@ small{
     font-style: italic;
     font-size:10vh;
     line-height:1;
-    transition: all .8s ease;
+    transition: all .8s ease-in-out;
     text-transform: uppercase;
     transform: scale(0.9);
 }
@@ -142,7 +144,7 @@ small{
     background:linear-gradient(45deg,#f5f5f7, #f7ff87, #bcffb3);
     background-clip: text;
     -webkit-background-clip: text;
-    transition: all 0.6s ease 0.8s;
+    transition: all 0.6s ease-in-out 0.8s;
 }
 .loading_text.active:before{
     opacity:1;
@@ -159,7 +161,7 @@ small{
     backdrop-filter: saturate(180%) blur(20px);
     background: rgba(29,29,31,.72);
     border-bottom:1px solid #111;
-    transition: all .8s ease;
+    transition: all .8s ease-in-out;
     /* box-shadow: 0px 5px 5px  rgb(0 0 0 / 10%); */
 }
 .on #navi{
@@ -170,6 +172,7 @@ small{
     align-items: center;
 }
 #menu_name{
+    flex:1;
     font-size:24px;
     font-weight:600;
     color:#f5f5f7;
@@ -185,13 +188,16 @@ small{
 .top_link{
     display: flex;
     white-space: nowrap;
+    justify-content: flex-end;
 }
 .top_link li{
     position:relative;
-    flex:1;
     margin:0;
     padding:0 10px;
     line-height:1;
+}
+.top_link li:last-child{
+    padding-right:0;
 }
 .top_link li + li:before{
     content:'';
@@ -224,7 +230,7 @@ small{
     width: 100%;
     height:3px;
     background:#222;
-    transition:all .3s ease;
+    transition:all .3s ease-in-out;
 } */
 
 /* scollbar */
@@ -238,7 +244,7 @@ small{
     flex-flow: column;
     align-items: center;
     opacity: 0;
-    transition:all .8s ease;
+    transition:all .5s ease-in-out;
 }
 .on #nav_scroll{
     opacity:1;
@@ -253,7 +259,6 @@ small{
     backdrop-filter: saturate(180%) blur(20px);
     background: rgba(129, 129, 133, 0.72);
     box-shadow: 0 0 5px 5px rgb(0 0 0 / 5%);
-    transition:all .3s ease;
 }
 #scroll_bar:hover{
     width:20px;
@@ -280,7 +285,7 @@ small{
     opacity: 0.8;
     border-radius: 50%;
     cursor: pointer;
-    transition:all .3s ease;
+    transition:all .3s ease-in-out;
 }
 #scroll_bar:hover .current_indicator{
     width: 12px;
@@ -297,10 +302,16 @@ small{
     color:#fff;
     font-weight: bold;
     font-size:8px;
-    background:rgb(230 230 230 / 30%);
+    background:#1750ac;
     box-shadow: 0 0 5px 5px rgb(0 0 0 / 5%);
 }
-
+#scroll_top:before{
+    content:'';
+    display: block;
+    border-bottom:5px solid #fff;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+}
 /* main_content */
 .main_content section{
     z-index: 1;
@@ -393,7 +404,7 @@ small{
     background:#fff;
     mix-blend-mode: difference;
     border-radius: 50%;
-    transition:all .3s ease;
+    transition:all .3s ease-in-out;
 }
 #main_view .middle_title span:hover:before{
     width:80px;
@@ -407,7 +418,7 @@ small{
     text-align: left;
     text-transform: uppercase;
     color:#fff;
-    transition:all 0.4s ease;
+    transition:all 0.4s ease-in-out;
 }
 #main_view .middle_title span:hover small{
     width:140px;
@@ -465,7 +476,7 @@ small{
     z-index: 1;
     display:block;
     position:absolute;
-    transition:all .3s ease;
+    transition:all .3s ease-in-out;
 }
 .summary_wrap .skill_dl dd:before{
     left:-50%;
@@ -539,7 +550,7 @@ small{
     position:absolute;
     left:0;
     top:100%;
-    transition:all .3s ease;
+    transition:all .3s ease-in-out;
 }
 #history .main_line span.active,
 #history .sub_line span.active{
@@ -578,27 +589,109 @@ small{
     opacity: 0.5;
     transform:translate(-50%, 30px) scale(0.8);
     transform-origin: center bottom;
-    transition:all 1s ease;
+    transition:all 1s ease-in-out;
 }
 
 /* personality */
+#personality {
+    overflow: hidden;
+}
 #personality .main_title{
     margin-bottom:60px;
+}
+.personality_wrap{
+    align-items: center;
 }
 .personality_li{
     padding-left:4px;
 }
 .personality_li li{
+    width:fit-content;
+    opacity: 0.5;
     line-height:2;
     font-size:20px;
-    color:#cecece;
+    color:#fff;
     cursor:pointer;
-    transition:all .3s ease;
+    transition:all .3s ease-in-out;
 }
+.personality_li li.active,
 .personality_li li:hover{
+    opacity:1;
+}
+.personality_icon{
+    position:relative;
+    width:66vh;
+    height:66vh;
+}
+.personality_icon li{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+    position:absolute;
+    right:-50%;
+    top:0;
+    opacity:0;
+    border-radius: 50%;
+    background:#1750ac;
+    transition:all .3s ease-in-out;
+}
+.personality_icon .active{
+    right:0%;
+    opacity: 1;
+}
+.personality_icon span{
+    font-size:33vh;
     color:#fff;
 }
+.personality_icon .clock{
+    transform-origin: center bottom;
+}
+.personality_icon .active span{
+    animation-duration: 1.5s;
+}
+.personality_icon .active .clock{ animation-name: clock; }
+.personality_icon .active .process{ animation-name: process; }
+.personality_icon .active .handshake{ animation-name: handshake; }
+.personality_icon .active .book{ animation-name: book; }
 
+@keyframes clock{
+    0%{ transform:rotate(-5deg); }
+    12.5%{ transform:rotate(5deg); }
+    25%{ transform:rotate(-5deg); }
+    37.5%{ transform:rotate(5deg); }
+    50%{ transform:rotate(-5deg); }
+    62.5%{ transform:rotate(5deg); }
+    75%{ transform:rotate(-5deg); }
+    100%{ transform:rotate(0deg); }
+}
+@keyframes process{
+    0%{transform:rotate(0deg);}
+    10%{transform:rotate(90deg);}
+    25%{transform:rotate(90deg);}
+    35%{transform:rotate(180deg);}
+    50%{transform:rotate(180deg);}
+    60%{transform:rotate(270deg);}
+    75%{transform:rotate(270deg);}
+    100%{transform:rotate(360deg);}
+}
+@keyframes handshake{
+    0%{transform:translateY(0);}
+    14.3%{transform:translateY(-5px);}
+    28.6%{transform:translateY(5px);}
+    42.9%{transform:translateY(-5px);}
+    57.2%{transform:translateY(5px);}
+    71.5%{transform:translateY(-5px);}
+    85.8%{transform:translateY(5px);}
+    100%{transform:translateY(0);}
+}
+@keyframes book{
+    0%{transform:translateY(0);}
+    33%{transform:translateY(-15px);}
+    66%{transform:translateY(15px);}
+    100%{transform:translateY(0);}
+}
 /* footer */
 footer{
     z-index: 10;

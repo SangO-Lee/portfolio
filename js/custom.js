@@ -144,6 +144,15 @@ $(function(){
         return false;
     });
 
+    //personality
+    $('.personality_li li').on('mouseover',function(){
+        $(this).addClass('active').siblings().removeClass('active');
+        var _iconIdx = $('.personality_li .active').index();
+        console.log(_iconIdx);
+        $('.personality_icon li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
+        
+    });
+
     //작업용
     $('#loading').hide();
     $('body').addClass('on');
