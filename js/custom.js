@@ -78,9 +78,9 @@ function scrollFadein(tgt){
     }
 }
 
-function scrollClassing(tgt){
+function scrollClassing(target){
     var _targetBase = _windowTop + _windowHeight / 2; 
-    var _target= $('#history_content > article'); //섹션에 해당하는 엘리멘트
+    var _target= target; //섹션에 해당하는 엘리멘트
     var _count = _target.length; // 총 엘리멘트 갯수
     var _lastIdx = _count - 1; //마지막 엘리멘트
 
@@ -103,8 +103,9 @@ function scrollClassing(tgt){
     }
 
     var _activeIdx = $('#history_content .active').index();
-    if(_activeIdx < 0) _activeIdx = 0;
-    $('#history_wrap .main_line span,#history_wrap .sub_line span').eq(_activeIdx).addClass('active').siblings().removeClass('active');
+    if(_activeIdx < 0) _activeIdx = 0; //history 이전 화면에서는 첫번째 요소를 활성화
+    $('#history_wrap .main_line span').eq(_activeIdx).addClass('active').siblings().removeClass('active');
+    $('#history_wrap .sub_line span').eq(_activeIdx).addClass('active').siblings().removeClass('active');
  }
 
 
@@ -120,7 +121,7 @@ $(window).on('scroll',function(){
     scrollFadein($('#history_content > #at2'));
     scrollFadein($('#history_content > #at3'));
     scrollFadein($('#history_content > #at4'));
-    scrollClassing();
+    scrollClassing($('#history_content > article'));
 });
 
 $(function(){
