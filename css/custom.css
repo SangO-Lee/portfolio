@@ -559,7 +559,7 @@ small{
 }
 #history_content{
     position:relative;
-    /* margin-top:calc(-100vh + 320px); */
+    margin-top:calc(-100vh + 320px);
 }
 #history_content article{
     position:relative;
