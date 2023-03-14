@@ -4,76 +4,74 @@ var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
 
+function windowInit(){
+    $('body,html').scrollTop(0);
+    $('.main_content section').removeClass('active');
+}
+
 function loading(){//로딩페이지
     var _time = 0;
-     //여기에 요소 로딩이 끝나면 실행하는 문장 추가
+    var _l1Width = 0; //phase1의 .l1 가로값
     var _loadingTimer = setInterval(() => {
         _time += 100;
-        console.log(_time);
-
-        if(_time > 1000 ){//phase1
-            var _l1Width = $('#loading #phase1 .l1').width();
+        if(_time > 1000  && _time < 2500){//phase1
+            _l1Width = $('#loading #phase1 .l1').width();
             $('#loading #phase1').addClass('active');
             $('#loading #phase1 .l1').addClass('active');
             $('#loading #phase1 .l2').css('margin-left',_l1Width);
         }
-        if(_time > 2500){
+        if(_time > 2500 && _time <3000){
             $('#loading #phase1 .l1').css({'margin-left':_l1Width * -1,'opacity':'0'});
             $('#loading #phase1 .l2').css('margin-left','-30px').addClass('active');
         }
-        if(_time > 3000){
+        if(_time > 3000 && _time <3800){
             $('#loading #phase1 .l2').css('margin-left','0');
         }
-        if(_time > 3800){//phase2
+        if(_time > 3800 && _time <4100){//phase2
             $('#loading #phase2').addClass('active').prev().removeClass('active');
         }
-        if(_time > 4100){
+        if(_time > 4100 && _time <5100){
             $('#loading #phase2 .main_text').addClass('active');
         }
-        if(_time > 5100){//phase3
+        if(_time > 5100 && _time <5400){//phase3
             $('#loading #phase3').addClass('active').prev().removeClass('active');
         }
-        if(_time > 5400){
+        if(_time > 5400 && _time <6400){
             $('#loading #phase3 .main_text').addClass('active');
         }
-        if(_time > 6400){//phase4
+        if(_time > 6400 && _time <6700){//phase4
             $('#loading #phase4').addClass('active').prev().removeClass('active');
         }
-        if(_time > 6700){
+        if(_time > 6700 && _time <7700){
             $('#loading #phase4 .main_text').addClass('active');
         }
-        if(_time > 7700){//phase5
+        if(_time > 7700 && _time <9200){//phase5
             $('#loading #phase5').addClass('active').prev().removeClass('active');
             $('#loading #phase5 .l1').addClass('active');
         }
-        if(_time > 9200){
+        if(_time > 9200 && _time <10700){
             $('#loading #phase5 .l1 span').css({
                 'margin-top':'-1.1em',
                 'transition-delay':'0s',
                 'opacity':'0'
             });
         }
-        if(_time > 10700){
+        if(_time > 10700 && _time <12700){
             $('#loading #phase5 .l2').addClass('active');
         }
-        if(_time > 12700){
+        if(_time > 12700 && _time <14000){//loading 종료
             $('#loading').fadeOut(1000);
-            $('body').removeClass('on');
         }
         if(_time > 14000){
             clearInterval(_loadingTimer);
-            $('body,html').animate({
-                scrollTop:0
-            });
             //일정 시간이 지나면 네비와 스크롤바 노출
             setTimeout(() => {
                 $('body').addClass('on');
             }, 1000);
         }
     }, 100);
+    windowInit(); //스크롤 초기화
     _loadingTimer;
-
-
 }
 
 function scrollBar (){
@@ -164,7 +162,6 @@ function scrollClassing(target, siblingClass){
 $(window).on('scroll',function(){
     //common
     scrollBar();
-    $('body').addClass('on');
 
     //main_content
     scrollClassing($('.main_content section'), 'false');
@@ -182,11 +179,8 @@ $(window).on('scroll',function(){
 
 $(function(){
     _bgBaseline = $('#history').offset().top;//main_bg 토글 baseline
-
     loading(); //로딩페이지
-    // $('#loading #phase5').addClass('active');
-    // $('#loading #phase5 .l1').addClass('active');
-
+   
     scrollBar(); //스크롤바
     scrollClassing($('.main_content section'), 'false');
 
@@ -225,6 +219,4 @@ $(function(){
     //작업용
     // $('#loading').hide();
 
-    
-    
 });
