@@ -1,3 +1,15 @@
+#인트로
+Hi.
+My Name is 
+Sang  O.
+안녕하세요.
+웹퍼블리셔 이상오 입니다.
+Efficient.
+효율적으로 일하고.
+Supportive.
+협업을 생각하며.
+Growing
+성장하는.
 
 #메인 - 어디 한번 볼까.스크롤을 쭉쭉 내린다. 스티커 멘트가 하나 있으면 좋을듯
 //구체적이고 시각적으로 그려지면서 확실하게 메리트를 느낄 수 있는 부분
@@ -150,3 +162,11 @@ Naver Search Advisor
 ----------------------
 
 #연락처
+
+
+참고사이트 - 
+https://pmgasia.co.kr/  
+스크롤 효과 참고
+
+https://www.youtube.com/watch?v=yUKRkPKg5_U
+인트로 글자 애니메이션 참고

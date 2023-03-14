@@ -5,30 +5,75 @@ var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
 
 function loading(){//로딩페이지
-    var _loadingtxt = '<p class="loading_text">Hi. My Name is Brann.</p>';
-    var _loadIdx = 0;
+    var _time = 0;
+     //여기에 요소 로딩이 끝나면 실행하는 문장 추가
+    var _loadingTimer = setInterval(() => {
+        _time += 100;
+        console.log(_time);
 
-    for(var i = 0; i<9;i++){
-        $(_loadingtxt).appendTo('#loading');
-    }
-    
-    //개별 요소 로딩 퍼센트에 따라 노출되도록 변경 고려할것
-    var _addTxt = setInterval(function(){
-        if(_loadIdx < 9){
-            $('.loading_text').eq(_loadIdx).addClass('in');
-        }else if(_loadIdx == 9){
-            $('.loading_text:nth-child(5)').addClass('active');
-        }else{
-            $('#loading').delay(2000).fadeOut(600, function(){
-                clearInterval(_addTxt);
-                //로드 완료 후 실행
-                $('body').addClass('on');
+        if(_time > 1000 ){//phase1
+            var _l1Width = $('#loading #phase1 .l1').width();
+            $('#loading #phase1').addClass('active');
+            $('#loading #phase1 .l1').addClass('active');
+            $('#loading #phase1 .l2').css('margin-left',_l1Width);
+        }
+        if(_time > 2500){
+            $('#loading #phase1 .l1').css({'margin-left':_l1Width * -1,'opacity':'0'});
+            $('#loading #phase1 .l2').css('margin-left','-30px').addClass('active');
+        }
+        if(_time > 3000){
+            $('#loading #phase1 .l2').css('margin-left','0');
+        }
+        if(_time > 3800){//phase2
+            $('#loading #phase2').addClass('active').prev().removeClass('active');
+        }
+        if(_time > 4100){
+            $('#loading #phase2 .main_text').addClass('active');
+        }
+        if(_time > 5100){//phase3
+            $('#loading #phase3').addClass('active').prev().removeClass('active');
+        }
+        if(_time > 5400){
+            $('#loading #phase3 .main_text').addClass('active');
+        }
+        if(_time > 6400){//phase4
+            $('#loading #phase4').addClass('active').prev().removeClass('active');
+        }
+        if(_time > 6700){
+            $('#loading #phase4 .main_text').addClass('active');
+        }
+        if(_time > 7700){//phase5
+            $('#loading #phase5').addClass('active').prev().removeClass('active');
+            $('#loading #phase5 .l1').addClass('active');
+        }
+        if(_time > 9200){
+            $('#loading #phase5 .l1 span').css({
+                'margin-top':'-1.1em',
+                'transition-delay':'0s',
+                'opacity':'0'
             });
         }
-        console.log(_loadIdx);
-        _loadIdx++;
-    }
-    ,150);
+        if(_time > 10700){
+            $('#loading #phase5 .l2').addClass('active');
+        }
+        if(_time > 12700){
+            $('#loading').fadeOut(1000);
+            $('body').removeClass('on');
+        }
+        if(_time > 14000){
+            clearInterval(_loadingTimer);
+            $('body,html').animate({
+                scrollTop:0
+            });
+            //일정 시간이 지나면 네비와 스크롤바 노출
+            setTimeout(() => {
+                $('body').addClass('on');
+            }, 1000);
+        }
+    }, 100);
+    _loadingTimer;
+
+
 }
 
 function scrollBar (){
@@ -78,11 +123,12 @@ function scrollFadein(tgt){
     }
 }
 
-function scrollClassing(target){
+function scrollClassing(target, siblingClass){
     var _targetBase = _windowTop + _windowHeight / 2; 
     var _target= target; //섹션에 해당하는 엘리멘트
     var _count = _target.length; // 총 엘리멘트 갯수
     var _lastIdx = _count - 1; //마지막 엘리멘트
+    var _siblingClass = siblingClass;
 
     for(var i = 0 ; i < _count ; i++){
         var _cond1 = _target.eq(i).offset().top;
@@ -93,11 +139,17 @@ function scrollClassing(target){
         
         if(i != _lastIdx){
             if(_targetBase > _cond1 && _targetBase < _cond2){
-                _target.eq(i).addClass('active').siblings().removeClass('active');
+                _target.eq(i).addClass('active');
+                if(_siblingClass == 'true'){
+                    _target.eq(i).siblings().removeClass('active');
+                }
             }
         }else{
             if(_targetBase > _cond1){ //마지막 엘리멘트 이후는 항상 마지막 엘리멘트에 active 추가
-                _target.eq(i).addClass('active').siblings().removeClass('active');
+                _target.eq(i).addClass('active');
+                if(_siblingClass == 'true'){
+                    _target.eq(i).siblings().removeClass('active');
+                }
             }
         }
     }
@@ -112,23 +164,31 @@ function scrollClassing(target){
 $(window).on('scroll',function(){
     //common
     scrollBar();
+    $('body').addClass('on');
+
+    //main_content
+    scrollClassing($('.main_content section'), 'false');
 
     //main_bg
     _windowTop < _bgBaseline ? $('#main_bg').show() :  $('#main_bg').hide();
 
     //history
-    scrollFadein($('#history_content > #at1'));
-    scrollFadein($('#history_content > #at2'));
-    scrollFadein($('#history_content > #at3'));
-    scrollFadein($('#history_content > #at4'));
-    scrollClassing($('#history_content > article'));
+    scrollFadein($('#history_content > #at1'), 'true');
+    scrollFadein($('#history_content > #at2'), 'true');
+    scrollFadein($('#history_content > #at3'), 'true');
+    scrollFadein($('#history_content > #at4'), 'true');
+    scrollClassing($('#history_content > article'), 'true');
 });
 
 $(function(){
     _bgBaseline = $('#history').offset().top;//main_bg 토글 baseline
 
-    // loading(); //로딩페이지
+    loading(); //로딩페이지
+    // $('#loading #phase5').addClass('active');
+    // $('#loading #phase5 .l1').addClass('active');
+
     scrollBar(); //스크롤바
+    scrollClassing($('.main_content section'), 'false');
 
     //스크롤 버튼
     $('a[use="scroll"]').on('click',function(e){
@@ -138,19 +198,12 @@ $(function(){
 
         $('body,html').animate({
             scrollTop:0
-        },500);
+        },500,ease);
 
         return false;
     });
 
     //personality
-    // $('.personality_li li').on('mouseover',function(){
-    //     $(this).addClass('active').siblings().removeClass('active');
-    //     var _iconIdx = $('.personality_li .active').index();
-    //     console.log(_iconIdx);
-    //     $('.personality_icon li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
-    // });
-    
     var _personalityLength = $('.personality_li li').length - 1;
     var _iconIdx = $('.personality_li .active').index();
     var _personalityLoop = setInterval(() => {
@@ -170,6 +223,8 @@ $(function(){
     });
 
     //작업용
-    $('#loading').hide();
-    $('body').addClass('on');
+    // $('#loading').hide();
+
+    
+    
 });
