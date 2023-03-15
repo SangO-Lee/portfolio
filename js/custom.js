@@ -3,6 +3,7 @@ var _windowHeight = $(window).height();
 var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
+var _personalityActived = 0;
 
 function windowInit(){
     $('body,html').scrollTop(0);
@@ -64,8 +65,7 @@ function loading(){//로딩페이지
         }
         if(_time > 14000){
             clearInterval(_loadingTimer);
-            //일정 시간이 지나면 네비와 스크롤바 노출
-            setTimeout(() => {
+            setTimeout(() => {//일정 시간이 지나면 네비와 스크롤바 노출
                 $('body').addClass('on');
             }, 1000);
         }
@@ -81,9 +81,10 @@ function scrollBar (){
     $('#scroll_bar .current_indicator').css('top', _ratio + '%');
 }
 
-function scrollFadein(tgt){
+function scrollFadein(tgt,sectionId){
     _baseline = _windowTop + _windowHeight;
     var _target= tgt; //섹션에 해당하는 엘리멘트
+    var _sectionId= sectionId; //특정 섹션 구분자
 
     //타겟 기준 비율 설정
     var _targetTop = _target.offset().top;
@@ -91,34 +92,59 @@ function scrollFadein(tgt){
     var _scrollProgress = (_baseline - _targetTop) / _targetHeight;
     var _progessPercent = _scrollProgress * 100;
 
-    //css 요소 정의
-    var _minOpacity = 0.1; //소수점
-    var _minBgSize = 30; //퍼센트
-    var _opacityValue = _minOpacity + _scrollProgress;
-    var _bgSize = (_minBgSize + _progessPercent);
+    if(_targetTop - _windowTop > 0) return false; //해당 위치 오기 전까지 실행금지
+   
+    if(_sectionId == 'history'){
+        //css 요소 정의
+        var _minOpacity = 0.1; //투명도 최소값
+        var _minBgSize = 30; //배경 사이즈 최소값
+        var _opacityValue = _minOpacity + _scrollProgress;
+        var _bgSize = (_minBgSize + _progessPercent);
 
-    //최대값
-    if(_opacityValue > 1){_opacityValue = 1;}
-    if(_bgSize > 100){ _bgSize = '100'; }
+        //최대값
+        if(_opacityValue > 1){_opacityValue = 1;}
+        if(_bgSize > 100){ _bgSize = '100'; }
 
-    if(_progessPercent < 100){
-        $(_target).css({
-            'opacity': _opacityValue,
-            'background-size': _bgSize + '%'
-        });
-    }else{//최대값 이후
-        if(_target.attr('data-last') != 'true'){
-            _progessPercent -= 100;
-            _opacityValue = 1 - (_progessPercent / 40);
+        //실행
+        if(_progessPercent < 100){
             $(_target).css({
-                'opacity': _opacityValue
+                'opacity': _opacityValue,
+                'background-size': _bgSize + '%'
             });
-        }else if(_target.attr('data-last') == 'true'){//마지막 요소일 경우 최대값 지정
-            $(_target).css({
-                'opacity': 1
-            });
+        }else{//최대값 이후
+            if(_target.attr('data-last') != 'true'){
+                _progessPercent -= 100;
+                _opacityValue = 1 - (_progessPercent / 40);
+                $(_target).css({
+                    'opacity': _opacityValue
+                });
+            }else if(_target.attr('data-last') == 'true'){//마지막 요소일 경우 최대값 지정
+                $(_target).css({
+                    'opacity': 1
+                });
+            }
         }
+        //history section
+    }else if(_sectionId == 'example'){
+        //css 요소 정의
+       var _marginTop = $(_target).attr('css','margin-top'); // 마진탑 퍼센트
+       var _positionLeft = $(_target).attr('css','left'); //x축 포지션 퍼센트
+
+
+
+       
+        console.log(_scrollProgress);
+        //최대값
+        
+        //실행
+        if(_progessPercent < 100){
+           
+        }else{//최대값 이후
+            
+        }
+        //example section
     }
+
 }
 
 function scrollClassing(target, siblingClass){
@@ -129,10 +155,10 @@ function scrollClassing(target, siblingClass){
     var _siblingClass = siblingClass;
 
     for(var i = 0 ; i < _count ; i++){
-        var _cond1 = _target.eq(i).offset().top;
+        var _cond1 = _target.eq(i).offset().top; //조건1 타겟의 오프셋 값
         var _cond2;
         if(_target.eq(i).next().length){
-            _cond2 = _target.eq(i).next().offset().top;
+            _cond2 = _target.eq(i).next().offset().top;//조건2 다음 타겟의 오프셋 값
         }
         
         if(i != _lastIdx){
@@ -170,16 +196,25 @@ $(window).on('scroll',function(){
     _windowTop < _bgBaseline ? $('#main_bg').show() :  $('#main_bg').hide();
 
     //history
-    scrollFadein($('#history_content > #at1'), 'true');
-    scrollFadein($('#history_content > #at2'), 'true');
-    scrollFadein($('#history_content > #at3'), 'true');
-    scrollFadein($('#history_content > #at4'), 'true');
+    // scrollFadein($('#history_content > #at1'), 'history');
+    // scrollFadein($('#history_content > #at2'), 'history');
+    // scrollFadein($('#history_content > #at3'), 'history');
+    // scrollFadein($('#history_content > #at4'), 'history');
     scrollClassing($('#history_content > article'), 'true');
+
+    //personality
+    if($('#personality').hasClass('active')) _personalityActived = 1;
+
+     //example
+     scrollFadein($('#major_wrap > .example1'), 'example');
+    //  scrollFadein($('#major_wrap > .example2'), 'example');
+    //  scrollFadein($('#major_wrap > .example3'), 'example');
+    //  scrollFadein($('#major_wrap > .example4'), 'example');
 });
 
 $(function(){
     _bgBaseline = $('#history').offset().top;//main_bg 토글 baseline
-    loading(); //로딩페이지
+    // loading(); //로딩페이지
    
     scrollBar(); //스크롤바
     scrollClassing($('.main_content section'), 'false');
@@ -201,9 +236,11 @@ $(function(){
     var _personalityLength = $('.personality_li li').length - 1;
     var _iconIdx = $('.personality_li .active').index();
     var _personalityLoop = setInterval(() => {
-        _iconIdx != _personalityLength ? _iconIdx++ : _iconIdx = 0;
-        $('.personality_li li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
-        $('.personality_icon li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
+        if(_personalityActived){
+            _iconIdx != _personalityLength ? _iconIdx++ : _iconIdx = 0;
+            $('.personality_li li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
+            $('.personality_icon li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
+        }
     }, 2000);
     _personalityLoop;
 
@@ -217,6 +254,6 @@ $(function(){
     });
 
     //작업용
-    // $('#loading').hide();
-
+    $('#loading').hide();
+    $('body').addClass('on');
 });
