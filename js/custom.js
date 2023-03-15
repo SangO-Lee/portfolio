@@ -4,6 +4,7 @@ var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
 var _personalityActived = 0;
+var _dev = 0;
 
 function windowInit(){
     $('body,html').scrollTop(0);
@@ -96,7 +97,7 @@ function scrollFadein(tgt,sectionId){
     if(_sectionId == 'history'){
         //css 요소 정의
         var _minOpacity = 0.1; //투명도 최소값
-        var _minBgSize = 30; //배경 사이즈 최소값
+        var _minBgSize = 20; //배경 사이즈 최소값
         var _opacityValue = _minOpacity + _scrollProgress;
         var _bgSize = (_minBgSize + _progessPercent);
 
@@ -161,12 +162,13 @@ function scrollFadein(tgt,sectionId){
     }
 }
 
-function scrollClassing(target, siblingClass){
+function scrollClassing(target, siblingClass, menuChange){
     var _targetBase = _windowTop + _windowHeight / 2; 
     var _target= target; //섹션에 해당하는 엘리멘트
     var _count = _target.length; // 총 엘리멘트 갯수
     var _lastIdx = _count - 1; //마지막 엘리멘트
     var _siblingClass = siblingClass;
+    var _menuChange = menuChange;
 
     for(var i = 0 ; i < _count ; i++){
         var _cond1 = _target.eq(i).offset().top; //조건1 타겟의 오프셋 값
@@ -178,8 +180,14 @@ function scrollClassing(target, siblingClass){
         if(i != _lastIdx){
             if(_targetBase > _cond1 && _targetBase < _cond2){
                 _target.eq(i).addClass('active');
-                if(_siblingClass == 'true'){
+                if(_siblingClass == 'true'){//true일때 형제노드 active 클래스 삭제
                     _target.eq(i).siblings().removeClass('active');
+                }
+
+                //네비게이션 메뉴명 전환
+                if(_menuChange == 'true'){
+                    var _menuName = _target.eq(i).attr('nv-title');
+                    $('#menu_name .curr_name').text(_menuName);
                 }
             }
         }else{
@@ -187,6 +195,12 @@ function scrollClassing(target, siblingClass){
                 _target.eq(i).addClass('active');
                 if(_siblingClass == 'true'){
                     _target.eq(i).siblings().removeClass('active');
+                }
+
+                //네비게이션 메뉴명 전환
+                if(_menuChange == 'true'){
+                    var _menuName = _target.eq(i).attr('nv-title');
+                    $('#menu_name .curr_name').text(_menuName);
                 }
             }
         }
@@ -207,7 +221,7 @@ $(window).on('scroll',function(){
     }
 
     //main_content
-    scrollClassing($('.main_content section'), 'false');
+    scrollClassing($('.main_content section'), 'false', 'true');
 
     //main_bg
     _windowTop < _bgBaseline ? $('#main_bg').show() :  $('#main_bg').hide();
@@ -230,9 +244,13 @@ $(window).on('scroll',function(){
 });
 
 $(function(){
-    windowInit();
     _bgBaseline = $('#history').offset().top;//main_bg 토글 baseline
-    // loading(); //로딩페이지
+    if(_dev == true){//개발중
+        $('#loading').hide();
+        $('body').addClass('on');
+    }else{
+        loading();//로딩페이지
+    }
    
     scrollBar(); //스크롤바
     scrollClassing($('.main_content section'), 'false');
@@ -273,7 +291,5 @@ $(function(){
         }
     });
 
-    //작업용
-    $('#loading').hide();
-    $('body').addClass('on');
+    
 });

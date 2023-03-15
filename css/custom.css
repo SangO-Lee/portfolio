@@ -267,6 +267,7 @@ small{
     color:#f5f5f7;
     cursor: pointer;
     letter-spacing: -0.02em;
+    text-transform: uppercase;
 }
 #menu_name .icon{
     vertical-align: initial;
@@ -311,19 +312,32 @@ small{
 #nav_scroll{
     z-index:1000;
     position:fixed;
-    right:-10px;
+    right:20px;
     top:50%;
     transform:translateY(-50%) scale(0.85);
     display: flex;
     flex-flow: column;
     align-items: center;
     opacity: 0;
-    transition:all .5s ease-in-out;
 }
 .on #nav_scroll{
-    opacity:1;
-    right:20px;
-    transform:translateY(-50%) scale(1);
+    animation-name:navi;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+}
+@keyframes navi {
+    0%{
+        opacity: 0;
+        transform:translateY(-50%) scale(0.85);
+    }
+    70%{
+        opacity:1;
+        transform:translateY(-50%) scale(1.03);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(-50%) scale(1);
+    }
 }
 #scroll_bar{
     position:relative;
@@ -392,6 +406,9 @@ small{
 .main_content section{
     z-index: 10;
     position: relative;
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
     min-height:100vh;
     padding:120px 0;
     background: #161617;
@@ -768,13 +785,28 @@ small{
 .personality_li li.active{
     color:#fff;
 }
+.personality_wrap .icon_box{
+    position:relative;
+}
+.personality_wrap .icon_box:before{
+    content:'';
+    z-index: -1;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translateY(-50%);
+    display:block;
+    width:100vw;
+    height:550px;
+    background:#1750ac;
+    box-shadow: 0 0 20px 20px rgb(0 0 0 /20%);
+}
 .personality_icon{
     position:relative;
     width:550px;
     height:550px;
     border-radius: 50%;
     background:#1750ac;
-    overflow:hidden;
 }
 .personality_icon li{
     display:flex;
@@ -786,8 +818,6 @@ small{
     right:-50%;
     top:0;
     opacity:0;
-    border-radius: 50%;
-    /* background:#1750ac; */
     transition:all .3s ease-in-out;
 }
 .personality_icon .active{
@@ -871,6 +901,7 @@ small{
     padding:50px 40px;
     background:#050505;
     overflow:hidden;
+    border-radius: 20px;
 }
 .project_wrap ul li{
     width:fit-content;
@@ -1074,7 +1105,7 @@ small{
     height: 100%;
     border-radius: 50%;
     background: linear-gradient(327deg,#4242f7, #ff609b, #a340e4);
-    background: linear-gradient(327deg,#4242f7, #ffe260, #14ebd2);
+    background: linear-gradient(327deg,#f7426f, #ffe260, #14ebd2);
     transform: translate(-50%,-50%);
     animation-name:rotateBg;
     animation-duration: 5s;
