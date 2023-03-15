@@ -7,7 +7,6 @@ var _personalityActived = 0;
 
 function windowInit(){
     $('body,html').scrollTop(0);
-    $('.main_content section').removeClass('active');
 }
 
 function loading(){//로딩페이지
@@ -67,7 +66,7 @@ function loading(){//로딩페이지
             clearInterval(_loadingTimer);
             setTimeout(() => {//일정 시간이 지나면 네비와 스크롤바 노출
                 $('body').addClass('on');
-            }, 1000);
+            }, 300);
         }
     }, 100);
     windowInit(); //스크롤 초기화
@@ -88,11 +87,11 @@ function scrollFadein(tgt,sectionId){
 
     //타겟 기준 비율 설정
     var _targetTop = _target.offset().top;
-    var _targetHeight = _target.height();
+    var _targetHeight = _target.outerHeight();
     var _scrollProgress = (_baseline - _targetTop) / _targetHeight;
     var _progessPercent = _scrollProgress * 100;
 
-    if(_targetTop - _windowTop > 0) return false; //해당 위치 오기 전까지 실행금지
+    if(_targetTop - _baseline  > 0) return false; //해당 위치 오기 전까지 실행금지
    
     if(_sectionId == 'history'){
         //css 요소 정의
@@ -126,25 +125,40 @@ function scrollFadein(tgt,sectionId){
         }
         //history section
     }else if(_sectionId == 'example'){
-        //css 요소 정의
-       var _marginTop = $(_target).attr('css','margin-top'); // 마진탑 퍼센트
-       var _positionLeft = $(_target).attr('css','left'); //x축 포지션 퍼센트
+        //포지션 가로축
+        var _minPositionLeft = $(_target).css('left').slice(0,-2);
+        var _fixedPostionLeft = $(_target).attr('data-hori');//최초 x축 값 보존
+        if(!_fixedPostionLeft){ $(_target).attr('data-hori',_minPositionLeft); }
+        var _positionLeft = 0;
+        if(_fixedPostionLeft > 0) {//최초 x축 값이 양수인경우 
+            _positionLeft =  (1 - _scrollProgress) * _fixedPostionLeft;
+        }else{
+            _positionLeft = (1 - _scrollProgress) * _fixedPostionLeft;
+        }
 
+        //밝기값
+        var _minBrightness = 0.5; //밝기 최소값
+        var _brightness = _minBrightness + _scrollProgress;
 
-
-       
-        console.log(_scrollProgress);
         //최대값
-        
+        if(_fixedPostionLeft > 0 && _positionLeft < 0){ _positionLeft = '0'; }
+        if(_fixedPostionLeft < 0 && _positionLeft > 0){ _positionLeft = '0'; }
+        if(_brightness > 1){_brightness = 1;}
+
         //실행
-        if(_progessPercent < 100){
-           
-        }else{//최대값 이후
-            
+        $(_target).css({
+            'left': _positionLeft,
+            'filter': 'brightness('+ _brightness +')'
+        });
+
+        //부모요소 활성화
+        if(_scrollProgress >= 0.8){
+            $(_target).parent().addClass('active');
+        }else{
+            $(_target).parent().removeClass('active');
         }
         //example section
     }
-
 }
 
 function scrollClassing(target, siblingClass){
@@ -160,7 +174,7 @@ function scrollClassing(target, siblingClass){
         if(_target.eq(i).next().length){
             _cond2 = _target.eq(i).next().offset().top;//조건2 다음 타겟의 오프셋 값
         }
-        
+
         if(i != _lastIdx){
             if(_targetBase > _cond1 && _targetBase < _cond2){
                 _target.eq(i).addClass('active');
@@ -188,6 +202,9 @@ function scrollClassing(target, siblingClass){
 $(window).on('scroll',function(){
     //common
     scrollBar();
+    if(_windowTop == 0){//windowInit
+        $('.main_content section').removeClass('active');
+    }
 
     //main_content
     scrollClassing($('.main_content section'), 'false');
@@ -196,23 +213,24 @@ $(window).on('scroll',function(){
     _windowTop < _bgBaseline ? $('#main_bg').show() :  $('#main_bg').hide();
 
     //history
-    // scrollFadein($('#history_content > #at1'), 'history');
-    // scrollFadein($('#history_content > #at2'), 'history');
-    // scrollFadein($('#history_content > #at3'), 'history');
-    // scrollFadein($('#history_content > #at4'), 'history');
+    scrollFadein($('#history_content > #at1'), 'history');
+    scrollFadein($('#history_content > #at2'), 'history');
+    scrollFadein($('#history_content > #at3'), 'history');
+    scrollFadein($('#history_content > #at4'), 'history');
     scrollClassing($('#history_content > article'), 'true');
 
     //personality
     if($('#personality').hasClass('active')) _personalityActived = 1;
 
      //example
-     scrollFadein($('#major_wrap > .example1'), 'example');
-    //  scrollFadein($('#major_wrap > .example2'), 'example');
-    //  scrollFadein($('#major_wrap > .example3'), 'example');
-    //  scrollFadein($('#major_wrap > .example4'), 'example');
+     scrollFadein($('#major_wrap > .example1 img'), 'example');
+     scrollFadein($('#major_wrap > .example2 img'), 'example');
+     scrollFadein($('#major_wrap > .example3 img'), 'example');
+     scrollFadein($('#major_wrap > .example4 img'), 'example');
 });
 
 $(function(){
+    windowInit();
     _bgBaseline = $('#history').offset().top;//main_bg 토글 baseline
     // loading(); //로딩페이지
    
@@ -221,13 +239,14 @@ $(function(){
 
     //스크롤 버튼
     $('a[use="scroll"]').on('click',function(e){
+        e.preventDefault();
         var _target = $(this).attr('href');
         var _targetTop = 0;
         _target == '#' ? 0 : _targetTop = $(_target).offset().top;
-
+        console.log(_targetTop);
         $('body,html').animate({
-            scrollTop:0
-        },500,ease);
+            scrollTop:_targetTop
+        },500);
 
         return false;
     });
@@ -243,6 +262,7 @@ $(function(){
         }
     }, 2000);
     _personalityLoop;
+    
 
     //project
     $('.project_li li').on('mouseover',function(){

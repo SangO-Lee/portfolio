@@ -683,10 +683,12 @@ small{
     z-index: 10;
     position:sticky;
     left:0;
-    top:120px;
-    margin-bottom: calc(100vh - 200px);
+    top: 120px;
+    margin-bottom: calc(100vh - 212px);
     width:100%;
     color:#cecece;
+    text-align: center;
+    padding-top: 5vh;
 }
 #history .main_line,
 #history .sub_line{
@@ -698,9 +700,11 @@ small{
 #history .main_line span,
 #history .sub_line span{
     position:absolute;
-    left:0;
+    /* left:0; */
     top:100%;
     transition:all .3s ease-in-out;
+    display: block;
+    width: 100%;
 }
 #history .main_line span.active,
 #history .sub_line span.active{
@@ -768,6 +772,9 @@ small{
     position:relative;
     width:550px;
     height:550px;
+    border-radius: 50%;
+    background:#1750ac;
+    overflow:hidden;
 }
 .personality_icon li{
     display:flex;
@@ -780,7 +787,7 @@ small{
     top:0;
     opacity:0;
     border-radius: 50%;
-    background:#1750ac;
+    /* background:#1750ac; */
     transition:all .3s ease-in-out;
 }
 .personality_icon .active{
@@ -920,12 +927,9 @@ small{
 #example .main_title{
     margin-bottom:60px;
 }
-#major_wrap{
-    position:relative;
-}
+#major_wrap,
 #major_wrap article{
     position:relative;
-    filter:brightness(0.5);
 }
 #major_wrap article:not(.example1){
     margin-top:-30px;
@@ -939,27 +943,27 @@ small{
     filter: brightness(0.5);
 }
 #major_wrap .example1 img{
-    margin-top:0%;
-    left: 20%;
+    /* top:0%; */
+    left: 20%; 
     z-index:1;
     background:#fff;
 }
 #major_wrap .example2 img{
-    margin-top: -35%;
+    /* top: -35%; */
     left: -10%;
     z-index:2;
     background:#eee;
     padding-top: 72.4%;
 }
 #major_wrap .example3 img{
-    margin-top: -70%;
+    /* top: -70%; */
     left: 10%;
     z-index:1;
     background:#ddd;
     padding-top: 72.4%;
 }
 #major_wrap .example4 img{
-    margin-top: -70%;
+    /* top: -70%; */
     left: -20%;
     z-index:2;
     background:#ccc;
@@ -972,6 +976,8 @@ small{
     bottom:0;
     opacity:0;
     padding:0 30px 60px;
+    width:40%;
+    transition:all .5s ease;
 }
 #major_wrap .example4 .txt_box{
     padding-bottom:0;
@@ -1013,6 +1019,14 @@ small{
     width:fit-content;
 }
 
+#major_wrap article.active:not(.reverse) .txt_box{
+    opacity: 1;
+    left:60%;
+}
+#major_wrap article.active.reverse .txt_box{
+    opacity: 1;
+    right:60%;
+}
 /* contact */
 #contact{
     margin-bottom: 52.4px;
