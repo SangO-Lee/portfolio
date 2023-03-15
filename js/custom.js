@@ -3,7 +3,7 @@ var _windowHeight = $(window).height();
 var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
-var _personalityActived = 0;
+var _personalityActived = -1;
 var _dev = 0;
 
 function windowInit(){
@@ -271,12 +271,13 @@ $(function(){
 
     //personality
     var _personalityLength = $('.personality_li li').length - 1;
-    var _iconIdx = $('.personality_li .active').index();
+    var _iconIdx = 0;
     var _personalityLoop = setInterval(() => {
-        if(_personalityActived){
+        if(_personalityActived == 1){
             _iconIdx != _personalityLength ? _iconIdx++ : _iconIdx = 0;
             $('.personality_li li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
             $('.personality_icon li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
+            
         }
     }, 2000);
     _personalityLoop;
