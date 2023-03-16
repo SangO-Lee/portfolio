@@ -4,7 +4,7 @@ var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
 var _personalityActived = -1;
-var _dev = 1;
+var _dev = 1;// 1= 인트로 생략 0=인트로 노출
 
 function windowInit(){
     $('body,html').scrollTop(0);
@@ -61,6 +61,7 @@ function loading(){//로딩페이지
             $('#loading #phase5 .l2').addClass('active');
         }
         if(_time > 12700 && _time <14000){//loading 종료
+            windowInit();
             $('#loading').fadeOut(1000);
         }
         if(_time > 14000){
@@ -246,6 +247,7 @@ $(window).on('scroll',function(){
 });
 
 $(function(){
+    //common
     _bgBaseline = $('#history').offset().top;//main_bg 토글 baseline
     if(_dev == true){//개발중
         $('#loading').hide();
@@ -253,9 +255,14 @@ $(function(){
     }else{
         loading();//로딩페이지
     }
-   
+    scrollClassing($('.main_content section'), 'false'); 
     scrollBar(); //스크롤바
-    scrollClassing($('.main_content section'), 'false');
+
+    //네비게이션
+    $('#menu_name .curr_name').on('click',function(){
+        $('body').toggleClass('blur');
+        $('#navi').toggleClass('active');
+    });
 
     //스크롤 버튼
     $('a[use="scroll"]').on('click',function(e){
@@ -266,7 +273,11 @@ $(function(){
 
         $('body,html').animate({
             scrollTop:_targetTop
-        },500,'easeInOutCubic');
+        },1000,'easeInOutCubic');
+
+        //네비게이션 초기화
+        $('#navi').removeClass('active');
+        $('body').removeClass('blur');
 
         return false;
     });
