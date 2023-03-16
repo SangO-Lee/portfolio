@@ -266,7 +266,7 @@ $(function(){
 
         $('body,html').animate({
             scrollTop:_targetTop
-        },500);
+        },500,'easeInOutCubic');
 
         return false;
     });

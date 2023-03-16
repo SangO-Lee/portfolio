@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "jquery": "^3.6.3"
+    "jquery": "^3.6.3",
+    "jquery-ui": "^1.13.2"
   },
   "name": "portfolio",
   "version": "1.0.0",
