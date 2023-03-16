@@ -4,7 +4,13 @@ var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
 var _personalityActived = -1;
-var _dev = 1;// 1= 인트로 생략 0=인트로 노출
+var _dev = 0;// 1= 인트로 생략 0=인트로 노출
+
+//로딩 세션스토리지 정의
+var introOpened = sessionStorage.getItem('introOpen');
+if(!introOpened) {
+    introOpened = '0';
+}
 
 function windowInit(){
     $('body,html').scrollTop(0);
@@ -255,6 +261,16 @@ $(function(){
     }else{
         loading();//로딩페이지
     }
+    
+    //로딩페이지 세션스토리지
+    if(introOpened == 0){
+        loading();
+        sessionStorage.setItem('introOpen','1');
+    }else if(introOpened ==1){
+        $('#loading').hide();
+        $('body').addClass('on');
+    }
+
     scrollClassing($('.main_content section'), 'false'); 
     scrollBar(); //스크롤바
 
