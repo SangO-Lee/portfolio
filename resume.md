@@ -173,7 +173,6 @@ https://www.youtube.com/watch?v=yUKRkPKg5_U
 
 #해야할것
 - 서브 메뉴 추가
-- 이미지 추가할것
 - 로딩페이지 세션 스토리지 처리
 - 문구들 최종적으로 재점검
 - history 배경 딸려 올라가지 않는 방법 고민

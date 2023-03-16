@@ -263,7 +263,7 @@ $(function(){
         var _target = $(this).attr('href');
         var _targetTop = 0;
         _target == '#' ? 0 : _targetTop = $(_target).offset().top;
-        console.log(_targetTop);
+
         $('body,html').animate({
             scrollTop:_targetTop
         },500);
