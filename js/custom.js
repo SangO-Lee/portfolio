@@ -4,7 +4,7 @@ var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
 var _personalityActived = -1;
-var _dev = 0;
+var _dev = 1;
 
 function windowInit(){
     $('body,html').scrollTop(0);
@@ -96,19 +96,20 @@ function scrollFadein(tgt,sectionId){
    
     if(_sectionId == 'history'){
         //css 요소 정의
-        var _minOpacity = 0.1; //투명도 최소값
-        var _minBgSize = 20; //배경 사이즈 최소값
-        var _opacityValue = _minOpacity + _scrollProgress;
-        var _bgSize = (_minBgSize + _progessPercent);
+        var _opacityValue = _scrollProgress;
+        var _bgSize =_progessPercent + 20;
+        var _grayscale = 1 - _scrollProgress;
 
         //최대값
         if(_opacityValue > 1){_opacityValue = 1;}
+        if(_grayscale < 0){_grayscale = 0;}
         if(_bgSize > 100){ _bgSize = '100'; }
 
         //실행
-        if(_progessPercent < 100){
+        if(_progessPercent < 115){
             $(_target).css({
                 'opacity': _opacityValue,
+                'filter': 'grayscale('+ _grayscale +')',
                 'background-size': _bgSize + '%'
             });
         }else{//최대값 이후
@@ -120,7 +121,8 @@ function scrollFadein(tgt,sectionId){
                 });
             }else if(_target.attr('data-last') == 'true'){//마지막 요소일 경우 최대값 지정
                 $(_target).css({
-                    'opacity': 1
+                    'opacity': 1,
+                    'filter': 'grayscale(0)'
                 });
             }
         }
@@ -138,7 +140,7 @@ function scrollFadein(tgt,sectionId){
         }
 
         //밝기값
-        var _minBrightness = 0.5; //밝기 최소값
+        var _minBrightness = 0.2; //밝기 최소값
         var _brightness = _minBrightness + _scrollProgress;
 
         //최대값
