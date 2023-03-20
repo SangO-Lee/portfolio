@@ -4,7 +4,7 @@ var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
 var _personalityActived = -1;
-var _dev = 0;// 1= 인트로 생략 0=인트로 노출
+var _dev = 1;// 1= 인트로 생략 0=인트로 노출
 
 //로딩 세션스토리지 정의
 var introOpened = sessionStorage.getItem('introOpen');
