@@ -989,7 +989,7 @@ body.blur:before{
     border-bottom:1px solid transparent;
 }
 .project_wrap ul li.active a{
-    color:#ffff;
+    color:#fff;
 }
 .project_wrap ul li a:hover{
     border-bottom:1px solid #fff;
@@ -1212,6 +1212,10 @@ body.blur:before{
 /* responsive */
 @media (max-width:999px) {
     /* common */
+    body,html{
+        width:100vw;
+        overflow-x: hidden;
+    }
     .flex_row{
        flex-wrap:wrap;
     }
@@ -1287,7 +1291,7 @@ body.blur:before{
     }
 
     #history .txt_box{
-        margin-bottom: 50vh;
+        margin-bottom: 40vh;
         padding-top: 0;
         word-break: keep-all;
     }
@@ -1314,13 +1318,15 @@ body.blur:before{
 
     #personality .main_title {
         margin-bottom: 30px;
+        font-size:34px;
+        line-height: 1.2;
     }
     .personality_li{
         margin-bottom:45px;
     }
     .personality_li li{
         display:none;
-        line-height:1.2;
+        line-height:1.4;
         word-break: keep-all;
     }
     .personality_li li.active{
@@ -1338,7 +1344,47 @@ body.blur:before{
         height:calc(100vw - 30px);
     }
 
+    .project_wrap .col:nth-child(1) ul{
+        border-radius: 20px 20px 0 0;
+        padding-bottom:0;
+    }
+    .project_wrap .col:nth-child(2) ul{
+        border-radius: 0 0 20px 20px;
+        padding-top:0;
+    }
+    .project_wrap ul li.active a,
+    .project_wrap ul li a{
+        color:#f5f5f7;
+        border-bottom: 1px solid;
+    }
+    .project_wrap ul .bg{
+        display:none;
+    }
+
+    #example #major_wrap article{
+        margin-top:0;
+        overflow: hidden;
+    }
+    #major_wrap article img{
+        position: static;
+        width:100%;
+    }
+    #major_wrap article .txt_box{
+        position: static;
+        left:0;
+        width:100%;
+        opacity: 1;
+        padding:30px 0px 60px;
+    }
+
+    #contact{
+        margin-bottom:74px;
+        padding-top:100px;
+    }
     #contact .contact_li li{
         font-size:16px;
+    }
+    #footer .copy{
+        text-align: left;
     }
 }
