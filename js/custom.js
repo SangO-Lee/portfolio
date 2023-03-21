@@ -4,7 +4,7 @@ var _baseline = _windowTop + _windowHeight;
 var _pageHeight = $('body').height() - $(window).height();
 var _bgBaseline = 1000;
 var _personalityActived = -1;
-var _dev = 1;// 1= 인트로 생략 0=인트로 노출
+var _dev = 0;// 1= 인트로 생략 0=인트로 노출
 
 //로딩 세션스토리지 정의
 var introOpened = sessionStorage.getItem('introOpen');
@@ -36,9 +36,11 @@ function loading(){//로딩페이지
         }
         if(_time > 3800 && _time <4100){//phase2
             $('#loading #phase2').addClass('active').prev().removeClass('active');
+            
         }
         if(_time > 4100 && _time <5100){
             $('#loading #phase2 .main_text').addClass('active');
+            
         }
         if(_time > 5100 && _time <5400){//phase3
             $('#loading #phase3').addClass('active').prev().removeClass('active');
@@ -48,6 +50,7 @@ function loading(){//로딩페이지
         }
         if(_time > 6400 && _time <6700){//phase4
             $('#loading #phase4').addClass('active').prev().removeClass('active');
+            
         }
         if(_time > 6700 && _time <7700){
             $('#loading #phase4 .main_text').addClass('active');
@@ -55,6 +58,7 @@ function loading(){//로딩페이지
         if(_time > 7700 && _time <9200){//phase5
             $('#loading #phase5').addClass('active').prev().removeClass('active');
             $('#loading #phase5 .l1').addClass('active');
+            
         }
         if(_time > 9200 && _time <10700){
             $('#loading #phase5 .l1 span').css({
@@ -263,13 +267,13 @@ $(function(){
     }
     
     //로딩페이지 세션스토리지
-    if(introOpened == 0){
+    // if(introOpened == 0){
         loading();
-        sessionStorage.setItem('introOpen','1');
-    }else if(introOpened ==1){
-        $('#loading').hide();
-        $('body').addClass('on');
-    }
+    //     sessionStorage.setItem('introOpen','1');
+    // }else if(introOpened ==1){
+        // $('#loading').hide();
+        // $('body').addClass('on');
+    // }
 
     scrollClassing($('.main_content section'), 'false'); 
     scrollBar(); //스크롤바

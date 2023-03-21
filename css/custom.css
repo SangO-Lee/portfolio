@@ -26,6 +26,7 @@ small{ font-size:80%; }
 .icon{ vertical-align: text-top; }
 .visible_xs{display:none;}
 .hidden_xs{display:block;}
+
 /* layout */
 .container{
     width:1000px;
@@ -220,10 +221,10 @@ small{ font-size:80%; }
     z-index: 1060;
     position:fixed;
     left:0;
-    top:-57px;
+    top:-56px;
     width:100%;
     padding:15px 0;
-    height:50px;
+    height:55px;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     background: rgba(29,29,31,.72);
@@ -1211,6 +1212,29 @@ body.blur:before{
 
 /* responsive */
 @media (max-width:999px) {
+    /* loading */
+    #loading{
+        font-size:50px;
+    }
+    #loading #phase1 span{
+        font-size:34px;
+    }
+    #loading .main_text .sup_text{
+        top:-40px;
+        font-size:16px;
+    }
+    #loading #phase5 .l1 span{
+        font-size:28px;
+    }
+    #loading #phase5 .l2{
+        margin-top:-28px;
+        text-align: center;
+    }
+    #loading #phase5 .l2 span{
+        font-size: 56px;
+        line-height: 1.2;
+        height: 1.2em;
+    }
     /* common */
     body,html{
         width:100vw;
@@ -1226,6 +1250,10 @@ body.blur:before{
     .hidden_xs{display:none;}
 
     /* navi */
+    #navi{
+        height:48px;
+        top:-49px;
+    }
     #navi.active{
         height:330px;
     }
