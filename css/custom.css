@@ -301,7 +301,6 @@ body.blur:before{
     transform: rotateX(180deg);
 }
 .menu_list{
-    /* display: none; */
     z-index: 1040;
     position: absolute;
     left: 0;
@@ -1385,6 +1384,9 @@ body.blur:before{
         height:80vw;
     }
 
+    #project .sub_title{
+        line-height:1.4;
+    }
     .project_wrap .col:nth-child(1) ul{
         border-radius: 20px 20px 0 0;
         padding-top:30px;
