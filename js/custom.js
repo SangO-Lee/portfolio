@@ -267,13 +267,13 @@ $(function(){
     }
     
     //로딩페이지 세션스토리지
-    // if(introOpened == 0){
+    if(introOpened == 0){
         loading();
-    //     sessionStorage.setItem('introOpen','1');
-    // }else if(introOpened ==1){
-        // $('#loading').hide();
-        // $('body').addClass('on');
-    // }
+        sessionStorage.setItem('introOpen','1');
+    }else if(introOpened ==1){
+        $('#loading').hide();
+        $('body').addClass('on');
+    }
 
     scrollClassing($('.main_content section'), 'false'); 
     scrollBar(); //스크롤바
