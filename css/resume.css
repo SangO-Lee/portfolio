@@ -1,6 +1,9 @@
 @charset "utf-8";
 
 /* resume */
+#resume{
+    margin-bottom:130px;
+}
 #resume article{
     padding: 60px 0;
     color:#c1c1c6;
