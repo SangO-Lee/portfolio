@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+/* resume */
+#resume article{
+    padding: 60px 0;
+    color:#c1c1c6;
+    line-height: 2;
+}
+#resume article + article{
+    border-top:1px solid rgb(255 255 255 / 10%);
+}
+#resume article h4{
+    margin:0 0 15px;
+    font-size:24px;
+    font-weight:bold;
+    color:#f5f5f7;  
+}
+#resume article p + h4{
+    margin-top:45px;
+}
+#resume .li_contact li,
+#resume article p{
+    display: flex;
+}
+#resume article p .date,
+#resume .li_contact span{
+    display: inline-block;
+    min-width:150px;
+    font-weight: 500;
+    color:#f5f5f7;
+}
+#resume a:hover{
+    text-decoration: underline;
+}
+#resume .li_dash li{
+    position:relative;
+    padding-left:10px;
+}
+#resume .li_dash li:before{
+    content:'-';
+    position:absolute;
+    left:0;
+    top:0px;
+}
+#resume .li_dash li strong{
+    color:#f5f5f7;
+    font-weight: 600;
+}
+#resume dt{
+    color:#f5f5f7;
+    font-weight: 600;
+}
+#resume .project_table{
+    width:100%;
+    border-bottom:1px solid #86868b;
+    white-space: nowrap;
+}
+#resume .project_table thead{
+    text-align: left;
+    background: #1750ac;
+}
+#resume .project_table thead th{
+    color:#f5f5f7;
+}
+#resume .project_table tr:not(:first-child){
+    border-top:1px solid rgb(255 255 255 / 10%);
+}
+
+#resume .project_table tbody tr:hover{
+    background:rgb(255 255 255 / 10%);
+}
+#resume .project_table th,
+#resume .project_table td{
+    padding:2px 10px;
+}
+#resume h5{
+    margin:30px 0 15px;
+    font-size:18px;
+    color:#f5f5f7;
+    font-weight: 600;
+}
+#resume h5 small{
+    display: inline-block;
+    margin-top:10px;
+    font-size:16px;
+    font-weight: 400;
+    color:#c1c1c6;
+}
+#resume h5 + .des{
+    font-size:14px;
+}
+#resume #back_btn{
+    position:fixed;
+    right: 20px;
+    bottom: 30px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color:#f5f5f7;
+    border-radius: 50%;
+    background:#2997ff;
+    box-shadow: 0 0 20px 20px rgb(0 0 0 / 10%);
+    opacity: 0;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+.on #resume #back_btn{
+    animation-name: backBtn;
+}
+#resume #back_btn:hover{
+    text-decoration: none;
+}
+#resume #back_btn span{
+    font-size: 36px;
+}
+
+@keyframes backBtn {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    70%{
+        opacity:1;
+        transform: scale(1.03);
+    }
+    100%{
+        opacity:1;
+        transform: scale(1);
+    }
+}
+@media (max-width:999px) {
+    #resume .col + .col{
+        margin-top:15px;
+    }
+    #resume .project_table{
+        width:auto;
+    }
+    #resume .table_responsive{
+        max-width: 100%;
+        overflow-x: scroll;
+    }
+    
+}

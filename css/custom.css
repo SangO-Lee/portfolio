@@ -436,16 +436,7 @@ body.blur:before{
     height:calc(96% - 8px);
     margin-left:-1px;
 }
-/* #scroll_bar:hover{
-    width:20px;
-} */
-/* #scroll_bar:hover .inner{
-    height:calc(96% - 12px);
-} */
-/* #scroll_bar:hover .current_indicator{
-    width: 12px;
-    height:12px;
-} */
+
 #scroll_bar .current_indicator{
     display: block;
     position:absolute;
