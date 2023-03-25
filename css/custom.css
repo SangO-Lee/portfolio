@@ -550,9 +550,15 @@ body.blur:before{
         width:200%;
         left:0%;
     }
-    100%{
+    99%{
+        opacity: 1;
         width:200%;
-        left:210%;
+        left:205%;
+    }
+    100%{
+        opacity: 0;
+        width:200%;
+        left:205%;
     }
 }
 .main_content [active-type="fadeup"]{
