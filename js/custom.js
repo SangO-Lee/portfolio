@@ -12,8 +12,10 @@ if(!introOpened) {
     introOpened = '0';
 }
 
-function windowInit(){
+function windowInit(error){
+    var _error = error;
     $('body,html').scrollTop(0);
+    // console.log('windowInit',_error);
 }
 
 function loading(){//로딩페이지
@@ -76,12 +78,12 @@ function loading(){//로딩페이지
         if(_time > 14000){
             clearInterval(_loadingTimer);
             setTimeout(() => {//일정 시간이 지나면 네비와 스크롤바 노출
-                windowInit();
+                windowInit('interval error');
                 $('body').addClass('on');
             }, 300);
         }
     }, 100);
-    windowInit(); //스크롤 초기화
+    windowInit('loading error'); //스크롤 초기화
     _loadingTimer;
 }
 
@@ -259,18 +261,12 @@ $(window).on('scroll',function(){
 $(function(){
     //common
     _bgBaseline = $('#history').offset().top;//main_bg 토글 baseline
-    if(_dev == true){//개발중
-        $('#loading').hide();
-        $('body').addClass('on');
-    }else{
-        loading();//로딩페이지
-    }
     
     //로딩페이지 세션스토리지
     if(introOpened == 0){
         loading();
         sessionStorage.setItem('introOpen','1');
-    }else if(introOpened ==1){
+    }else if(introOpened ==1 || dev == 1){
         $('#loading').hide();
         $('body').addClass('on');
     }

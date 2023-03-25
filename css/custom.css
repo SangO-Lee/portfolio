@@ -1440,3 +1440,13 @@ body.blur:before{
         text-align: left;
     }
 }
+
+/* responsive -tablet */
+@media (max-width:999px) and (min-width:768px) {
+    .summary_wrap .skill_dl dd:before {
+        height: 520%;
+        width: 160%;
+        margin-top: -20%;
+        margin-left: 20%;
+    }
+}
