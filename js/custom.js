@@ -71,12 +71,12 @@ function loading(){//로딩페이지
             $('#loading #phase5 .l2').addClass('active');
         }
         if(_time > 12700 && _time <14000){//loading 종료
-            windowInit();
             $('#loading').fadeOut(1000);
         }
         if(_time > 14000){
             clearInterval(_loadingTimer);
             setTimeout(() => {//일정 시간이 지나면 네비와 스크롤바 노출
+                windowInit();
                 $('body').addClass('on');
             }, 300);
         }
