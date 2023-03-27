@@ -78,6 +78,7 @@ small{ font-size:80%; }
     text-transform: uppercase;
     background:#000;
     white-space: nowrap;
+    perspective: 2000px;
 }
 #loading > div{
     visibility: hidden;
@@ -216,6 +217,49 @@ small{ font-size:80%; }
     opacity: 1;
 }
 
+#loading_close{
+    opacity:0;
+    display:flex;
+    z-index: 2020;
+    position:absolute;
+    right:50px;
+    bottom:50px;
+    justify-content: center;
+    align-items: center;
+    width:100px;
+    height:100px;
+    font-size:16px;
+    font-weight: bold;
+    color:#161617;
+    background:#FEE716;
+    overflow: hidden;
+    transition:all .3s ease-in;
+}
+#loading_close:hover{
+    animation-name:fliping-btn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+#loading_close.active{
+    opacity: 1;
+}
+@keyframes fliping-btn {
+    0%{
+        transform: rotateY(0);
+    }
+    25%{
+        transform: rotateY(-20deg);
+    }
+    50%{
+        transform: rotateY(20deg);
+    }
+    75%{
+        transform: rotateY(-20deg);
+    }
+    100%{
+        transform: rotateY(0);
+    }
+}
 /* navigation */
 #navi{
     z-index: 1060;
@@ -448,7 +492,6 @@ body.blur:before{
     background:#f5f5f7;
     opacity: 0.8;
     border-radius: 50%;
-    /* cursor: pointer; */
     transition:all .1s ease-in-out;
 }
 
@@ -1230,6 +1273,13 @@ body.blur:before{
         font-size: 56px;
         line-height: 1.2;
         height: 1.2em;
+    }
+    #loading_close{
+        right:20px;
+        bottom:20px;
+        width:80px;
+        height:80px;
+        font-size:14px;
     }
     /* common */
     body,html{

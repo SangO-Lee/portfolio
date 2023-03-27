@@ -38,11 +38,10 @@ function loading(){//로딩페이지
         }
         if(_time > 3800 && _time <4100){//phase2
             $('#loading #phase2').addClass('active').prev().removeClass('active');
-            
+            $('#loading_close').addClass('active');
         }
         if(_time > 4100 && _time <5100){
             $('#loading #phase2 .main_text').addClass('active');
-            
         }
         if(_time > 5100 && _time <5400){//phase3
             $('#loading #phase3').addClass('active').prev().removeClass('active');
@@ -52,7 +51,6 @@ function loading(){//로딩페이지
         }
         if(_time > 6400 && _time <6700){//phase4
             $('#loading #phase4').addClass('active').prev().removeClass('active');
-            
         }
         if(_time > 6700 && _time <7700){
             $('#loading #phase4 .main_text').addClass('active');
@@ -60,7 +58,9 @@ function loading(){//로딩페이지
         if(_time > 7700 && _time <9200){//phase5
             $('#loading #phase5').addClass('active').prev().removeClass('active');
             $('#loading #phase5 .l1').addClass('active');
-            
+            setTimeout(() => {
+                $('#loading_close').removeClass('active');
+            }, 1000);
         }
         if(_time > 9200 && _time <10700){
             $('#loading #phase5 .l1 span').css({
@@ -85,6 +85,15 @@ function loading(){//로딩페이지
     }, 100);
     windowInit('loading error'); //스크롤 초기화
     _loadingTimer;
+
+    //loading close
+    $('#loading_close').on('click',function(e){
+        e.preventDefault();
+        clearInterval(_loadingTimer);
+        $('#loading').fadeOut(1000);
+        $('body').addClass('on');
+        console.log('close clicked');
+    });
 }
 
 function scrollBar (){
