@@ -38,7 +38,7 @@
         </div>
         <div id="phase2" class="trait light">
             <p class="main_text">
-                <small class="sup_text"> 효율적으로일하고 </small>
+                <small class="sup_text">효율적으로일하고</small>
                 <span class="text_c">Efficient</span>
                 <span class="text_m">Efficient</span>
                 <span class="text_y">Efficient</span>
@@ -46,7 +46,7 @@
         </div>
         <div id="phase3" class="trait light">
             <p class="main_text">
-                <small class="sup_text"> 협업을생각하며 </small>
+                <small class="sup_text">협업을생각하며</small>
                 <span class="text_c">Supportive</span>
                 <span class="text_m">Supportive</span>
                 <span class="text_y">Supportive</span>
@@ -54,7 +54,7 @@
         </div>
         <div id="phase4" class="trait light">
             <p class="main_text">
-                <small class="sup_text"> 성장하는 </small>
+                <small class="sup_text">성장하는</small>
                 <span class="text_c">Growing</span>
                 <span class="text_m">Growing</span>
                 <span class="text_y">Growing</span>
@@ -78,19 +78,19 @@
         <div class="container">
             <div class="flex_row">
                 <div class="col">
-                    <h2 id="menu_name">
+                    <div id="menu_name">
                         <span class="curr_name">Sang-O's Portfolio</span> 
                         <span class="icon material-symbols-outlined">expand_more</span>
                         <ul class="menu_list">
-                            <li><a use='scroll' href="#main_view">Main</a></li>
-                            <li><a use='scroll' href="#intro">Introduce</a></li>
-                            <li><a use='scroll' href="#history">Work Experience</a></li>
-                            <li><a use='scroll' href="#personality">Personality</a></li>
-                            <li><a use='scroll' href="#project">Projects</a></li>
-                            <li><a use='scroll' href="#example">Major Works</a></li>
-                            <li><a use='scroll' href="#contact">Contact</a></li>
+                            <li><a data-use='scroll' href="#main_view">Main</a></li>
+                            <li><a data-use='scroll' href="#intro">Introduce</a></li>
+                            <li><a data-use='scroll' href="#history">Work Experience</a></li>
+                            <li><a data-use='scroll' href="#personality">Personality</a></li>
+                            <li><a data-use='scroll' href="#project">Projects</a></li>
+                            <li><a data-use='scroll' href="#example">Major Works</a></li>
+                            <li><a data-use='scroll' href="#contact">Contact</a></li>
                         </ul>
-                    </h2>
+                    </div>
                 </div>
                 <div class="col">
                     <ul class="top_link">
@@ -103,15 +103,15 @@
     </nav>
     <div class="main_content">
         <section class="se1" id="main_view" data-title="Sang-O's Portfolio">
-            <video autoplay muted loop playsinline controls="false" id="main_bg">
+            <video autoplay muted loop playsinline id="main_bg">
                 <source src="./img/main_bg.mp4" type="video/mp4">
             </video>
             <div class="container wide">
-                <p class="middle_title">
+                <h3 class="middle_title">
                    <span class="t1">Efficient</span> 
                    <span class="t2">Supportive</span> 
                    <span class="t3">Growing</span>
-                </p>
+                </h3>
                 <!-- 마우스 위치에 따라 변화하는 요소 추가 -->
             </div>
         </section>
@@ -193,20 +193,23 @@
                             <span class="t2">시사저널e '신도시 30년' <br class="visible_xs">- <strong>2020 인터넷신문 언론대상 수상</strong></span>
                             <span class="t3">신입사원 교육 / 제작 프로세스 개선 / <br class="visible_xs">공용 컴포넌트 개발 등</span>
                             <span class="t4">PHP/Codeigniter를 활용한 <br class="visible_xs"><strong>자사 빌더 기능개선 기획 및 개발</strong></span>
-                            
                         </p>
                     </div>
                     <div id="history_content">
                         <article id="at1">
+                            <h4 class="hidden">사무실 이미지</h4>
                             <!-- <img src="./img/history.png" alt="history1" class="history_img"> -->
                         </article>
                         <article id="at2">
+                            <h4 class="hidden">트로피 이미지</h4>
                             <!-- <img src="./img/history2.png" alt="history2" class="history_img"> -->
                         </article>
                         <article id="at3">
+                            <h4 class="hidden">노트북 이미지</h4>
                             <!-- <img src="./img/history.png" alt="history3" class="history_img"> -->
                         </article>
                         <article id="at4" data-last="true">
+                            <h4 class="hidden">코딩화면 이미지</h4>
                             <!-- <img src="./img/history.png" alt="history4" class="history_img"> -->
                         </article>
                     </div>
@@ -418,7 +421,7 @@
                 <span class="current_indicator"></span>
             </div>
         </div>
-        <a href="#" use='scroll' title="사이트 최상단 바로가기" id="scroll_top"> </a>
+        <a href="#" data-use='scroll' title="사이트 최상단 바로가기" id="scroll_top"> </a>
     </aside>
     <!-- //nav_scroll -->
 </body>

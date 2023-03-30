@@ -25,6 +25,7 @@ small{ font-size:80%; }
 .icon{ vertical-align: text-top; }
 .visible_xs{display:none;}
 .hidden_xs{display:block;}
+.hidden{display: none;}
 
 /* layout */
 .container{
@@ -329,6 +330,8 @@ body.blur:before{
     position:relative;
     display: flex;
     font-size:24px;
+    align-items: center;
+    line-height: 1;
 }
 #menu_name .curr_name{
     font-weight: 600;
@@ -656,6 +659,7 @@ body.blur:before{
     min-width: 100%;
     min-height:110%;
     object-fit: cover;
+    pointer-events: none;
 }
 #main_bg::-moz-media-controls,
 #main_bg::-webkit-media-controls {

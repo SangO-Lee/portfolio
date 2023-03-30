@@ -290,7 +290,7 @@ $(function(){
     });
 
     //스크롤 버튼
-    $('a[use="scroll"]').on('click',function(e){
+    $('a[data-use="scroll"]').on('click',function(e){
         e.preventDefault();
         var _target = $(this).attr('href');
         var _targetTop = 0;
