@@ -210,7 +210,7 @@ function scrollClassing(target, siblingClass, menuChange){
 
                 //네비게이션 메뉴명 전환
                 if(_menuChange == 'true'){
-                    var _menuName = _target.eq(i).attr('nv-title');
+                    var _menuName = _target.eq(i).attr('data-title');
                     $('#menu_name .curr_name').text(_menuName);
                 }
             }
@@ -223,7 +223,7 @@ function scrollClassing(target, siblingClass, menuChange){
 
                 //네비게이션 메뉴명 전환
                 if(_menuChange == 'true'){
-                    var _menuName = _target.eq(i).attr('nv-title');
+                    var _menuName = _target.eq(i).attr('data-title');
                     $('#menu_name .curr_name').text(_menuName);
                 }
             }
