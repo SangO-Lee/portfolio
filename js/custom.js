@@ -315,11 +315,9 @@ $(function(){
             _iconIdx != _personalityLength ? _iconIdx++ : _iconIdx = 0;
             $('.personality_li li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
             $('.personality_icon li').eq(_iconIdx).addClass('active').siblings().removeClass('active');
-            
         }
     }, 2000);
     _personalityLoop;
-    
 
     //project
     $('.project_li li').on('mouseover',function(){
@@ -330,5 +328,4 @@ $(function(){
         }
     });
 
-    
 });
