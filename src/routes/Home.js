@@ -1301,7 +1301,7 @@ function Home() {
                         </h3>
                         <ul className="contact_li">
                             <li>
-                                <Link to="/resume">
+                                <Link to={`/resume`}>
                                     자기소개서 보기
                                     <span className="icon material-symbols-outlined">
                                         {" "}
@@ -1352,13 +1352,14 @@ function Home() {
                         <span className="current_indicator"></span>
                     </div>
                 </div>
-                <button
+                <a
                     data-use="scroll"
                     title="사이트 최상단 바로가기"
                     id="scroll_top"
+                    href="#body-layout"
                 >
                     {" "}
-                </button>
+                </a>
             </aside>
             {/*  //nav_scroll */}
         </div>

@@ -4,16 +4,10 @@ import Resume from "./routes/Resume";
 
 function App() {
     return (
-        <Router>
+        <Router basename={`${process.env.PUBLIC_URL}`}>
             <Routes>
-                <Route
-                    path={`${process.env.PUBLIC_URL}/`}
-                    element={<Home />}
-                ></Route>
-                <Route
-                    path={`${process.env.PUBLIC_URL}/resume`}
-                    element={<Resume />}
-                ></Route>
+                <Route path={`/`} element={<Home />}></Route>
+                <Route path={`/resume`} element={<Resume />}></Route>
             </Routes>
         </Router>
     );
