@@ -1,12 +1,49 @@
 {
-  "dependencies": {
-    "jquery": "^3.6.3",
-    "jquery-ui": "^1.13.2"
-  },
-  "name": "portfolio",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/SangO-Lee/portfolio.git",
-  "author": "Brann lee <ras301@naver.com>",
-  "license": "MIT"
+    "name": "portfolio-react",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.17.0",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "gh-pages": "^6.1.1",
+        "jquery": "^3.7.1",
+        "jquery-easing": "^0.0.1",
+        "jquery-ui": "^1.13.3",
+        "nth-check": "^2.1.1",
+        "prop-types": "^15.8.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^6.25.1",
+        "react-scripts": "5.0.1",
+        "sass": "^1.77.8",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "deploy": "gh-pages -d build",
+        "predeploy": "npm run build"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ],
+        "homepage": "https://sango-lee.github.io/portfolio"
+    }
 }
