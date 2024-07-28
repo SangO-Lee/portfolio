@@ -490,7 +490,7 @@ function Resume() {
                     </article>
                 </div>
 
-                <Link to="/" id="back_btn">
+                <Link to={`/`} id="back_btn">
                     <span className="material-symbols-outlined">undo</span>
                 </Link>
             </div>
