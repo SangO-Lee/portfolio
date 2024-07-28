@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src", // baseUrl을 src로 설정
+        "paths": {
+            "@/*": ["*"] // @로 시작하는 경로를 src 디렉토리의 루트로 매핑
+        }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
