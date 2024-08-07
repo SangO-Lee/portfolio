@@ -1,30 +1,17 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../assets/css/resume.scss";
 import $ from "jquery";
+import ScrollBar from "../components/home/ScrollBar";
 
 function Resume() {
-    var _windowTop = $(window).scrollTop();
-    var _windowHeight = $(window).height();
-    // var _baseline = _windowTop + _windowHeight;
-    var _pageHeight = $("body").height() - $(window).height();
-    // var _bgBaseline = 1000;
-    // var _dev = 0; // 1= 인트로 생략 0=인트로 노출
+    const navigate = useNavigate();
+    const handleGoBack = () => {
+        navigate(-1);
+    };
 
-    function scrollBar() {
-        _windowTop = $(window).scrollTop();
-        _pageHeight = $("body").height() - _windowHeight;
-        var _ratio = (_windowTop / _pageHeight) * 100;
-        $("#scroll_bar .current_indicator").css("top", _ratio + "%");
-    }
-
-    $(window).on("scroll", function () {
-        //common
-        scrollBar();
-    });
     useEffect(() => {
-        scrollBar(); //스크롤바
-        $("#body-layout").addClass("on");
+        $(".resume").addClass("on");
 
         //스크롤 버튼
         $('a[data-use="scroll"]').on("click", function (e) {
@@ -47,16 +34,16 @@ function Resume() {
 
             //네비게이션 초기화
             $("#navi").removeClass("active");
-            $("body").removeClass("blur");
+            $(".resume").removeClass("blur");
 
-            return () => {
-                $(window).off("scroll");
-            };
+            // return () => {
+            //     $(window).off("scroll");
+            // };
         });
     }, []);
 
     return (
-        <div>
+        <div className="resume">
             <div id="resume">
                 <div className="container">
                     <article className="at1">
@@ -490,24 +477,11 @@ function Resume() {
                     </article>
                 </div>
 
-                <Link to={`/`} id="back_btn">
+                <a onClick={handleGoBack} id="back_btn">
                     <span className="material-symbols-outlined">undo</span>
-                </Link>
+                </a>
             </div>
-            <aside id="nav_scroll">
-                <div id="scroll_bar">
-                    <div className="inner">
-                        <span className="current_indicator"></span>
-                    </div>
-                </div>
-                <button
-                    data-use="scroll"
-                    title="사이트 최상단 바로가기"
-                    id="scroll_top"
-                >
-                    {" "}
-                </button>
-            </aside>
+            <ScrollBar />
             {/* <!-- //nav_scroll --> */}
         </div>
     );

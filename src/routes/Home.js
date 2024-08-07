@@ -1,35 +1,37 @@
-import "../assets/css/home.scss";
+import "assets/css/home.scss";
 import $ from "jquery";
 import "jquery-easing";
-import mainBgImg from "assets/img/main_bg.mp4";
-import projectImg1 from "../assets/img/project1.jpg";
-import projectImg2 from "../assets/img/project2.jpg";
-import projectImg3 from "../assets/img/project3.jpg";
-import projectImg4 from "../assets/img/project4.jpg";
-import projectImg5 from "../assets/img/project5.jpg";
-import projectImg6 from "../assets/img/project6.jpg";
-import projectImg7 from "../assets/img/project7.jpg";
-import projectImg8 from "../assets/img/project8.jpg";
-import projectImg9 from "../assets/img/project9.jpg";
-import projectImg10 from "../assets/img/project10.jpg";
-import projectImg11 from "../assets/img/project11.jpg";
-import projectImg12 from "../assets/img/project12.jpg";
-import projectImg13 from "../assets/img/project13.jpg";
-import projectImg14 from "../assets/img/project14.jpg";
-import projectImg15 from "../assets/img/project15.jpg";
-import exampleImg1 from "../assets/img/example1.jpg";
-import exampleImg2 from "../assets/img/example2.jpg";
-import exampleImg3 from "../assets/img/example3.jpg";
-import exampleImg4 from "../assets/img/example4.jpg";
-import profileImg from "../assets/img/profile.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+
+// sources
+import mainBgImg from "assets/img/2023ver/main_bg.mp4";
+import projectImg1 from "assets/img/2023ver/project1.jpg";
+import projectImg2 from "assets/img/2023ver/project2.jpg";
+import projectImg3 from "assets/img/2023ver/project3.jpg";
+import projectImg4 from "assets/img/2023ver/project4.jpg";
+import projectImg5 from "assets/img/2023ver/project5.jpg";
+import projectImg6 from "assets/img/2023ver/project6.jpg";
+import projectImg7 from "assets/img/2023ver/project7.jpg";
+import projectImg8 from "assets/img/2023ver/project8.jpg";
+import projectImg9 from "assets/img/2023ver/project9.jpg";
+import projectImg10 from "assets/img/2023ver/project10.jpg";
+import projectImg11 from "assets/img/2023ver/project11.jpg";
+import projectImg12 from "assets/img/2023ver/project12.jpg";
+import projectImg13 from "assets/img/2023ver/project13.jpg";
+import projectImg14 from "assets/img/2023ver/project14.jpg";
+import projectImg15 from "assets/img/2023ver/project15.jpg";
+import exampleImg1 from "assets/img/2023ver/example1.jpg";
+import exampleImg2 from "assets/img/2023ver/example2.jpg";
+import exampleImg3 from "assets/img/2023ver/example3.jpg";
+import exampleImg4 from "assets/img/2023ver/example4.jpg";
+import profileImg from "assets/img/2023ver/profile.jpg";
 
 function Home() {
     var _windowTop = $(window).scrollTop();
     var _windowHeight = $(window).height();
     var _baseline = _windowTop + _windowHeight;
-    var _pageHeight = $("body").height() - $(window).height();
+    var _pageHeight = $(".home").height() - $(window).height();
     var _bgBaseline = 1000;
     var _personalityActived = -1;
     var _dev = 0; // 1= 인트로 생략 0=인트로 노출
@@ -132,19 +134,18 @@ function Home() {
                 setTimeout(() => {
                     //일정 시간이 지나면 네비와 스크롤바 노출
                     windowInit("interval error");
-                    $("body").addClass("on");
+                    $(".home").addClass("on");
                 }, 300);
             }
         }, 100);
         windowInit("loading error"); //스크롤 초기화
-        // _loadingTimer();
 
         //loading close
         $("#loading_close").on("click", function (e) {
             e.preventDefault();
             clearInterval(_loadingTimer);
             $("#loading").fadeOut(1000);
-            $("body").addClass("on");
+            $(".home").addClass("on");
             console.log("close clicked");
         });
     }
@@ -358,7 +359,7 @@ function Home() {
             console.log("loading start..");
         } else if (introOpened == 1 || _dev == 1) {
             $("#loading").hide();
-            $("body").addClass("on");
+            $(".home").addClass("on");
             console.log("loading skip..");
         }
 
@@ -367,7 +368,7 @@ function Home() {
 
         //네비게이션
         $("#menu_name .curr_name").on("click", function () {
-            $("body").toggleClass("blur");
+            $(".home").toggleClass("blur");
             $("#navi").toggleClass("active");
         });
 
@@ -392,7 +393,7 @@ function Home() {
 
             //네비게이션 초기화
             $("#navi").removeClass("active");
-            $("body").removeClass("blur");
+            $(".home").removeClass("blur");
 
             return false;
         });
@@ -438,7 +439,7 @@ function Home() {
     }, []);
 
     return (
-        <div>
+        <div className="home">
             <div id="loading">
                 <div id="phase1" className="dark">
                     <p className="l1">
@@ -769,19 +770,19 @@ function Home() {
                             <div id="history_content">
                                 <article id="at1">
                                     <h4 className="hidden">사무실 이미지</h4>
-                                    {/*  <img src="../img/history.png" alt="history1" className="history_img"> */}
+                                    {/*  <img src="img/2023ver/history.png" alt="history1" className="history_img"> */}
                                 </article>
                                 <article id="at2">
                                     <h4 className="hidden">트로피 이미지</h4>
-                                    {/*  <img src="../img/history2.png" alt="history2" className="history_img"> */}
+                                    {/*  <img src="img/2023ver/history2.png" alt="history2" className="history_img"> */}
                                 </article>
                                 <article id="at3">
                                     <h4 className="hidden">노트북 이미지</h4>
-                                    {/*  <img src="../img/history.png" alt="history3" className="history_img"> */}
+                                    {/*  <img src="img/2023ver/history.png" alt="history3" className="history_img"> */}
                                 </article>
                                 <article id="at4" data-last="true">
                                     <h4 className="hidden">코딩화면 이미지</h4>
-                                    {/*  <img src="../img/history.png" alt="history4" className="history_img"> */}
+                                    {/*  <img src="img/2023ver/history.png" alt="history4" className="history_img"> */}
                                 </article>
                             </div>
                         </div>
