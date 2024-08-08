@@ -37,7 +37,7 @@ function KeyVisual() {
 
         // 카메라 위치 설정 (x, y, z)
         camera.position.set(0, 5, -7);
-        camera.fov = 15; // 기본값 75에서 더 좁은 값으로 줄이기
+        camera.fov = 13; // 기본값 75에서 더 좁은 값으로 줄이기
         camera.updateProjectionMatrix(); // 변경된 시야각을 적용
 
         // 배경색을 투명으로 설정
@@ -82,6 +82,43 @@ function KeyVisual() {
                 //     roughness: 0.0, // 거칠기
                 // });
 
+                // 반응형 처리
+                const handleResize = () => {
+                    let setWidth =
+                        document.querySelector(".canvas-wrap").clientWidth;
+                    let setHeight =
+                        document.querySelector(".canvas-wrap").clientHeight;
+
+                    renderer.setSize(setWidth, setHeight);
+                    camera.aspect = setWidth / setHeight;
+                    camera.updateProjectionMatrix();
+                };
+                handleResize();
+                window.addEventListener("resize", handleResize);
+
+                //particle 요소 추가
+                const positions = [];
+                for (let i = 0; i < 2000; i++) {
+                    positions.push(Math.random() * 2000 - 1000);
+                    positions.push(Math.random() * 2000 - 1000);
+                    positions.push(Math.random() * 2000 - 1000);
+                }
+
+                const geometry = new THREE.BufferGeometry();
+                const positionAttribute = new THREE.Float32BufferAttribute(
+                    positions,
+                    3
+                );
+                geometry.setAttribute("position", positionAttribute);
+
+                const material = new THREE.PointsMaterial({
+                    color: 0xffffff,
+                    size: 3,
+                });
+
+                const particles = new THREE.Points(geometry, material);
+                scene.add(particles);
+
                 // 애니메이션 루프
                 function animate() {
                     requestAnimationFrame(animate);
@@ -107,19 +144,70 @@ function KeyVisual() {
                 console.error(e);
             }
         );
+
+        //co work text 이동
+        const coworkText = document.querySelector(".cowork-text");
+        const jobText = document.querySelector(".job-text");
+        const setTextPosition = () => {
+            const scrollSpeed = 0.02;
+            const scrollSpeed2 = 1.75;
+            let scrollAmount =
+                window.scrollY * scrollSpeed + window.innerHeight / 40;
+            let scrollAmount2 =
+                window.scrollY * scrollSpeed2 - window.innerHeight / 1.25;
+
+            scrollAmount > 40
+                ? (scrollAmount = 40)
+                : (scrollAmount =
+                      window.scrollY * scrollSpeed + window.innerHeight / 40);
+            scrollAmount2 > 1000
+                ? (scrollAmount2 = 1000)
+                : (scrollAmount2 =
+                      window.scrollY * scrollSpeed2 -
+                      window.innerHeight / 1.25);
+
+            console.log(scrollAmount, scrollAmount2);
+            coworkText.style.bottom = `${scrollAmount}px`;
+            jobText.style.top = `${scrollAmount2}px`;
+        };
+
+        setTextPosition();
+        window.addEventListener("scroll", () => {
+            setTextPosition();
+        });
     }, []);
 
-    return (
-        <section id="se1">
-            <div className="container wide">
-                <canvas id="canvas" width="1200" height="800"></canvas>
+    // let rotatingTargetObject = document.querySelector("#canvas");
+    // document.addEventListener("mousemove", function (event) {
+    //     if (rotatingTargetObject) {
+    //         const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    //         const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    //         const rotateX = mouseY * 10; // Adjust these values as needed
+    //         const rotateY = mouseX * 10; // Adjust these values as needed
+    //         rotatingTargetObject.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    //     } else {
+    //         console.error("keyboardObject is not initialized.");
+    //     }
+    // });
 
-                <ul>
-                    <li>list1</li>
-                    <li>list2</li>
-                    <li>list3</li>
-                    <li>list4</li>
-                </ul>
+    return (
+        <section className="se1" id="key_visual">
+            <div className="container fluid">
+                <div className="visual-wrap">
+                    <div className="txt-box">
+                        <h2>
+                            <small>SANG-O LEE</small>
+                            코드로 <span className="highlight">협업</span>을
+                            쓰다.
+                        </h2>
+                    </div>
+                    <div className="canvas-wrap">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </div>
+
+                <p className="cowork-text">Collaborate through Code</p>
+                <p className="job-text">web publisher</p>
             </div>
         </section>
     );

@@ -24,7 +24,7 @@ function Renew() {
     var _windowTop = $(window).scrollTop();
     var _windowHeight = $(window).height();
     var _baseline = _windowTop + _windowHeight;
-    var _pageHeight = $("body").height() - $(window).height();
+    var _pageHeight = $(".renew").height() - $(window).height();
     var _bgBaseline = 1000;
     var _personalityActived = -1;
     var _dev = 0; // 1= 인트로 생략 0=인트로 노출
@@ -127,7 +127,7 @@ function Renew() {
                 setTimeout(() => {
                     //일정 시간이 지나면 네비와 스크롤바 노출
                     windowInit("interval error");
-                    $("body").addClass("on");
+                    $(".renew").addClass("on");
                 }, 300);
             }
         }, 100);
@@ -138,14 +138,14 @@ function Renew() {
             e.preventDefault();
             clearInterval(_loadingTimer);
             $("#loading").fadeOut(1000);
-            $("body").addClass("on");
+            $(".renew").addClass("on");
             console.log("close clicked");
         });
     }
 
     function scrollBar() {
         _windowTop = $(window).scrollTop();
-        _pageHeight = $("body").height() - _windowHeight;
+        _pageHeight = $(".renew").height() - _windowHeight;
         var _ratio = (_windowTop / _pageHeight) * 100;
         $("#scroll_bar .current_indicator").css("top", _ratio + "%");
     }
@@ -317,6 +317,9 @@ function Renew() {
         if (_windowTop === 0) {
             //windowInit
             $(".main_content section").removeClass("active");
+            $("#navi").removeClass("on");
+        } else {
+            $("#navi").addClass("on");
         }
 
         //main_content
@@ -344,6 +347,12 @@ function Renew() {
     useEffect(() => {
         //common
         _bgBaseline = $("#history").offset().top; //main_bg 토글 baseline
+        if (_windowTop === 0) {
+            //windowInit
+            $("#navi").removeClass("on");
+        } else {
+            $("#navi").addClass("on");
+        }
 
         //로딩페이지 세션스토리지
         if (introOpened == 0) {
@@ -352,7 +361,7 @@ function Renew() {
             console.log("loading start..");
         } else if (introOpened == 1 || _dev == 1) {
             $("#loading").hide();
-            $("body").addClass("on");
+            $(".renew").addClass("on");
             console.log("loading skip..");
         }
 
@@ -361,7 +370,7 @@ function Renew() {
 
         //네비게이션
         $("#menu_name .curr_name").on("click", function () {
-            $("body").toggleClass("blur");
+            $(".renew").toggleClass("blur");
             $("#navi").toggleClass("active");
         });
 
@@ -386,7 +395,7 @@ function Renew() {
 
             //네비게이션 초기화
             $("#navi").removeClass("active");
-            $("body").removeClass("blur");
+            $(".renew").removeClass("blur");
 
             return false;
         });
@@ -432,23 +441,23 @@ function Renew() {
     }, []);
 
     return (
-        <>
+        <div className="renew">
             <Loading />
-            <Nav />
+            {/* <Nav /> */}
 
             <div className="main_content">
-                <MainView />
+                {/* <MainView /> */}
                 <KeyVisual />
-                <Intro />
                 <History />
+                <Example />
+                <Intro />
                 <Personality />
                 <Project />
-                <Example />
                 <Contact />
             </div>
             <Footer />
-            <ScrollBar />
-        </>
+            {/* <ScrollBar /> */}
+        </div>
     );
 }
 

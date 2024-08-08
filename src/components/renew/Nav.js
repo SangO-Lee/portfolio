@@ -15,7 +15,7 @@ function Nav() {
                             </span>
                             <ul className="menu_list">
                                 <li>
-                                    <a data-use="scroll" href="#main_view">
+                                    <a data-use="scroll" href="#key_visual">
                                         Main
                                     </a>
                                 </li>

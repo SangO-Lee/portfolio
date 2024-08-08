@@ -1,0 +1,43 @@
+//계층구조
+@mixin hero {
+    font-size: 64px;
+}
+@mixin main-title {
+    font-size: 48px;
+}
+@mixin second-title {
+    font-size: 32px;
+}
+@mixin content-title {
+    font-size: 24px;
+}
+@mixin sub-title {
+    font-size: 18px;
+}
+@mixin body-text {
+    font-size: 16px;
+}
+@mixin small-text {
+    font-size: 14px;
+}
+@mixin caption {
+    font-size: 10px;
+}
+
+//스타일
+@mixin text-gradient {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-color: #3079f6;
+    background-image: linear-gradient(145deg, #00ffff, #3079f6);
+}
+
+@mixin text-outline {
+    font-weight: bold;
+    text-shadow:
+        1px 1px 0 rgba(255, 255, 255, 0.15),
+        -1px -1px 0 rgba(255, 255, 255, 0.15),
+        1px -1px 0 rgba(255, 255, 255, 0.15),
+        -1px 1px 0 rgba(255, 255, 255, 0.15);
+}
