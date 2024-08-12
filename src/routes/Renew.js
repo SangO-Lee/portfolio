@@ -323,17 +323,10 @@ function Renew() {
         }
 
         //main_content
-        scrollClassing($(".main_content section"), "false", "true");
+        scrollClassing($(".main_content section"), "true", "false");
 
         //main_bg
         _windowTop < _bgBaseline ? $("#main_bg").show() : $("#main_bg").hide();
-
-        //history
-        scrollFadein($("#history_content > #at1"), "history");
-        scrollFadein($("#history_content > #at2"), "history");
-        scrollFadein($("#history_content > #at3"), "history");
-        scrollFadein($("#history_content > #at4"), "history");
-        scrollClassing($("#history_content > article"), "true");
 
         //personality
         if ($("#personality").hasClass("active")) _personalityActived = 1;

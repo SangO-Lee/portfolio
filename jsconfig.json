@@ -3,7 +3,9 @@
         "baseUrl": "src",
         "paths": {
             "@assets/*": ["/assets/*"],
-            "@components/*": ["/components/*"]
+            "@img/*": ["/assets/img*"],
+            "@components/*": ["/components/*"],
+            "@hooks/*": ["/hooks/*"]
         }
     },
     "include": ["src"]

@@ -6,11 +6,8 @@ import exampleImg4 from "assets/img/2023ver/example4.jpg";
 function Example() {
     return (
         <section className="se6" id="example" data-title="Major Works">
-            <div className="container">
-                <h3 className="main_title">
-                    <span className="emp">주요 프로젝트</span>가<br />
-                    궁금하시다면
-                </h3>
+            <div className="container wide">
+                <h2>Featured Projects.</h2>
             </div>
             <div className="container wide">
                 <div id="major_wrap">

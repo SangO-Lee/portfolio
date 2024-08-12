@@ -166,7 +166,6 @@ function KeyVisual() {
                       window.scrollY * scrollSpeed2 -
                       window.innerHeight / 1.25);
 
-            console.log(scrollAmount, scrollAmount2);
             coworkText.style.bottom = `${scrollAmount}px`;
             jobText.style.top = `${scrollAmount2}px`;
         };
@@ -176,19 +175,6 @@ function KeyVisual() {
             setTextPosition();
         });
     }, []);
-
-    // let rotatingTargetObject = document.querySelector("#canvas");
-    // document.addEventListener("mousemove", function (event) {
-    //     if (rotatingTargetObject) {
-    //         const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    //         const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-    //         const rotateX = mouseY * 10; // Adjust these values as needed
-    //         const rotateY = mouseX * 10; // Adjust these values as needed
-    //         rotatingTargetObject.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    //     } else {
-    //         console.error("keyboardObject is not initialized.");
-    //     }
-    // });
 
     return (
         <section className="se1" id="key_visual">
