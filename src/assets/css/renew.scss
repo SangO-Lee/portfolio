@@ -514,7 +514,7 @@
         display: flex;
         flex-flow: column;
         justify-content: center;
-        min-height: 100vh;
+        // min-height: 100vh;
         padding: 120px 0;
         background: #161617;
         // border-bottom: 1px solid rgb(255 255 255 / 10%);
@@ -1585,13 +1585,13 @@ $section-bg: #101021;
             position: fixed;
             left: 50%;
             bottom: 40px;
-            transform: translateX(-50%) rotateX(-360deg) scale(0.7);
+            transform: translateX(-50%) scaleY(0);
             width: 400px;
             height: 80px;
             perspective: 1000px;
 
             opacity: 0;
-            transition: transform 1s ease;
+            transition: transform 0.5s ease;
 
             .inner {
                 background: rgba(255, 255, 255, 0.2);
@@ -1617,10 +1617,11 @@ $section-bg: #101021;
                     background: #fff;
                 }
             }
-        }
-        &.active .history-progress {
-            transform: translateX(-50%) rotateX(0deg) scale(1);
-            opacity: 1;
+
+            &.active {
+                transform: translateX(-50%) scaleY(1);
+                opacity: 1;
+            }
         }
     }
 
@@ -1650,8 +1651,11 @@ $section-bg: #101021;
         }
         .summary_wrap {
             perspective: 2000px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease-in;
         }
-        &.active .skill_dl {
+        &.active .summary_wrap {
             opacity: 1;
             transform: translateY(0px);
         }
@@ -1669,10 +1673,6 @@ $section-bg: #101021;
             cursor: default;
 
             perspective: 1000px;
-
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease-in;
 
             &::after {
                 content: "";

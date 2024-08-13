@@ -2,9 +2,11 @@ import historyImg1 from "assets/img/renew/history1.webp";
 import historyImg2 from "assets/img/renew/history2.webp";
 import historyImg3 from "assets/img/renew/history3.webp";
 import historyImg4 from "assets/img/renew/history4.webp";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function History() {
+    const [isProgess, setIsProgress] = useState(false);
+
     useEffect(() => {
         //scroll effect
         document.addEventListener("scroll", function () {
@@ -20,6 +22,7 @@ function History() {
 
             scrollContent.style.left = `-${scrollDistance}%`;
             progressBar.style.width = `${scrollDistance / 2}%`;
+            setIsProgress(scrollDistance > 0 && scrollDistance / 2 < 100);
         });
 
         //progress bar
@@ -30,7 +33,7 @@ function History() {
             if (rotatingTargetObject) {
                 const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
                 const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-                const rotateX = mouseY * 25;
+                // const rotateX = mouseY * 25;
                 const rotateY = mouseX * 25;
                 rotatingTargetObject.style.transform = `rotateX(5deg)  rotateY(${rotateY}deg)`;
             } else {
@@ -128,7 +131,11 @@ function History() {
                             />
                         </article>
                     </div>
-                    <div className="history-progress">
+                    <div
+                        className={`history-progress ${
+                            isProgess ? "active" : ""
+                        }`}
+                    >
                         <div className="inner">
                             <div className="progress-bar">
                                 <div className="progress-value"></div>

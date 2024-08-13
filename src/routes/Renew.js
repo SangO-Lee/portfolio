@@ -269,13 +269,13 @@ function Renew() {
             if (i !== _lastIdx) {
                 if (_targetBase > _cond1 && _targetBase < _cond2) {
                     _target.eq(i).addClass("active");
-                    if (_siblingClass === "true") {
-                        //true일때 형제노드 active 클래스 삭제
-                        _target.eq(i).siblings().removeClass("active");
-                    }
+                    // if (_siblingClass == "true") {
+                    //     //true일때 형제노드 active 클래스 삭제
+                    //     _target.eq(i).siblings().removeClass("active");
+                    // }
 
                     //네비게이션 메뉴명 전환
-                    if (_menuChange === "true") {
+                    if (_menuChange == "true") {
                         _menuName = _target.eq(i).attr("data-title");
                         $("#menu_name .curr_name").text(_menuName);
                     }
@@ -284,12 +284,12 @@ function Renew() {
                 if (_targetBase > _cond1) {
                     //마지막 엘리멘트 이후는 항상 마지막 엘리멘트에 active 추가
                     _target.eq(i).addClass("active");
-                    if (_siblingClass === "true") {
-                        _target.eq(i).siblings().removeClass("active");
-                    }
+                    // if (_siblingClass == "true") {
+                    //     _target.eq(i).siblings().removeClass("active");
+                    // }
 
                     //네비게이션 메뉴명 전환
-                    if (_menuChange === "true") {
+                    if (_menuChange == "true") {
                         _menuName = _target.eq(i).attr("data-title");
                         $("#menu_name .curr_name").text(_menuName);
                     }
