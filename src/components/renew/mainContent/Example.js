@@ -5,9 +5,9 @@ import exampleImg4 from "assets/img/2023ver/example4.jpg";
 
 function Example() {
     return (
-        <section className="se6" id="example" data-title="Major Works">
+        <section className="se3" id="example" data-title="Major Works">
             <div className="container wide">
-                <h2>Featured Projects.</h2>
+                <h2 className="fade-in">Featured Projects.</h2>
             </div>
             <div className="container wide">
                 <div id="major_wrap">

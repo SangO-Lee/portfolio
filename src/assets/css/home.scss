@@ -1,5 +1,8 @@
 @charset "utf-8";
 .home {
+    .container.wide {
+        width: 1200px;
+    }
     /* loading */
     #loading {
         z-index: 2000;

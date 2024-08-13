@@ -9,7 +9,7 @@ import Nav from "components/renew/Nav";
 import Footer from "components/renew/Footer";
 import ScrollBar from "components/renew/ScrollBar";
 import MainView from "components/renew/mainContent/MainView";
-import Intro from "components/renew/mainContent/Intro";
+import Core from "components/renew/mainContent/Core";
 import History from "components/renew/mainContent/History";
 import Personality from "components/renew/mainContent/Personality";
 import Project from "components/renew/mainContent/Project";
@@ -296,19 +296,6 @@ function Renew() {
                 }
             }
         }
-
-        var _activeIdx = $("#history_content .active").index();
-        if (_activeIdx < 0) _activeIdx = 0; //history 이전 화면에서는 첫번째 요소를 활성화
-        $("#history_wrap .main_line span")
-            .eq(_activeIdx)
-            .addClass("active")
-            .siblings()
-            .removeClass("active");
-        $("#history_wrap .sub_line span")
-            .eq(_activeIdx)
-            .addClass("active")
-            .siblings()
-            .removeClass("active");
     }
 
     $(window).on("scroll", function () {
@@ -326,7 +313,7 @@ function Renew() {
         scrollClassing($(".main_content section"), "true", "false");
 
         //main_bg
-        _windowTop < _bgBaseline ? $("#main_bg").show() : $("#main_bg").hide();
+        _windowTop < _bgBaseline ? $("#canvas").show() : $("#canvas").hide();
 
         //personality
         if ($("#personality").hasClass("active")) _personalityActived = 1;
@@ -443,7 +430,7 @@ function Renew() {
                 <KeyVisual />
                 <History />
                 <Example />
-                <Intro />
+                <Core />
                 <Personality />
                 <Project />
                 <Contact />

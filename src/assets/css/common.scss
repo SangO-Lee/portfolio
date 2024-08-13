@@ -58,8 +58,8 @@ small {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 16px;
+    padding-right: 16px;
     &.wide {
         width: 1260px;
     }
@@ -74,16 +74,25 @@ small {
 }
 .flex_row {
     display: flex;
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: -16px;
+    margin-right: -16px;
 }
 .col {
     flex: 1;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.col_2 {
+    flex-basis: calc(100% * 2 / 12);
 }
 .col_4 {
     flex-basis: 33.333%;
+}
+.col_5 {
+    flex-basis: calc(100% * 5 / 12);
+}
+.col_6 {
+    flex-basis: 50%;
 }
 .col_8 {
     flex-basis: 66.666%;

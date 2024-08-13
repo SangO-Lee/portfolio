@@ -42,7 +42,7 @@ function History() {
         <section className="se2" id="history" data-title="Work Experience">
             <div className="container wide">
                 <div id="history_wrap">
-                    <h2>Work Experience.</h2>
+                    <h2 className="fade-in">Work Experience.</h2>
                     <div id="history_content">
                         <article id="at1">
                             <h3 className="main_line">
