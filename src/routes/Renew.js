@@ -326,7 +326,7 @@ function Renew() {
     });
     useEffect(() => {
         //common
-        _bgBaseline = $("#history").offset().top; //main_bg 토글 baseline
+        _bgBaseline = $("#example").offset().top; //main_bg 토글 baseline
         if (_windowTop === 0) {
             //windowInit
             $("#navi").removeClass("on");
@@ -399,20 +399,6 @@ function Renew() {
             }
         }, 2000);
 
-        //project
-        $(".project_li li").on("mouseover", function () {
-            var _projectName = $(this).attr("data-img");
-            if (_projectName !== 0) {
-                $(this).addClass("active").siblings().removeClass("active");
-                $(this)
-                    .siblings(".bg")
-                    .children("." + _projectName)
-                    .addClass("active")
-                    .siblings()
-                    .removeClass("active");
-            }
-        });
-
         return () => {
             // 컴포넌트 언마운트 시 이벤트 리스너 제거
             $(window).off("scroll");
@@ -430,9 +416,9 @@ function Renew() {
                 <KeyVisual />
                 <History />
                 <Example />
+                <Project />
                 <Core />
                 <Personality />
-                <Project />
                 <Contact />
             </div>
             <Footer />
