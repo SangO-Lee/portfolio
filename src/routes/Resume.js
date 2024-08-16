@@ -142,7 +142,7 @@ function Resume() {
                     </article>
                     <article className="at4">
                         <h4>스킬</h4>
-                        <div className="flex_row">
+                        <div className="flex-row">
                             <div className="col">
                                 <dl>
                                     <dt>[개발언어]</dt>
@@ -482,7 +482,7 @@ function Resume() {
                 </a>
             </div>
             <ScrollBar />
-            {/* <!-- //nav_scroll --> */}
+            {/* <!-- //nav-scroll --> */}
         </div>
     );
 }

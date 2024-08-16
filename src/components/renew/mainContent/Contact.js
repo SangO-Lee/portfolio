@@ -5,13 +5,13 @@ function Contact() {
     return (
         <section className="se7" id="contact" data-title="Contact">
             <div className="container">
-                <h3 className="main_title">
+                <h3 className="main-title">
                     이런 동료와 <br />
                     <span className="emp">함께 일하고</span>{" "}
-                    <br className="visible_xs" />
+                    <br className="visible-xs" />
                     싶으시다면?
                 </h3>
-                <ul className="contact_li">
+                <ul className="contact-li">
                     <li>
                         <Link to={`/resume`}>
                             자기소개서 보기
@@ -34,7 +34,7 @@ function Contact() {
                         </a>
                     </li>
                 </ul>
-                <div className="profile_img">
+                <div className="profile-img">
                     <img src={profileImg} alt="Sang-O lee profile" />
                 </div>
             </div>

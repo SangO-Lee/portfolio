@@ -2,12 +2,12 @@ import mainBgImg from "assets/img/2023ver/main_bg.mp4";
 
 function MainView() {
     return (
-        <section className="se1" id="main_view" data-title="Sang-O's Portfolio">
+        <section className="se1" id="main-view" data-title="Sang-O's Portfolio">
             <video autoPlay muted loop playsInline id="main_bg">
                 <source src={mainBgImg} type="video/mp4" />
             </video>
             <div className="container wide">
-                <h3 className="middle_title">
+                <h3 className="middle-title">
                     <span className="t1">Efficient</span>
                     <span className="t2">Supportive</span>
                     <span className="t3">Growing</span>

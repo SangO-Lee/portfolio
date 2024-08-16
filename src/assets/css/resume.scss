@@ -122,7 +122,7 @@
         font-size: 36px;
     }
     /* scollbar */
-    #nav_scroll {
+    #nav-scroll {
         z-index: 1000;
         position: fixed;
         right: 20px;
@@ -133,7 +133,7 @@
         align-items: center;
         opacity: 0;
     }
-    &.on #nav_scroll {
+    &.on #nav-scroll {
         animation-name: navi;
         animation-duration: 0.6s;
         animation-fill-mode: forwards;
@@ -152,7 +152,7 @@
             transform: translateY(-50%) scale(1);
         }
     }
-    #scroll_bar {
+    #scroll-bar {
         position: relative;
         width: 14px;
         height: 150px;
@@ -163,7 +163,7 @@
         box-shadow: 0 0 5px 5px rgb(0 0 0 / 5%);
         transition: all 0.1s ease-in-out;
     }
-    #scroll_bar .inner {
+    #scroll-bar .inner {
         position: absolute;
         left: 50%;
         top: 2%;
@@ -172,7 +172,7 @@
         margin-left: -1px;
     }
 
-    #scroll_bar .current_indicator {
+    #scroll-bar .current-indicator {
         display: block;
         position: absolute;
         left: 50%;
@@ -186,7 +186,7 @@
         transition: all 0.1s ease-in-out;
     }
 
-    #scroll_top {
+    #scroll-top {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -200,7 +200,7 @@
         background: #2997ff;
         box-shadow: 0 0 5px 5px rgb(0 0 0 / 5%);
     }
-    #scroll_top:before {
+    #scroll-top:before {
         content: "";
         display: block;
         border-bottom: 5px solid #fff;

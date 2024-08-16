@@ -177,7 +177,7 @@ function KeyVisual() {
     }, []);
 
     return (
-        <section className="se1" id="key_visual">
+        <section className="se1" id="key-visual">
             <div className="container fluid">
                 <div className="visual-wrap">
                     <div className="txt-box">

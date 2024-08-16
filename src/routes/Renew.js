@@ -72,10 +72,10 @@ function Renew() {
                     .addClass("active")
                     .prev()
                     .removeClass("active");
-                $("#loading_close").addClass("active");
+                $("#loading-close").addClass("active");
             }
             if (_time > 4100 && _time < 5100) {
-                $("#loading #phase2 .main_text").addClass("active");
+                $("#loading #phase2 .main-text").addClass("active");
             }
             if (_time > 5100 && _time < 5400) {
                 //phase3
@@ -85,7 +85,7 @@ function Renew() {
                     .removeClass("active");
             }
             if (_time > 5400 && _time < 6400) {
-                $("#loading #phase3 .main_text").addClass("active");
+                $("#loading #phase3 .main-text").addClass("active");
             }
             if (_time > 6400 && _time < 6700) {
                 //phase4
@@ -95,7 +95,7 @@ function Renew() {
                     .removeClass("active");
             }
             if (_time > 6700 && _time < 7700) {
-                $("#loading #phase4 .main_text").addClass("active");
+                $("#loading #phase4 .main-text").addClass("active");
             }
             if (_time > 7700 && _time < 9200) {
                 //phase5
@@ -105,7 +105,7 @@ function Renew() {
                     .removeClass("active");
                 $("#loading #phase5 .l1").addClass("active");
                 setTimeout(() => {
-                    $("#loading_close").removeClass("active");
+                    $("#loading-close").removeClass("active");
                 }, 1000);
             }
             if (_time > 9200 && _time < 10700) {
@@ -134,7 +134,7 @@ function Renew() {
         windowInit("loading error"); //스크롤 초기화
 
         //loading close
-        $("#loading_close").on("click", function (e) {
+        $("#loading-close").on("click", function (e) {
             e.preventDefault();
             clearInterval(_loadingTimer);
             $("#loading").fadeOut(1000);
@@ -147,7 +147,7 @@ function Renew() {
         _windowTop = $(window).scrollTop();
         _pageHeight = $(".renew").height() - _windowHeight;
         var _ratio = (_windowTop / _pageHeight) * 100;
-        $("#scroll_bar .current_indicator").css("top", _ratio + "%");
+        $("#scroll-bar .current-indicator").css("top", _ratio + "%");
     }
 
     function scrollFadein(tgt, sectionId) {
@@ -277,7 +277,7 @@ function Renew() {
                     //네비게이션 메뉴명 전환
                     if (_menuChange == "true") {
                         _menuName = _target.eq(i).attr("data-title");
-                        $("#menu_name .curr_name").text(_menuName);
+                        $("#menu-name .curr-name").text(_menuName);
                     }
                 }
             } else {
@@ -291,7 +291,7 @@ function Renew() {
                     //네비게이션 메뉴명 전환
                     if (_menuChange == "true") {
                         _menuName = _target.eq(i).attr("data-title");
-                        $("#menu_name .curr_name").text(_menuName);
+                        $("#menu-name .curr-name").text(_menuName);
                     }
                 }
             }
@@ -303,14 +303,14 @@ function Renew() {
         scrollBar();
         if (_windowTop === 0) {
             //windowInit
-            $(".main_content section").removeClass("active");
+            $(".main-content section").removeClass("active");
             $("#navi").removeClass("on");
         } else {
             $("#navi").addClass("on");
         }
 
-        //main_content
-        scrollClassing($(".main_content section"), "true", "false");
+        //main-content
+        scrollClassing($(".main-content section"), "true", "false");
 
         //main_bg
         _windowTop < _bgBaseline ? $("#canvas").show() : $("#canvas").hide();
@@ -319,10 +319,10 @@ function Renew() {
         if ($("#personality").hasClass("active")) _personalityActived = 1;
 
         //example
-        scrollFadein($("#major_wrap > .example1 img"), "example");
-        scrollFadein($("#major_wrap > .example2 img"), "example");
-        scrollFadein($("#major_wrap > .example3 img"), "example");
-        scrollFadein($("#major_wrap > .example4 img"), "example");
+        scrollFadein($("#major-wrap > .example1 img"), "example");
+        scrollFadein($("#major-wrap > .example2 img"), "example");
+        scrollFadein($("#major-wrap > .example3 img"), "example");
+        scrollFadein($("#major-wrap > .example4 img"), "example");
     });
     useEffect(() => {
         //common
@@ -345,11 +345,11 @@ function Renew() {
             console.log("loading skip..");
         }
 
-        scrollClassing($(".main_content section"), "false");
+        scrollClassing($(".main-content section"), "false");
         scrollBar(); //스크롤바
 
         //네비게이션
-        $("#menu_name .curr_name").on("click", function () {
+        $("#menu-name .curr-name").on("click", function () {
             $(".renew").toggleClass("blur");
             $("#navi").toggleClass("active");
         });
@@ -381,17 +381,17 @@ function Renew() {
         });
 
         //personality
-        var _personalityLength = $(".personality_li li").length - 1;
+        var _personalityLength = $(".personality-li li").length - 1;
         var _iconIdx = 0;
         var _personalityLoop = setInterval(() => {
             if (_personalityActived === 1) {
                 _iconIdx !== _personalityLength ? _iconIdx++ : (_iconIdx = 0);
-                $(".personality_li li")
+                $(".personality-li li")
                     .eq(_iconIdx)
                     .addClass("active")
                     .siblings()
                     .removeClass("active");
-                $(".personality_icon li")
+                $(".personality-icon li")
                     .eq(_iconIdx)
                     .addClass("active")
                     .siblings()
@@ -411,7 +411,7 @@ function Renew() {
             <Loading />
             {/* <Nav /> */}
 
-            <div className="main_content">
+            <div className="main-content">
                 {/* <MainView /> */}
                 <KeyVisual />
                 <History />

@@ -42,10 +42,10 @@ small {
 .icon {
     vertical-align: text-top;
 }
-.visible_xs {
+.visible-xs {
     display: none;
 }
-.hidden_xs {
+.hidden-xs {
     display: block;
 }
 .hidden {
@@ -72,7 +72,7 @@ small {
         clear: both;
     }
 }
-.flex_row {
+.flex-row {
     display: flex;
     margin-left: -16px;
     margin-right: -16px;

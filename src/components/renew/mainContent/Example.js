@@ -10,13 +10,13 @@ function Example() {
                 <h2 className="fade-in">Featured Projects.</h2>
             </div>
             <div className="container wide">
-                <div id="major_wrap">
+                <div id="major-wrap">
                     <article className="example1">
                         <img
                             src={exampleImg1}
                             alt="시사저널e - '신도시 30년'"
                         />
-                        <div className="txt_box">
+                        <div className="txt-box">
                             <h5>시사저널e - '신도시 30년'</h5>
                             <p className="period">
                                 레이아웃 기획 및 퍼블리싱{" "}
@@ -50,7 +50,7 @@ function Example() {
                     </article>
                     <article className="example2 reverse">
                         <img src={exampleImg2} alt="포항공과대학 기계공학과" />
-                        <div className="txt_box">
+                        <div className="txt-box">
                             <h5>포항공과대학교 기계공학과</h5>
                             <p className="period">
                                 레이아웃 기획 및 퍼블리싱, 기능 개발{" "}
@@ -86,7 +86,7 @@ function Example() {
                     </article>
                     <article className="example3">
                         <img src={exampleImg3} alt="한양3D팩토리" />
-                        <div className="txt_box">
+                        <div className="txt-box">
                             <h5>한양3D팩토리</h5>
                             <p className="period">
                                 퍼블리싱 및 반응형 작업 <span> / 6 Days</span>
@@ -120,7 +120,7 @@ function Example() {
                     </article>
                     <article className="example4 reverse">
                         <img src={exampleImg4} alt="오메르데이스파" />
-                        <div className="txt_box">
+                        <div className="txt-box">
                             <h5>오메르데이스파</h5>
                             <p className="period">
                                 레이아웃 기획 및 퍼블리싱 <span> / 5 Days</span>

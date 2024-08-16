@@ -79,10 +79,10 @@ function Home() {
                     .addClass("active")
                     .prev()
                     .removeClass("active");
-                $("#loading_close").addClass("active");
+                $("#loading-close").addClass("active");
             }
             if (_time > 4100 && _time < 5100) {
-                $("#loading #phase2 .main_text").addClass("active");
+                $("#loading #phase2 .main-text").addClass("active");
             }
             if (_time > 5100 && _time < 5400) {
                 //phase3
@@ -92,7 +92,7 @@ function Home() {
                     .removeClass("active");
             }
             if (_time > 5400 && _time < 6400) {
-                $("#loading #phase3 .main_text").addClass("active");
+                $("#loading #phase3 .main-text").addClass("active");
             }
             if (_time > 6400 && _time < 6700) {
                 //phase4
@@ -102,7 +102,7 @@ function Home() {
                     .removeClass("active");
             }
             if (_time > 6700 && _time < 7700) {
-                $("#loading #phase4 .main_text").addClass("active");
+                $("#loading #phase4 .main-text").addClass("active");
             }
             if (_time > 7700 && _time < 9200) {
                 //phase5
@@ -112,7 +112,7 @@ function Home() {
                     .removeClass("active");
                 $("#loading #phase5 .l1").addClass("active");
                 setTimeout(() => {
-                    $("#loading_close").removeClass("active");
+                    $("#loading-close").removeClass("active");
                 }, 1000);
             }
             if (_time > 9200 && _time < 10700) {
@@ -141,7 +141,7 @@ function Home() {
         windowInit("loading error"); //스크롤 초기화
 
         //loading close
-        $("#loading_close").on("click", function (e) {
+        $("#loading-close").on("click", function (e) {
             e.preventDefault();
             clearInterval(_loadingTimer);
             $("#loading").fadeOut(1000);
@@ -154,7 +154,7 @@ function Home() {
         _windowTop = $(window).scrollTop();
         _pageHeight = $("body").height() - _windowHeight;
         var _ratio = (_windowTop / _pageHeight) * 100;
-        $("#scroll_bar .current_indicator").css("top", _ratio + "%");
+        $("#scroll-bar .current-indicator").css("top", _ratio + "%");
     }
 
     function scrollFadein(tgt, sectionId) {
@@ -284,7 +284,7 @@ function Home() {
                     //네비게이션 메뉴명 전환
                     if (_menuChange === "true") {
                         _menuName = _target.eq(i).attr("data-title");
-                        $("#menu_name .curr_name").text(_menuName);
+                        $("#menu-name .curr-name").text(_menuName);
                     }
                 }
             } else {
@@ -298,20 +298,20 @@ function Home() {
                     //네비게이션 메뉴명 전환
                     if (_menuChange === "true") {
                         _menuName = _target.eq(i).attr("data-title");
-                        $("#menu_name .curr_name").text(_menuName);
+                        $("#menu-name .curr-name").text(_menuName);
                     }
                 }
             }
         }
 
-        var _activeIdx = $("#history_content .active").index();
+        var _activeIdx = $("#history-content .active").index();
         if (_activeIdx < 0) _activeIdx = 0; //history 이전 화면에서는 첫번째 요소를 활성화
-        $("#history_wrap .main_line span")
+        $("#history-wrap .main-line span")
             .eq(_activeIdx)
             .addClass("active")
             .siblings()
             .removeClass("active");
-        $("#history_wrap .sub_line span")
+        $("#history-wrap .sub-line span")
             .eq(_activeIdx)
             .addClass("active")
             .siblings()
@@ -323,30 +323,30 @@ function Home() {
         scrollBar();
         if (_windowTop === 0) {
             //windowInit
-            $(".main_content section").removeClass("active");
+            $(".main-content section").removeClass("active");
         }
 
-        //main_content
-        scrollClassing($(".main_content section"), "false", "true");
+        //main-content
+        scrollClassing($(".main-content section"), "false", "true");
 
         //main_bg
         _windowTop < _bgBaseline ? $("#main_bg").show() : $("#main_bg").hide();
 
         //history
-        scrollFadein($("#history_content > #at1"), "history");
-        scrollFadein($("#history_content > #at2"), "history");
-        scrollFadein($("#history_content > #at3"), "history");
-        scrollFadein($("#history_content > #at4"), "history");
-        scrollClassing($("#history_content > article"), "true");
+        scrollFadein($("#history-content > #at1"), "history");
+        scrollFadein($("#history-content > #at2"), "history");
+        scrollFadein($("#history-content > #at3"), "history");
+        scrollFadein($("#history-content > #at4"), "history");
+        scrollClassing($("#history-content > article"), "true");
 
         //personality
         if ($("#personality").hasClass("active")) _personalityActived = 1;
 
         //example
-        scrollFadein($("#major_wrap > .example1 img"), "example");
-        scrollFadein($("#major_wrap > .example2 img"), "example");
-        scrollFadein($("#major_wrap > .example3 img"), "example");
-        scrollFadein($("#major_wrap > .example4 img"), "example");
+        scrollFadein($("#major-wrap > .example1 img"), "example");
+        scrollFadein($("#major-wrap > .example2 img"), "example");
+        scrollFadein($("#major-wrap > .example3 img"), "example");
+        scrollFadein($("#major-wrap > .example4 img"), "example");
     });
     useEffect(() => {
         //common
@@ -363,11 +363,11 @@ function Home() {
             console.log("loading skip..");
         }
 
-        scrollClassing($(".main_content section"), "false");
+        scrollClassing($(".main-content section"), "false");
         scrollBar(); //스크롤바
 
         //네비게이션
-        $("#menu_name .curr_name").on("click", function () {
+        $("#menu-name .curr-name").on("click", function () {
             $(".home").toggleClass("blur");
             $("#navi").toggleClass("active");
         });
@@ -399,17 +399,17 @@ function Home() {
         });
 
         //personality
-        var _personalityLength = $(".personality_li li").length - 1;
+        var _personalityLength = $(".personality-li li").length - 1;
         var _iconIdx = 0;
         var _personalityLoop = setInterval(() => {
             if (_personalityActived === 1) {
                 _iconIdx !== _personalityLength ? _iconIdx++ : (_iconIdx = 0);
-                $(".personality_li li")
+                $(".personality-li li")
                     .eq(_iconIdx)
                     .addClass("active")
                     .siblings()
                     .removeClass("active");
-                $(".personality_icon li")
+                $(".personality-icon li")
                     .eq(_iconIdx)
                     .addClass("active")
                     .siblings()
@@ -453,27 +453,27 @@ function Home() {
                     </p>
                 </div>
                 <div id="phase2" className="trait light">
-                    <p className="main_text">
-                        <small className="sup_text">효율적으로일하고</small>
-                        <span className="text_c">Efficient</span>
-                        <span className="text_m">Efficient</span>
-                        <span className="text_y">Efficient</span>
+                    <p className="main-text">
+                        <small className="sup-text">효율적으로일하고</small>
+                        <span className="text-c">Efficient</span>
+                        <span className="text-m">Efficient</span>
+                        <span className="text-y">Efficient</span>
                     </p>
                 </div>
                 <div id="phase3" className="trait light">
-                    <p className="main_text">
-                        <small className="sup_text">협업을생각하며</small>
-                        <span className="text_c">Supportive</span>
-                        <span className="text_m">Supportive</span>
-                        <span className="text_y">Supportive</span>
+                    <p className="main-text">
+                        <small className="sup-text">협업을생각하며</small>
+                        <span className="text-c">Supportive</span>
+                        <span className="text-m">Supportive</span>
+                        <span className="text-y">Supportive</span>
                     </p>
                 </div>
                 <div id="phase4" className="trait light">
-                    <p className="main_text">
-                        <small className="sup_text">성장하는</small>
-                        <span className="text_c">Growing</span>
-                        <span className="text_m">Growing</span>
-                        <span className="text_y">Growing</span>
+                    <p className="main-text">
+                        <small className="sup-text">성장하는</small>
+                        <span className="text-c">Growing</span>
+                        <span className="text-m">Growing</span>
+                        <span className="text-y">Growing</span>
                     </p>
                 </div>
                 <div id="phase5" className="dark">
@@ -488,22 +488,22 @@ function Home() {
                         <span className="t3">Growing</span>
                     </p>
                 </div>
-                <button id="loading_close">SKIP</button>
+                <button id="loading-close">SKIP</button>
             </div>
             <nav id="navi">
                 <div className="container">
-                    <div className="flex_row">
+                    <div className="flex-row">
                         <div className="col">
-                            <div id="menu_name">
-                                <span className="curr_name">
+                            <div id="menu-name">
+                                <span className="curr-name">
                                     Sang-O's Portfolio
                                 </span>
                                 <span className="icon material-symbols-outlined">
                                     expand_more
                                 </span>
-                                <ul className="menu_list">
+                                <ul className="menu-list">
                                     <li>
-                                        <a data-use="scroll" href="#main_view">
+                                        <a data-use="scroll" href="#main-view">
                                             Main
                                         </a>
                                     </li>
@@ -544,7 +544,7 @@ function Home() {
                             </div>
                         </div>
                         <div className="col">
-                            <ul className="top_link">
+                            <ul className="top-link">
                                 <li className="resume">
                                     <Link to={`/resume`}>자기소개서 보기</Link>
                                 </li>
@@ -559,17 +559,17 @@ function Home() {
                 </div>
             </nav>
 
-            <div className="main_content">
+            <div className="main-content">
                 <section
                     className="se1"
-                    id="main_view"
+                    id="main-view"
                     data-title="Sang-O's Portfolio"
                 >
                     <video autoPlay muted loop playsInline id="main_bg">
                         <source src={mainBgImg} type="video/mp4" />
                     </video>
                     <div className="container wide">
-                        <h3 className="middle_title">
+                        <h3 className="middle-title">
                             <span className="t1">Efficient</span>
                             <span className="t2">Supportive</span>
                             <span className="t3">Growing</span>
@@ -577,15 +577,15 @@ function Home() {
                         {/*  마우스 위치에 따라 변화하는 요소 추가 */}
                     </div>
                 </section>
-                {/* //main_view*/}
+                {/* //main-view*/}
                 <section className="se2" id="intro" data-title="Introduce">
                     <div className="container">
-                        <h3 className="main_title">
+                        <h3 className="main-title">
                             단 <span className="emp">한 페이지</span>로 <br />
                             보여드립니다
                         </h3>
-                        <div className="summary_wrap">
-                            <div className="flex_row">
+                        <div className="summary-wrap">
+                            <div className="flex-row">
                                 <div className="col col_8">
                                     <dl data-acive="fadeup" data-active-idx="1">
                                         <dt>경력</dt>
@@ -624,10 +624,10 @@ function Home() {
                                     </dl>
                                 </div>
                             </div>
-                            <div className="flex_row">
+                            <div className="flex-row">
                                 <div className="col">
                                     <dl
-                                        className="skill_dl"
+                                        className="skill-dl"
                                         data-acive="fadeup"
                                         data-active-idx="2"
                                     >
@@ -651,7 +651,7 @@ function Home() {
                                 </div>
                                 <div className="col">
                                     <dl
-                                        className="skill_dl"
+                                        className="skill-dl"
                                         data-acive="fadeup"
                                         data-active-idx="2"
                                     >
@@ -686,7 +686,7 @@ function Home() {
                                 </div>
                                 <div className="col">
                                     <dl
-                                        className="skill_dl"
+                                        className="skill-dl"
                                         data-acive="fadeup"
                                         data-active-idx="2"
                                     >
@@ -716,58 +716,58 @@ function Home() {
                     data-title="Work Experience"
                 >
                     <div className="container">
-                        <div id="history_wrap">
-                            <div className="txt_box">
-                                <h3 className="main_line">
+                        <div id="history-wrap">
+                            <div className="txt-box">
+                                <h3 className="main-line">
                                     <span className="t1 active">
                                         모든 것이 새롭고{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         서툴렀던 신입에서{" "}
                                     </span>
                                     <span className="t2">
                                         작업물이 수상하는{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         기쁨을 맛보기도 하고{" "}
                                     </span>
                                     <span className="t3">
                                         파트장이라는 직책을 통해{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         다양한 경험을 쌓으며{" "}
                                     </span>
                                     <span className="t4">
                                         퍼블리싱을 너머 빌더{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         개발작업까지 해왔습니다
                                     </span>
                                 </h3>
-                                <p className="sub_line">
+                                <p className="sub-line">
                                     <span className="t1 active">
                                         기업 랜딩페이지, 대학교, 쇼핑몰 등{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         <strong>430여개 홈페이지</strong>를 제작
                                     </span>
                                     <span className="t2">
                                         시사저널e '신도시 30년'{" "}
-                                        <br className="visible_xs" />-{" "}
+                                        <br className="visible-xs" />-{" "}
                                         <strong>
                                             2020 인터넷신문 언론대상 수상
                                         </strong>
                                     </span>
                                     <span className="t3">
                                         신입사원 교육 / 제작 프로세스 개선 /{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         공용 컴포넌트 개발 등
                                     </span>
                                     <span className="t4">
                                         PHP/Codeigniter를 활용한{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         <strong>
                                             자사 빌더 기능개선 기획 및 개발
                                         </strong>
                                     </span>
                                 </p>
                             </div>
-                            <div id="history_content">
+                            <div id="history-content">
                                 <article id="at1">
                                     <h4 className="hidden">사무실 이미지</h4>
                                     {/*  <img src="img/2023ver/history.png" alt="history1" className="history_img"> */}
@@ -795,14 +795,14 @@ function Home() {
                     data-title="Personality"
                 >
                     <div className="container wide">
-                        <div className="flex_row personality_wrap">
-                            <div className="col col_8 txt_box">
-                                <h3 className="main_title">
+                        <div className="flex-row personality-wrap">
+                            <div className="col col_8 txt-box">
+                                <h3 className="main-title">
                                     <span className="emp">차분하고</span>{" "}
-                                    <br className="visible_xs" />
+                                    <br className="visible-xs" />
                                     <span className="emp">
                                         책임감
-                                    </span> 있으며 <br className="hidden_xs" />
+                                    </span> 있으며 <br className="hidden-xs" />
                                     <span className="emp">
                                         팀으로 일하는 것
                                     </span>
@@ -810,38 +810,38 @@ function Home() {
                                     중요하게 생각합니다
                                 </h3>
                                 <ul
-                                    className="personality_li"
+                                    className="personality-li"
                                     data-acive="fadeleft"
                                     data-active-idx="1"
                                 >
                                     <li className="active">
                                         {" "}
                                         모든 업무는 정해진 기간에{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         맞춰 정확히 마무리 합니다.
                                     </li>
                                     <li>
                                         {" "}
                                         불필요한 작업을 최소화하여{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         효율적인 작업환경을 구축합니다.
                                     </li>
                                     <li>
                                         {" "}
                                         홈페이지는 함께 완성해 나가는{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         작업임을 인지하고 협력합니다.
                                     </li>
                                     <li>
                                         {" "}
                                         늘 같은 위치에 머무르지 않고{" "}
-                                        <br className="visible_xs" />
+                                        <br className="visible-xs" />
                                         새로운 것들을 배웁니다.
                                     </li>
                                 </ul>
                             </div>
-                            <div className="col col_4 icon_box">
-                                <ul className="personality_icon">
+                            <div className="col col_4 icon-box">
+                                <ul className="personality-icon">
                                     <li className="active">
                                         {" "}
                                         <span className="clock material-symbols-outlined">
@@ -879,16 +879,16 @@ function Home() {
                 {/* //personality*/}
                 <section className="se5" id="project" data-title="Projects">
                     <div className="container">
-                        <h3 className="main_title">
-                            브랜드, 브랜드 <br className="visible_xs" />
+                        <h3 className="main-title">
+                            브랜드, 브랜드 <br className="visible-xs" />
                             그리고 <span className="emp">브랜드</span>
                         </h3>
-                        <p className="sub_title">
+                        <p className="sub-title">
                             <strong>브랜드의 정체성</strong>은 살리고,{" "}
-                            <br className="visible_xs" />
+                            <br className="visible-xs" />
                             <strong>가독성이 좋은 UX/UI</strong>를 고민합니다
                         </p>
-                        <div className="flex_row project_wrap">
+                        <div className="flex-row project-wrap">
                             <div className="col">
                                 <ul
                                     className="project_li"
@@ -1123,9 +1123,9 @@ function Home() {
                                 </ul>
                             </div>
                         </div>
-                        <p className="info_text">
+                        <p className="info-text">
                             * 텍스트 자료를 기반으로{" "}
-                            <br className="visible_xs" />
+                            <br className="visible-xs" />
                             레이아웃 구성 및 퍼블리싱 작업 기여
                         </p>
                     </div>
@@ -1133,19 +1133,19 @@ function Home() {
                 {/* //project*/}
                 <section className="se6" id="example" data-title="Major Works">
                     <div className="container">
-                        <h3 className="main_title">
+                        <h3 className="main-title">
                             <span className="emp">주요 프로젝트</span>가<br />
                             궁금하시다면
                         </h3>
                     </div>
                     <div className="container wide">
-                        <div id="major_wrap">
+                        <div id="major-wrap">
                             <article className="example1">
                                 <img
                                     src={exampleImg1}
                                     alt="시사저널e - '신도시 30년'"
                                 />
-                                <div className="txt_box">
+                                <div className="txt-box">
                                     <h5>시사저널e - '신도시 30년'</h5>
                                     <p className="period">
                                         레이아웃 기획 및 퍼블리싱{" "}
@@ -1183,7 +1183,7 @@ function Home() {
                                     src={exampleImg2}
                                     alt="포항공과대학 기계공학과"
                                 />
-                                <div className="txt_box">
+                                <div className="txt-box">
                                     <h5>포항공과대학교 기계공학과</h5>
                                     <p className="period">
                                         레이아웃 기획 및 퍼블리싱, 기능 개발{" "}
@@ -1220,7 +1220,7 @@ function Home() {
                             </article>
                             <article className="example3">
                                 <img src={exampleImg3} alt="한양3D팩토리" />
-                                <div className="txt_box">
+                                <div className="txt-box">
                                     <h5>한양3D팩토리</h5>
                                     <p className="period">
                                         퍼블리싱 및 반응형 작업{" "}
@@ -1256,7 +1256,7 @@ function Home() {
                             </article>
                             <article className="example4 reverse">
                                 <img src={exampleImg4} alt="오메르데이스파" />
-                                <div className="txt_box">
+                                <div className="txt-box">
                                     <h5>오메르데이스파</h5>
                                     <p className="period">
                                         레이아웃 기획 및 퍼블리싱{" "}
@@ -1294,13 +1294,13 @@ function Home() {
                 {/* //example*/}
                 <section className="se7" id="contact" data-title="Contact">
                     <div className="container">
-                        <h3 className="main_title">
+                        <h3 className="main-title">
                             이런 동료와 <br />
                             <span className="emp">함께 일하고</span>{" "}
-                            <br className="visible_xs" />
+                            <br className="visible-xs" />
                             싶으시다면?
                         </h3>
-                        <ul className="contact_li">
+                        <ul className="contact-li">
                             <li>
                                 <Link to={`/resume`}>
                                     자기소개서 보기
@@ -1323,17 +1323,17 @@ function Home() {
                                 </a>
                             </li>
                         </ul>
-                        <div className="profile_img">
+                        <div className="profile-img">
                             <img src={profileImg} alt="Sang-O lee profile" />
                         </div>
                     </div>
                 </section>
                 {/* //contact*/}
             </div>
-            {/*  //main_content */}
+            {/*  //main-content */}
             <footer id="footer">
                 <div className="container">
-                    <div className="flex_row">
+                    <div className="flex-row">
                         <div className="col">
                             <p className="des">
                                 이 웹사이트는 포트폴리오를 목적으로
@@ -1347,22 +1347,22 @@ function Home() {
                 </div>
             </footer>
             {/* //footer*/}
-            <aside id="nav_scroll">
-                <div id="scroll_bar">
+            <aside id="nav-scroll">
+                <div id="scroll-bar">
                     <div className="inner">
-                        <span className="current_indicator"></span>
+                        <span className="current-indicator"></span>
                     </div>
                 </div>
                 <a
                     data-use="scroll"
                     title="사이트 최상단 바로가기"
-                    id="scroll_top"
+                    id="scroll-top"
                     href="#body-layout"
                 >
                     {" "}
                 </a>
             </aside>
-            {/*  //nav_scroll */}
+            {/*  //nav-scroll */}
         </div>
     );
 }

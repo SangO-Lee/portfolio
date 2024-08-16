@@ -16,7 +16,7 @@ function Project() {
     const onClick = (e) => {
         const target = e.currentTarget;
         const projectName = target.getAttribute("data-img");
-        const container = document.querySelector(".project_wrap .bg");
+        const container = document.querySelector(".project-wrap .bg");
         const lists = document.querySelectorAll(".project_li li");
         const img = document.querySelector("#" + projectName);
         const imgHeight = img.clientHeight;
@@ -36,7 +36,7 @@ function Project() {
 
         //scroll effect
         function onScroll() {
-            const images = document.querySelectorAll(".project_wrap .bg a");
+            const images = document.querySelectorAll(".project-wrap .bg a");
             let closestImage = null;
             let closestDistance = Infinity;
 
@@ -71,7 +71,7 @@ function Project() {
         }
 
         document
-            .querySelector(".project_wrap .bg")
+            .querySelector(".project-wrap .bg")
             .addEventListener("scroll", onScroll);
     }, []);
     return (
@@ -82,7 +82,7 @@ function Project() {
                     <strong>브랜드의 정체성</strong>은 살리고,{" "}
                     <strong>가독성이 좋은 UX/UI</strong>를 고민합니다
                 </p>
-                <div className=" project_wrap">
+                <div className=" project-wrap">
                     <div className="inner">
                         <ul
                             className="project_li"
@@ -129,7 +129,7 @@ function Project() {
                         </div>
                     </div>
                 </div>
-                <div className="info_text">
+                <div className="info-text">
                     {activeProject ? (
                         <>
                             <p className="name">{activeProject.name}</p>

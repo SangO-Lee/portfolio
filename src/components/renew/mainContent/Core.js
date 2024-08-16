@@ -5,15 +5,15 @@ function Core() {
         <section className="se4" id="core" data-title="Introduce">
             <div className="container wide">
                 <h2 className="fade-in">Core Competencies.</h2>
-                <div className="summary_wrap">
-                    <div className="flex_row">
+                <div className="summary-wrap">
+                    <div className="flex-row">
                         {COMPETENCY.map((comp, index) => {
                             return (
                                 <div
                                     className={`col col_${comp.colWidth}`}
                                     key={index}
                                 >
-                                    <dl className="skill_dl">
+                                    <dl className="skill-dl">
                                         <dt>{comp.title}</dt>
                                         {comp.skills.map((skill, i) => (
                                             <dd

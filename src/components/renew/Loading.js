@@ -13,27 +13,27 @@ function Loading() {
                 </p>
             </div>
             <div id="phase2" className="trait light">
-                <p className="main_text">
-                    <small className="sup_text">효율적으로일하고</small>
-                    <span className="text_c">Efficient</span>
-                    <span className="text_m">Efficient</span>
-                    <span className="text_y">Efficient</span>
+                <p className="main-text">
+                    <small className="sup-text">효율적으로일하고</small>
+                    <span className="text-c">Efficient</span>
+                    <span className="text-m">Efficient</span>
+                    <span className="text-y">Efficient</span>
                 </p>
             </div>
             <div id="phase3" className="trait light">
-                <p className="main_text">
-                    <small className="sup_text">협업을생각하며</small>
-                    <span className="text_c">Supportive</span>
-                    <span className="text_m">Supportive</span>
-                    <span className="text_y">Supportive</span>
+                <p className="main-text">
+                    <small className="sup-text">협업을생각하며</small>
+                    <span className="text-c">Supportive</span>
+                    <span className="text-m">Supportive</span>
+                    <span className="text-y">Supportive</span>
                 </p>
             </div>
             <div id="phase4" className="trait light">
-                <p className="main_text">
-                    <small className="sup_text">성장하는</small>
-                    <span className="text_c">Growing</span>
-                    <span className="text_m">Growing</span>
-                    <span className="text_y">Growing</span>
+                <p className="main-text">
+                    <small className="sup-text">성장하는</small>
+                    <span className="text-c">Growing</span>
+                    <span className="text-m">Growing</span>
+                    <span className="text-y">Growing</span>
                 </p>
             </div>
             <div id="phase5" className="dark">
@@ -48,7 +48,7 @@ function Loading() {
                     <span className="t3">Growing</span>
                 </p>
             </div>
-            <button id="loading_close">SKIP</button>
+            <button id="loading-close">SKIP</button>
         </div>
     );
 }

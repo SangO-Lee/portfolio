@@ -9,7 +9,7 @@ function ScrollBar() {
         _windowTop = $(window).scrollTop();
         _pageHeight = $("body").height() - _windowHeight;
         var _ratio = (_windowTop / _pageHeight) * 100;
-        $("#scroll_bar .current_indicator").css("top", _ratio + "%");
+        $("#scroll-bar .current-indicator").css("top", _ratio + "%");
         // console.log(sts);
     }
 
@@ -21,16 +21,16 @@ function ScrollBar() {
         scrollBar("scroll bar - start"); //스크롤바
     });
     return (
-        <aside id="nav_scroll">
-            <div id="scroll_bar">
+        <aside id="nav-scroll">
+            <div id="scroll-bar">
                 <div className="inner">
-                    <span className="current_indicator"></span>
+                    <span className="current-indicator"></span>
                 </div>
             </div>
             <a
                 data-use="scroll"
                 title="사이트 최상단 바로가기"
-                id="scroll_top"
+                id="scroll-top"
                 href="#body-layout"
             >
                 {" "}

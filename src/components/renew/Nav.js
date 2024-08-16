@@ -4,18 +4,18 @@ function Nav() {
     return (
         <nav id="navi">
             <div className="container">
-                <div className="flex_row">
+                <div className="flex-row">
                     <div className="col">
-                        <div id="menu_name">
-                            <span className="curr_name">
+                        <div id="menu-name">
+                            <span className="curr-name">
                                 Sang-O's Portfolio
                             </span>
                             <span className="icon material-symbols-outlined">
                                 expand_more
                             </span>
-                            <ul className="menu_list">
+                            <ul className="menu-list">
                                 <li>
-                                    <a data-use="scroll" href="#key_visual">
+                                    <a data-use="scroll" href="#key-visual">
                                         Main
                                     </a>
                                 </li>
@@ -53,7 +53,7 @@ function Nav() {
                         </div>
                     </div>
                     <div className="col">
-                        <ul className="top_link">
+                        <ul className="top-link">
                             <li className="resume">
                                 <Link to={`/resume`}>자기소개서 보기</Link>
                             </li>

@@ -10,8 +10,8 @@ function History() {
     useEffect(() => {
         //scroll effect
         document.addEventListener("scroll", function () {
-            const historyWrap = document.querySelector("#history_wrap");
-            const scrollContent = document.querySelector("#history_content");
+            const historyWrap = document.querySelector("#history-wrap");
+            const scrollContent = document.querySelector("#history-content");
 
             const progressBar = document.querySelector(".progress-value");
 
@@ -44,11 +44,11 @@ function History() {
     return (
         <section className="se2" id="history" data-title="Work Experience">
             <div className="container wide">
-                <div id="history_wrap">
+                <div id="history-wrap">
                     <h2 className="fade-in">Work Experience.</h2>
-                    <div id="history_content">
+                    <div id="history-content">
                         <article id="at1">
-                            <h3 className="main_line">
+                            <h3 className="main-line">
                                 {" "}
                                 <strong className="text-highlight">
                                     430여 건
@@ -59,7 +59,7 @@ function History() {
                                     반응형 웹사이트 구축
                                 </strong>
                             </h3>
-                            <p className="sub_line">
+                            <p className="sub-line">
                                 다양한 고객 요구에 맞춘{" "}
                                 <br className="hidden" />
                                 맞춤형 솔루션 제공
@@ -71,7 +71,7 @@ function History() {
                             />
                         </article>
                         <article id="at2">
-                            <h3 className="main_line">
+                            <h3 className="main-line">
                                 신규 플랫폼 서비스의
                                 <br />
                                 <strong className="text-highlight">
@@ -79,7 +79,7 @@ function History() {
                                 </strong>{" "}
                                 수행
                             </h3>
-                            <p className="sub_line">
+                            <p className="sub-line">
                                 {" "}
                                 기획자, 디자이너, 개발자와의{" "}
                                 <br className="hidden" />
@@ -92,7 +92,7 @@ function History() {
                             />
                         </article>
                         <article id="at3">
-                            <h3 className="main_line">
+                            <h3 className="main-line">
                                 <strong className="text-highlight">
                                     월 290만 뷰
                                 </strong>
@@ -100,7 +100,7 @@ function History() {
                                 <br />
                                 플랫폼 검색엔진최적화 경험
                             </h3>
-                            <p className="sub_line">
+                            <p className="sub-line">
                                 {" "}
                                 웹 표준 및 웹 접근성 준수{" "}
                                 <br className="hidden" />
@@ -113,14 +113,14 @@ function History() {
                             />
                         </article>
                         <article id="at4" data-last="true">
-                            <h3 className="main_line">
+                            <h3 className="main-line">
                                 시사저널e '신도시 30년' <br />-{" "}
                                 <strong className="text-highlight">
                                     2020 인터넷신문 언론대상
                                 </strong>{" "}
                                 수상
                             </h3>
-                            <p className="sub_line">
+                            <p className="sub-line">
                                 우수 콘텐츠 품질
                                 <br className="hidden" /> 공식 인증 경험
                             </p>
