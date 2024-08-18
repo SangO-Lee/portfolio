@@ -26,7 +26,7 @@ function Renew() {
     var _baseline = _windowTop + _windowHeight;
     var _pageHeight = $(".renew").height() - $(window).height();
     var _bgBaseline = 1000;
-    var _personalityActived = -1;
+
     var _dev = 0; // 1= 인트로 생략 0=인트로 노출
 
     //로딩 세션스토리지 정의
@@ -315,9 +315,6 @@ function Renew() {
         //main_bg
         _windowTop < _bgBaseline ? $("#canvas").show() : $("#canvas").hide();
 
-        //personality
-        if ($("#personality").hasClass("active")) _personalityActived = 1;
-
         //example
         scrollFadein($("#major-wrap > .example1 img"), "example");
         scrollFadein($("#major-wrap > .example2 img"), "example");
@@ -380,29 +377,8 @@ function Renew() {
             return false;
         });
 
-        //personality
-        var _personalityLength = $(".personality-li li").length - 1;
-        var _iconIdx = 0;
-        var _personalityLoop = setInterval(() => {
-            if (_personalityActived === 1) {
-                _iconIdx !== _personalityLength ? _iconIdx++ : (_iconIdx = 0);
-                $(".personality-li li")
-                    .eq(_iconIdx)
-                    .addClass("active")
-                    .siblings()
-                    .removeClass("active");
-                $(".personality-icon li")
-                    .eq(_iconIdx)
-                    .addClass("active")
-                    .siblings()
-                    .removeClass("active");
-            }
-        }, 2000);
-
         return () => {
-            // 컴포넌트 언마운트 시 이벤트 리스너 제거
             $(window).off("scroll");
-            clearInterval(_personalityLoop);
         };
     }, []);
 
@@ -422,6 +398,7 @@ function Renew() {
                 <Contact />
             </div>
             <Footer />
+
             {/* <ScrollBar /> */}
         </div>
     );

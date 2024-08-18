@@ -718,91 +718,6 @@
         opacity: 1;
         right: 60%;
     }
-    /* contact */
-    #contact {
-        margin-bottom: 52.4px;
-        padding-top: 180px;
-    }
-    #contact .main-title {
-        margin-bottom: 45px;
-        text-align: center;
-    }
-    #contact .contact-li {
-        margin-bottom: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #contact .contact-li li {
-        padding: 0 15px;
-        font-size: 20px;
-    }
-    #contact .contact-li li a:hover {
-        text-decoration: underline;
-    }
-    #contact .contact-li .icon {
-        margin-left: -5px;
-    }
-    .profile-img {
-        position: relative;
-        width: 300px;
-        height: 300px;
-        margin: 0 auto;
-        padding: 1px;
-        animation-duration: 1.5s;
-        animation-timing-function: ease-in;
-        animation-fill-mode: forwards;
-    }
-    .profile-img:before,
-    .profile-img:after {
-        content: "";
-        z-index: 0;
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: linear-gradient(327deg, #4242f7, #ff609b, #a340e4);
-        background: linear-gradient(327deg, #f7426f, #ffe260, #14ebd2);
-        animation-name: rotateBg;
-        animation-duration: 5s;
-        animation-iteration-count: infinite;
-    }
-    .profile-img:before {
-        filter: blur(10px);
-    }
-    .profile-img img {
-        z-index: 10;
-        display: block;
-        position: relative;
-        border-radius: 50%;
-    }
-    @keyframes rotateBg {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    /* footer */
-    #footer {
-        z-index: 0;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        padding: 15px 0;
-        font-size: 14px;
-        color: #86868b;
-        background: #161617;
-    }
-    #footer .copy {
-        text-align: right;
-    }
 }
 
 /* responsive */
@@ -1067,8 +982,6 @@
 }
 
 /* 새로 작성하는 코드 */
-$section-bg: #101021;
-
 .renew {
     //common
     section {
@@ -1109,6 +1022,8 @@ $section-bg: #101021;
         background: linear-gradient(90deg, $section-bg, #0b0b17, $section-bg);
         .container {
             height: 100%;
+            padding: 0;
+            margin: 0;
         }
         h2 {
             color: $white;
@@ -1216,10 +1131,7 @@ $section-bg: #101021;
         .sub-line {
             margin: 0 0 40px;
             @include sub-title;
-            strong {
-                color: #fff;
-                font-weight: 600;
-            }
+            color: $gray100;
         }
 
         #history-content {
@@ -1724,6 +1636,324 @@ $section-bg: #101021;
         }
         100% {
             transform: translateY(0);
+        }
+    }
+
+    /* contact */
+    #contact {
+        position: relative;
+        margin-bottom: 52.4px;
+        padding-top: 180px;
+        .container {
+            z-index: 10;
+            position: relative;
+        }
+        .main-quote {
+            margin-bottom: 80px;
+            text-align: center;
+            line-height: 1.2;
+            .emp {
+                @include text-gradient;
+            }
+        }
+
+        .profile-img {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 80px;
+            padding: 1px;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+
+            &::after,
+            &::before,
+            .aura {
+                content: "";
+                z-index: 0;
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                filter: blur(20px);
+                background: linear-gradient(327deg, #f7426f, #ffe260, #14ebd2, #478bff);
+            }
+            &::after {
+                z-index: 1;
+                filter: blur(6px);
+                background: linear-gradient(327deg, #5b0c20, #fff, #055d53, #123d86);
+                animation-name: rotateBg;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                mix-blend-mode: hard-light;
+            }
+            @keyframes rotateBg {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .inner {
+                z-index: 10;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+            }
+            img {
+                display: block;
+                aspect-ratio: 1 / 1;
+                max-width: none;
+                object-fit: cover;
+                width: 330px;
+                height: 330px;
+            }
+        }
+
+        .contact-li {
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            li {
+                padding: 0 15px;
+                font-size: 20px;
+                .button {
+                    position: relative;
+                    display: flex;
+                    padding: 0 28px;
+                    height: 40px;
+                    justify-content: center;
+                    align-items: center;
+                    background: transparent;
+                    border: 0;
+                    cursor: pointer;
+
+                    border-radius: 40px;
+                    @include sub-title;
+                    color: $primary;
+
+                    &::before,
+                    .bg {
+                        content: "";
+                        display: block;
+                        background: $primary;
+                        z-index: 11;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 40px;
+                        mix-blend-mode: plus-lighter;
+                        transform: translate(-50%, -50%) scale(0);
+                    }
+                    &.active .bg {
+                        animation-name: button-hover;
+                        animation-duration: 0.4s;
+                        animation-fill-mode: forwards;
+                    }
+                    &.out::before {
+                        animation-direction: reverse;
+                        animation-name: button-hover;
+                        animation-duration: 0.4s;
+                        animation-fill-mode: forwards;
+                    }
+                    .value {
+                        position: relative;
+                        z-index: 10;
+                    }
+                }
+            }
+        }
+        @keyframes button-hover {
+            0% {
+                margin-top: 40px;
+                transform: translate(-50%, -50%) scale(0);
+                width: 40px;
+            }
+            30% {
+                margin-top: 0px;
+                transform: translate(-50%, -50%) scale(1);
+                width: 40px;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                width: 100%;
+            }
+        }
+        .description {
+            @include body-text;
+            text-align: center;
+            color: $gray200;
+        }
+
+        .star-container {
+            z-index: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .shooting-star {
+            z-index: 0;
+            position: absolute;
+            width: 3px;
+            height: 80px;
+            background: linear-gradient(-45deg, #ffffff, #ebd64a, #000);
+            transform: rotate(45deg);
+            opacity: 0;
+            animation: shooting 2s linear infinite;
+        }
+        @keyframes shooting {
+            from {
+                opacity: 0.3;
+                transform: translate(20vw, -20vh) rotate(45deg);
+            }
+            to {
+                opacity: 0;
+                transform: translate(-20vw, 70vh) rotate(45deg);
+            }
+        }
+    }
+
+    /* footer */
+    #footer {
+        z-index: 0;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 15px 0;
+        font-size: 14px;
+        color: $gray600;
+        background: #161617;
+        .copy {
+            text-align: right;
+        }
+    }
+
+    //toast message
+    #toast-message {
+        z-index: 1000;
+        height: 60px;
+        position: fixed;
+        left: 50%;
+        bottom: 15vh;
+        width: fit-content;
+        max-width: 100%;
+        transform: translateX(-50%);
+        border-radius: 4px;
+
+        overflow: hidden;
+
+        .inner {
+            z-index: 1000;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+        }
+
+        .message {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            @include sub-title;
+            color: $gray50;
+            gap: 8px;
+            transition: all 0.4s ease-in-out 0.4s;
+            opacity: 0;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            z-index: 900;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            display: block;
+            width: 0;
+            height: 0;
+            background: $primary900;
+            transform: translate(-50%, -50%);
+            border-radius: 4px;
+        }
+
+        &.active {
+            .inner {
+                width: 100%;
+                height: 100%;
+                padding: 0 80px;
+                visibility: visible;
+
+                .message {
+                    animation-name: message-show;
+                    animation-duration: 0.6s;
+                    animation-fill-mode: forwards;
+                    animation-delay: 0.4s;
+                }
+            }
+
+            &::before {
+                animation-name: message-bg-show;
+                animation-duration: 0.6s;
+                animation-fill-mode: forwards;
+            }
+        }
+        &.fade {
+            &::after {
+                animation-direction: reverse;
+                animation-name: message-bg-show;
+                animation-duration: 0.6s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+
+    @keyframes message-show {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes message-bg-show {
+        0% {
+            margin-top: 60px;
+            width: 0;
+            height: 0;
+        }
+        30% {
+            margin-top: 0;
+            width: 60px;
+            height: 60px;
+        }
+        100% {
+            width: 100%;
+            height: 60px;
         }
     }
 }

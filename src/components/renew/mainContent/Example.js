@@ -7,7 +7,7 @@ function Example() {
     return (
         <section className="se3" id="example" data-title="Major Works">
             <div className="container wide">
-                <h2 className="fade-in">Featured Projects.</h2>
+                <h2 className="fade-in">Web APP Project.</h2>
             </div>
             <div className="container wide">
                 <div id="major-wrap">

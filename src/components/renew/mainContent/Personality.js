@@ -1,10 +1,61 @@
+import { useEffect, useState } from "react";
+
 function Personality() {
+    const [isActive, setIsActive] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        const section = document.querySelector("#personality");
+        const onScroll = () => {
+            if (section.classList.contains("active")) {
+                setIsActive(true);
+            }
+        };
+        window.addEventListener("scroll", onScroll);
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+        };
+    }, []);
+
+    // isActive가 변경될 때마다 새로 setInterval 설정
+    useEffect(() => {
+        const personalityList = document.querySelectorAll(".personality-li li");
+        const personalityLength = personalityList.length;
+
+        const _personalityLoop = setInterval(() => {
+            if (isActive) {
+                setActiveIndex((prevIndex) =>
+                    prevIndex !== personalityLength - 1 ? prevIndex + 1 : 0
+                );
+            }
+        }, 2000);
+
+        return () => {
+            clearInterval(_personalityLoop);
+        };
+    }, [isActive]);
+
+    // activeIndex가 변경될 때마다 실행
+    useEffect(() => {
+        const personalityList = document.querySelectorAll(".personality-li li");
+        const personalityIcons = document.querySelectorAll(
+            ".personality-icon li"
+        );
+
+        personalityList.forEach((element, index) => {
+            element.classList.toggle("active", index === activeIndex);
+        });
+        personalityIcons.forEach((element, index) => {
+            element.classList.toggle("active", index === activeIndex);
+        });
+    }, [activeIndex]);
+
     return (
         <section className="se4" id="personality" data-title="Personality">
             <div className="container wide">
                 <div className="flex-row personality-wrap">
                     <div className="col col_8 txt-box">
-                        {/* <h2>Personal Traits.</h2> */}
                         <h2 className="main-quote">
                             <span className="emp">차분하고</span>{" "}
                             <br className="visible-xs" />

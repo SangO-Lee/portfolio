@@ -139,7 +139,7 @@ function Project() {
                                 </span>{" "}
                                 /{" "}
                                 <span className="duration">
-                                    {activeProject.duration} Days
+                                    반응형 웹 / {activeProject.duration} Days
                                 </span>
                             </p>
                             <p className="skills">

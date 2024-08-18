@@ -6,24 +6,25 @@ import { useState, useEffect } from "react";
 
 function History() {
     const [isProgess, setIsProgress] = useState(false);
+    const onScroll = () => {
+        const historyWrap = document.querySelector("#history-wrap");
+        const scrollContent = document.querySelector("#history-content");
+
+        const progressBar = document.querySelector(".progress-value");
+
+        // 섹션의 위치 및 높이를 계산
+        const sectionOffset = historyWrap.offsetTop;
+        const scrollDistance =
+            ((sectionOffset - 120) / historyWrap.offsetHeight) * 100;
+
+        scrollContent.style.left = `-${scrollDistance}%`;
+        progressBar.style.width = `${scrollDistance / 2}%`;
+        setIsProgress(scrollDistance > 0 && scrollDistance / 2 < 100);
+    };
 
     useEffect(() => {
         //scroll effect
-        document.addEventListener("scroll", function () {
-            const historyWrap = document.querySelector("#history-wrap");
-            const scrollContent = document.querySelector("#history-content");
-
-            const progressBar = document.querySelector(".progress-value");
-
-            // 섹션의 위치 및 높이를 계산
-            const sectionOffset = historyWrap.offsetTop;
-            const scrollDistance =
-                ((sectionOffset - 120) / historyWrap.offsetHeight) * 100;
-
-            scrollContent.style.left = `-${scrollDistance}%`;
-            progressBar.style.width = `${scrollDistance / 2}%`;
-            setIsProgress(scrollDistance > 0 && scrollDistance / 2 < 100);
-        });
+        document.addEventListener("scroll", onScroll);
 
         //progress bar
         const rotatingTargetObject = document.querySelector(
@@ -32,7 +33,7 @@ function History() {
         document.addEventListener("mousemove", function (event) {
             if (rotatingTargetObject) {
                 const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+                // const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
                 // const rotateX = mouseY * 25;
                 const rotateY = mouseX * 25;
                 rotatingTargetObject.style.transform = `rotateX(5deg)  rotateY(${rotateY}deg)`;
@@ -40,6 +41,10 @@ function History() {
                 console.error("rotatingTargetObject is not initialized.");
             }
         });
+
+        return () => {
+            document.removeEventListener("scroll", onScroll);
+        };
     }, []);
     return (
         <section className="se2" id="history" data-title="Work Experience">
