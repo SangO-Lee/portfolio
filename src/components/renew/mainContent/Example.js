@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MENU from "data/menu";
 import mockup from "assets/img/renew/mockup.png";
 import appIcon from "assets/img/renew/app_icon.webp";
 
@@ -47,7 +48,7 @@ function Example() {
     }, []);
 
     return (
-        <section className="se3" id="example" data-title="Major Works">
+        <section className="se3" id={MENU[2].id}>
             <article className="at1">
                 <div className="container fluid">
                     <div className="webapp-wrap">

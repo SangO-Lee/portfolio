@@ -8,13 +8,13 @@ import Loading from "components/renew/Loading";
 import Nav from "components/renew/Nav";
 import Footer from "components/renew/Footer";
 import ScrollBar from "components/renew/ScrollBar";
-import MainView from "components/renew/mainContent/MainView";
 import Core from "components/renew/mainContent/Core";
 import History from "components/renew/mainContent/History";
 import Personality from "components/renew/mainContent/Personality";
 import Project from "components/renew/mainContent/Project";
 import Example from "components/renew/mainContent/Example";
 import Contact from "components/renew/mainContent/Contact";
+import Floating from "components/renew/mainContent/Floating";
 
 //renew
 import KeyVisual from "components/renew/KeyVisual";
@@ -26,6 +26,7 @@ function Renew() {
     var _baseline = _windowTop + _windowHeight;
     var _pageHeight = $(".renew").height() - $(window).height();
     const [bgBaseline, setBgBaseline] = useState(1000);
+    const [isVisibleFloating, setIsVisibleFloating] = useState(false);
 
     var _dev = 0; // 1= 인트로 생략 0=인트로 노출
 
@@ -315,11 +316,10 @@ function Renew() {
         //main_bg
         _windowTop < bgBaseline ? $("#canvas").show() : $("#canvas").hide();
 
-        //example
-        // scrollFadein($("#major-wrap > .example1 img"), "example");
-        // scrollFadein($("#major-wrap > .example2 img"), "example");
-        // scrollFadein($("#major-wrap > .example3 img"), "example");
-        // scrollFadein($("#major-wrap > .example4 img"), "example");
+        const historyTop = document.querySelector("#history").offsetTop;
+        if (_windowTop > historyTop) {
+            setIsVisibleFloating(true);
+        }
     });
     useEffect(() => {
         //common
@@ -386,11 +386,10 @@ function Renew() {
 
     return (
         <div className="renew">
-            <Loading />
+            {/* <Loading /> */}
             {/* <Nav /> */}
 
             <div className="main-content">
-                {/* <MainView /> */}
                 <KeyVisual />
                 <History />
                 <Example />
@@ -401,7 +400,7 @@ function Renew() {
             </div>
             <Footer />
 
-            {/* <ScrollBar /> */}
+            <Floating isVisibleFloating={isVisibleFloating} />
         </div>
     );
 }

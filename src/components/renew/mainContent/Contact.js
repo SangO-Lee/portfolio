@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import profileImg from "assets/img/2023ver/profile.jpg";
 import { useEffect, useState } from "react";
 import ToastMessage from "components/renew/ToastMessage";
+import MENU from "data/menu";
+import profileImg from "assets/img/2023ver/profile.jpg";
 
 function Contact() {
     const [toast, setToast] = useState(null);
@@ -93,7 +94,7 @@ function Contact() {
         };
     }, []);
     return (
-        <section className="se7" id="contact" data-title="Contact">
+        <section className="se7" id={MENU[6].id}>
             <div className="star-container"></div>
             <div className="container">
                 <h2 className="main-quote">

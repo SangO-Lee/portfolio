@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PROJECTS from "data/project";
+import MENU from "data/menu";
 
 function Project() {
     const [activeProject, setActiveProject] = useState(PROJECTS[0]);
@@ -75,7 +76,7 @@ function Project() {
             .addEventListener("scroll", onScroll);
     }, []);
     return (
-        <section className="se5" id="project" data-title="Projects">
+        <section className="se4" id={MENU[3].id}>
             <div className="container wide">
                 <h2>Other Projects.</h2>
                 <p className="sub-title">

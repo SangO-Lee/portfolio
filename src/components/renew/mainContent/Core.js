@@ -1,8 +1,9 @@
 import COMPETENCY from "data/competency";
+import MENU from "data/menu";
 
 function Core() {
     return (
-        <section className="se4" id="core" data-title="Introduce">
+        <section className="se5" id={MENU[4].id}>
             <div className="container wide">
                 <h2>Core Competencies.</h2>
                 <div className="summary-wrap">

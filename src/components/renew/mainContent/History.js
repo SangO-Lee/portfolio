@@ -3,6 +3,7 @@ import historyImg2 from "assets/img/renew/history2.webp";
 import historyImg3 from "assets/img/renew/history3.webp";
 import historyImg4 from "assets/img/renew/history4.webp";
 import { useState, useEffect } from "react";
+import MENU from "data/menu";
 
 function History() {
     const [isProgess, setIsProgress] = useState(false);
@@ -47,7 +48,7 @@ function History() {
         };
     }, []);
     return (
-        <section className="se2" id="history" data-title="Work Experience">
+        <section className="se2" id={MENU[1].id}>
             <div className="container wide">
                 <div id="history-wrap">
                     <h2>Work Experience.</h2>

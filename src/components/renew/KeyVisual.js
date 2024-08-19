@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { AnimationMixer } from "three";
+import MENU from "data/menu";
 
 import renderSrc from "../../assets/img/renew/mechanical_keyboard.glb";
 //technotron
@@ -177,7 +178,7 @@ function KeyVisual() {
     }, []);
 
     return (
-        <section className="se1" id="key-visual">
+        <section className="se1" id={MENU[0].id}>
             <div className="container fluid">
                 <div className="visual-wrap">
                     <div className="txt-box">

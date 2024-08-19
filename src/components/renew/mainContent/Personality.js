@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import MENU from "data/menu";
 
 function Personality() {
     const [isActive, setIsActive] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
-        const section = document.querySelector("#personality");
+        const section = document.querySelector(`#${MENU[5].id}`);
         const onScroll = () => {
             if (section.classList.contains("active")) {
                 setIsActive(true);
@@ -52,7 +53,7 @@ function Personality() {
     }, [activeIndex]);
 
     return (
-        <section className="se4" id="personality" data-title="Personality">
+        <section className="se6" id={MENU[5].id}>
             <div className="container wide">
                 <div className="flex-row personality-wrap">
                     <div className="col col_8 txt-box">
