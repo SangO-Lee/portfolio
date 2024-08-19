@@ -5,9 +5,7 @@ import { useEffect, useState } from "react";
 
 //components
 import Loading from "components/renew/Loading";
-import Nav from "components/renew/Nav";
 import Footer from "components/renew/Footer";
-import ScrollBar from "components/renew/ScrollBar";
 import Core from "components/renew/mainContent/Core";
 import History from "components/renew/mainContent/History";
 import Personality from "components/renew/mainContent/Personality";
@@ -387,8 +385,6 @@ function Renew() {
     return (
         <div className="renew">
             {/* <Loading /> */}
-            {/* <Nav /> */}
-
             <div className="main-content">
                 <KeyVisual />
                 <History />

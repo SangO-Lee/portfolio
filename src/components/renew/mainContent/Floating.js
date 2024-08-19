@@ -129,13 +129,12 @@ function Floating(isVisibleFloating) {
                         </button>
                     </li>
                 </ul>
-
-                <ToastMessage
-                    message={toast?.message}
-                    icon={toast?.icon}
-                    time={toast?.time}
-                />
             </div>
+            <ToastMessage
+                message={toast?.message}
+                icon={toast?.icon}
+                time={toast?.time}
+            />
         </>
     );
 }

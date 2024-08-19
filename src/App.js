@@ -9,9 +9,9 @@ function App() {
         <>
             <Router basename={`${process.env.PUBLIC_URL}`}>
                 <Routes>
-                    <Route path={`/`} element={<Home />}></Route>
+                    <Route path={`/`} element={<Renew />}></Route>
                     <Route path={`/resume`} element={<Resume />}></Route>
-                    <Route path={`/renew`} element={<Renew />}></Route>
+                    <Route path={`/2023`} element={<Home />}></Route>
                 </Routes>
             </Router>
         </>
