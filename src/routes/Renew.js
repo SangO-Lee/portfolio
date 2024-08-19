@@ -1,7 +1,7 @@
 //legacy
 import $ from "jquery";
 import "jquery-easing";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 //components
 import Loading from "components/renew/Loading";
@@ -25,7 +25,7 @@ function Renew() {
     var _windowHeight = $(window).height();
     var _baseline = _windowTop + _windowHeight;
     var _pageHeight = $(".renew").height() - $(window).height();
-    var _bgBaseline = 1000;
+    const [bgBaseline, setBgBaseline] = useState(1000);
 
     var _dev = 0; // 1= 인트로 생략 0=인트로 노출
 
@@ -151,7 +151,7 @@ function Renew() {
     }
 
     function scrollFadein(tgt, sectionId) {
-        _baseline = _windowTop + _windowHeight;
+        setBgBaseline(_windowTop + _windowHeight);
         var _target = tgt; //섹션에 해당하는 엘리멘트
         var _sectionId = sectionId; //특정 섹션 구분자
 
@@ -313,17 +313,19 @@ function Renew() {
         scrollClassing($(".main-content section"), "true", "false");
 
         //main_bg
-        _windowTop < _bgBaseline ? $("#canvas").show() : $("#canvas").hide();
+        _windowTop < bgBaseline ? $("#canvas").show() : $("#canvas").hide();
 
         //example
-        scrollFadein($("#major-wrap > .example1 img"), "example");
-        scrollFadein($("#major-wrap > .example2 img"), "example");
-        scrollFadein($("#major-wrap > .example3 img"), "example");
-        scrollFadein($("#major-wrap > .example4 img"), "example");
+        // scrollFadein($("#major-wrap > .example1 img"), "example");
+        // scrollFadein($("#major-wrap > .example2 img"), "example");
+        // scrollFadein($("#major-wrap > .example3 img"), "example");
+        // scrollFadein($("#major-wrap > .example4 img"), "example");
     });
     useEffect(() => {
         //common
-        _bgBaseline = $("#example").offset().top; //main_bg 토글 baseline
+        const bgBaselineCalc = $(".main-content section").eq(3).offset().top;
+        setBgBaseline(bgBaselineCalc); //main_bg 토글 baseline
+
         if (_windowTop === 0) {
             //windowInit
             $("#navi").removeClass("on");

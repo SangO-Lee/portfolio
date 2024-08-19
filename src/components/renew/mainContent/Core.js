@@ -4,7 +4,7 @@ function Core() {
     return (
         <section className="se4" id="core" data-title="Introduce">
             <div className="container wide">
-                <h2 className="fade-in">Core Competencies.</h2>
+                <h2>Core Competencies.</h2>
                 <div className="summary-wrap">
                     <div className="flex-row">
                         {COMPETENCY.map((comp, index) => {

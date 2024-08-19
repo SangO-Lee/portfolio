@@ -1,156 +1,123 @@
-import exampleImg1 from "assets/img/2023ver/example1.jpg";
-import exampleImg2 from "assets/img/2023ver/example2.jpg";
-import exampleImg3 from "assets/img/2023ver/example3.jpg";
-import exampleImg4 from "assets/img/2023ver/example4.jpg";
+import { useEffect, useState } from "react";
+import mockup from "assets/img/renew/mockup.png";
+import appIcon from "assets/img/renew/app_icon.webp";
 
 function Example() {
+    const [progress, setProgress] = useState(0);
+    const [isActive, setIsActive] = useState(false);
+    const onScroll = () => {
+        const mobileWrap = document.querySelector(".mobile-wrap");
+        const appScreen = document.querySelector(".app-screen");
+
+        // 섹션의 위치 및 높이를 계산
+        const sectionOffset = mobileWrap.offsetTop;
+        const scrollDistance =
+            ((sectionOffset - 120) / mobileWrap.offsetHeight) * 100;
+
+        const calcWidth = -0.88 * scrollDistance + 100;
+        const calcHeight = -0.465 * scrollDistance + 100;
+        const calcPositionTop = 0.232 * scrollDistance;
+        const calcBoardRadius = 0.3 * scrollDistance;
+        if (appScreen) {
+            appScreen.style.width = `${calcWidth}%`;
+            appScreen.style.height = `${calcHeight}%`;
+            appScreen.style.top = `${calcPositionTop}%`;
+            appScreen.style.borderRadius = `${calcBoardRadius}px`;
+        }
+
+        setProgress(scrollDistance);
+    };
+
+    useEffect(() => {
+        if (progress >= 100) {
+            setProgress(100);
+            setIsActive(true);
+        } else {
+            setIsActive(false);
+        }
+    }, [progress]);
+
+    useEffect(() => {
+        //scroll effect
+        document.addEventListener("scroll", onScroll);
+
+        return () => {
+            document.removeEventListener("scroll", onScroll);
+        };
+    }, []);
+
     return (
         <section className="se3" id="example" data-title="Major Works">
-            <div className="container wide">
-                <h2 className="fade-in">Web APP Project.</h2>
-            </div>
-            <div className="container wide">
-                <div id="major-wrap">
-                    <article className="example1">
-                        <img
-                            src={exampleImg1}
-                            alt="시사저널e - '신도시 30년'"
-                        />
-                        <div className="txt-box">
-                            <h5>시사저널e - '신도시 30년'</h5>
-                            <p className="period">
-                                레이아웃 기획 및 퍼블리싱{" "}
-                                <span> / 18 Days</span>
-                            </p>
-                            <p className="des">
-                                시사저널e의 특별기획 프로젝트로{" "}
-                                <strong>
-                                    '2020 인터넷신문 언론대상을 수상'
-                                </strong>
-                                했습니다. 전반적으로 매거진과 같은 느낌을
-                                주기위해 다양한 레이아웃으로 텍스트를
-                                배치하였습니다. 가독성을 놓치지 않으면서 디지털
-                                뉴스만의 이점으로 시각화 자료를 쉽게 비교하여 볼
-                                수 있도록 작업하였습니다.
-                            </p>
-                            <a
-                                href="http://newtown.sisajournal-e.com/"
-                                title="시사저널e - '신도시 30년'"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="more"
-                            >
-                                사이트 살펴보기
-                                <span className="icon material-symbols-outlined">
-                                    {" "}
-                                    arrow_right{" "}
-                                </span>
-                            </a>
+            <article className="at1">
+                <div className="container fluid">
+                    <div className="webapp-wrap">
+                        <div className={`mobile-wrap   ${isActive && "on"}`}>
+                            <div className={`app-screen`}>
+                                <div className="screen-img"></div>
+                            </div>
+                            <div className="img-container">
+                                <div className="sample-screen"></div>
+                                <div className="camera"></div>
+                                <div className="tab-bar"></div>
+                                <img
+                                    src={mockup}
+                                    alt="iphone mockup"
+                                    className="mockup-img"
+                                />
+                            </div>
                         </div>
-                    </article>
-                    <article className="example2 reverse">
-                        <img src={exampleImg2} alt="포항공과대학 기계공학과" />
-                        <div className="txt-box">
-                            <h5>포항공과대학교 기계공학과</h5>
-                            <p className="period">
-                                레이아웃 기획 및 퍼블리싱, 기능 개발{" "}
-                                <span> / 14 Days</span>
-                            </p>
-                            <p className="des">
-                                포항공과대학교 학과 작업 중 첫 번째
-                                작업물입니다. 메인페이지에서 학과 관련 정보를
-                                쉽게 찾아볼 수 있고,{" "}
-                                <strong>다국어 기능</strong>을 지원합니다.
-                                고객의 니즈에 따라,{" "}
-                                <strong>
-                                    기본 빌더 기능을 개선하는 개발 작업
-                                </strong>
-                                도 함께 진행하였습니다.
-                                <br />
-                                (* 메인 캘린더 위젯 / 유튜브 게시판 기능 추가)
-                            </p>
-                            <a
-                                href="https://me.postech.ac.kr/"
-                                title="포항공과대학 기계공학과"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="more"
-                            >
-                                사이트 살펴보기
-                                <span className="icon material-symbols-outlined">
-                                    {" "}
-                                    arrow_right{" "}
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-                    <article className="example3">
-                        <img src={exampleImg3} alt="한양3D팩토리" />
-                        <div className="txt-box">
-                            <h5>한양3D팩토리</h5>
-                            <p className="period">
-                                퍼블리싱 및 반응형 작업 <span> / 6 Days</span>
-                            </p>
-                            <p className="des">
-                                제공받은 PC버전의 시안을 바탕으로 제작된
-                                홈페이지 입니다.
-                                <strong>
-                                    PC버전의 시안의 디자인을 유지하면서
-                                    반응형으로 조절
-                                </strong>{" "}
-                                되도록 작업하는 것에 중점을 맞추었습니다.
-                                기본적으로 빌더에서 제공되는 폼이나 게시판
-                                형태를 커스터마이징 하여 기능적인 만족도를
-                                높였습니다.
-                            </p>
-                            <a
-                                href="http://hanyang3d.kr/"
-                                title="한양3D팩토리"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="more"
-                            >
-                                사이트 살펴보기
-                                <span className="icon material-symbols-outlined">
-                                    {" "}
-                                    arrow_right{" "}
-                                </span>
-                            </a>
-                        </div>
-                    </article>
-                    <article className="example4 reverse">
-                        <img src={exampleImg4} alt="오메르데이스파" />
-                        <div className="txt-box">
-                            <h5>오메르데이스파</h5>
-                            <p className="period">
-                                레이아웃 기획 및 퍼블리싱 <span> / 5 Days</span>
-                            </p>
-                            <p className="des">
-                                <strong>풀페이지 형태</strong>로 작업된 랜딩
-                                페이지입니다. 동적인 요소가 많았으면 한다는
-                                요청에 따라 스크롤 이벤트로 동작을 추가하고,{" "}
-                                <strong>인트로 페이지를 삽입</strong>
-                                하였습니다. 업체의 무드를 강조하기 위해 이미지를
-                                적극적으로 이용하여 톤앤매너를 정리했습니다.
-                            </p>
-                            <a
-                                href="http://www.ormerdayspa.com/"
-                                title="오메르데이스파"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="more"
-                            >
-                                사이트 살펴보기
-                                <span className="icon material-symbols-outlined">
-                                    {" "}
-                                    arrow_right{" "}
-                                </span>
-                            </a>
-                        </div>
-                    </article>
+                    </div>
                 </div>
-                {/*  모여있다가 흩어지는 이펙트 - 애플 */}
-            </div>
+            </article>
+            <article className="at2">
+                <div className="container wide">
+                    <div className="description-wrap">
+                        <h2>Web APP Project.</h2>
+
+                        <dl className="project-info">
+                            <dt>개요</dt>
+                            <dd>
+                                아정당 - 인터넷/가전렌탈 등 자사 서비스 통합
+                                플랫폼 개발(Web APP){" "}
+                                <a
+                                    href="https://www.ajd.co.kr/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <span className="icon material-symbols-outlined">
+                                        link
+                                    </span>
+                                </a>
+                            </dd>
+                            <dd>Web / iOS / Android</dd>
+                            <dt>개발기간 / 팀구성</dt>
+                            <dd>2023.05 ~ 2024.01 (9개월)</dd>
+                            <dd>
+                                기획자 1 / 디자이너 2 / 퍼블리셔 2 / FE개발자 2
+                                / BE개발자 3
+                            </dd>
+                            <dt>주요역할</dt>
+                            <dd>
+                                PM / 기능 및 정책 기획 / 와이어프레임 제작 /
+                                퍼블리싱
+                            </dd>
+                            <dt>사용기술</dt>
+                            <dd>HTML5 / CSS3 / SCSS / Vue.js / Nuxt.js</dd>
+                            <dd>Figma / Notion / Google Docs</dd>
+                            <dt>성과</dt>
+                            <dd>3개월 만에 회원수 1.7만명</dd>
+                            <dd>일간 방문자수(GA) 2.6만명</dd>
+                            <dd>월 페이지 뷰 293만 달성</dd>
+                        </dl>
+
+                        <img
+                            src={appIcon}
+                            alt="아정당 앱 아이콘"
+                            className="app-icon"
+                        />
+                    </div>
+                </div>
+            </article>
         </section>
     );
 }

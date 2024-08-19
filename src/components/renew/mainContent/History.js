@@ -50,7 +50,7 @@ function History() {
         <section className="se2" id="history" data-title="Work Experience">
             <div className="container wide">
                 <div id="history-wrap">
-                    <h2 className="fade-in">Work Experience.</h2>
+                    <h2>Work Experience.</h2>
                     <div id="history-content">
                         <article id="at1">
                             <h3 className="main-line">
@@ -103,7 +103,11 @@ function History() {
                                 </strong>
                                 를 기록한
                                 <br />
-                                플랫폼 검색엔진최적화 경험
+                                플랫폼{" "}
+                                <strong className="text-highlight">
+                                    검색엔진최적화
+                                </strong>{" "}
+                                경험
                             </h3>
                             <p className="sub-line">
                                 {" "}

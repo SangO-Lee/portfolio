@@ -64,7 +64,8 @@ small {
         width: 1260px;
     }
     &.fluid {
-        width: 1920px;
+        width: 100vw;
+        padding: 0;
     }
     &:after {
         content: "";
