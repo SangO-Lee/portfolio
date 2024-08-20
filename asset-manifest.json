@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.b7462211.css",
-    "main.js": "/portfolio/static/js/main.796c049c.js",
+    "main.css": "/portfolio/static/css/main.9dc61b31.css",
+    "main.js": "/portfolio/static/js/main.3e790eab.js",
     "static/media/mechanical_keyboard.glb": "/portfolio/static/media/mechanical_keyboard.49b9b5c42e804873bd2a.glb",
     "static/media/main_bg.mp4": "/portfolio/static/media/main_bg.2284011d10d6d896247c.mp4",
     "static/media/PretendardVariable.woff2": "/portfolio/static/media/PretendardVariable.2bc582461caf4e05b51d.woff2",
@@ -40,11 +40,11 @@
     "static/media/app_icon.webp": "/portfolio/static/media/app_icon.17b44b57a5842317c55f.webp",
     "index.html": "/portfolio/index.html",
     "static/media/github-mark.svg": "/portfolio/static/media/github-mark.97ed8e7eef60d61ca469881dd6f34511.svg",
-    "main.b7462211.css.map": "/portfolio/static/css/main.b7462211.css.map",
-    "main.796c049c.js.map": "/portfolio/static/js/main.796c049c.js.map"
+    "main.9dc61b31.css.map": "/portfolio/static/css/main.9dc61b31.css.map",
+    "main.3e790eab.js.map": "/portfolio/static/js/main.3e790eab.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7462211.css",
-    "static/js/main.796c049c.js"
+    "static/css/main.9dc61b31.css",
+    "static/js/main.3e790eab.js"
   ]
 }
