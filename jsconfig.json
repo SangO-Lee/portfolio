@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@assets/*": ["/assets/*"],
+            "@img/*": ["/assets/img*"],
+            "@components/*": ["/components/*"],
+            "@hooks/*": ["/hooks/*"]
+        }
+    },
+    "include": ["src"]
+}
