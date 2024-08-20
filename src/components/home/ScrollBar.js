@@ -4,13 +4,12 @@ import $ from "jquery";
 function ScrollBar() {
     function scrollBar(sts) {
         var _windowTop = $(window).scrollTop();
-        var _windowHeight = $(window).height();
-        var _pageHeight = $(".resume").height() - $(window).height();
-        _windowTop = $(window).scrollTop();
-        _pageHeight = $(".resume").height() - _windowHeight;
+        var _windowHeight = window.innerHeight;
+        var _pageHeight =
+            document.querySelector(".resume").clientHeight - _windowHeight;
+
         var _ratio = (_windowTop / _pageHeight) * 100;
         $("#scroll-bar .current-indicator").css("top", _ratio + "%");
-        // console.log(sts);
     }
 
     useEffect(() => {

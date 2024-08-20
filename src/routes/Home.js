@@ -351,6 +351,12 @@ function Home() {
     useEffect(() => {
         //common
         _bgBaseline = $("#history").offset().top; //main_bg 토글 baseline
+        $("body,html").animate(
+            {
+                scrollTop: 0,
+            },
+            10
+        );
 
         //로딩페이지 세션스토리지
         if (introOpened == 0) {
@@ -388,7 +394,7 @@ function Home() {
                     scrollTop: _targetTop,
                 },
                 1000,
-                "easeInOutCubic"
+                "easeInOut"
             );
 
             //네비게이션 초기화

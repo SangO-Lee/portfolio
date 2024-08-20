@@ -1,8 +1,10 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/resume.scss";
 import $ from "jquery";
 import ScrollBar from "../components/home/ScrollBar";
+import PROJECTS from "data/project";
+import COMPETENCY from "data/competency";
 
 function Resume() {
     const navigate = useNavigate();
@@ -32,10 +34,6 @@ function Resume() {
                 "easeInOutCubic"
             );
 
-            //네비게이션 초기화
-            $("#navi").removeClass("active");
-            $(".resume").removeClass("blur");
-
             // return () => {
             //     $(window).off("scroll");
             // };
@@ -48,7 +46,7 @@ function Resume() {
                 <div className="container">
                     <article className="at1">
                         <h4>프로필</h4>
-                        <ul className="li_contact">
+                        <ul className="li-contact">
                             <li>
                                 <span>이름</span>이상오
                             </li>
@@ -72,38 +70,36 @@ function Resume() {
                     </article>
                     <article className="at2">
                         <h4>요약</h4>
-                        <ul className="li_dash">
+                        <ul className="li-dash">
                             <li>
-                                <strong>반응형 랜딩 페이지 430여건</strong>{" "}
-                                레이아웃 기획 및 퍼블리싱
+                                신규 플랫폼 서비스의 웹앱 기획 및 런칭{" "}
+                                <strong>PM/PO</strong>
+                                경험 보유
                             </li>
                             <li>
-                                기획과 퍼블리싱을 담당한 시사저널e '신도시 30년'
-                                - <strong>2020 인터넷신문 언론대상 수상</strong>
+                                월 290만뷰를 끌어낸{" "}
+                                <strong>검색엔진최적화(SEO) 전문가</strong>
                             </li>
+                            <li>
+                                <strong>430여건</strong>의 기업, 대학, 쇼핑몰{" "}
+                                <strong>
+                                    반응형 홈페이지 구축(웹 표준, 웹 접근성)
+                                </strong>
+                            </li>
+                            <li>
+                                시사저널 e '신도시 30년' –{" "}
+                                <strong>‘20년 인터넷신문 언론대상 수상</strong>
+                            </li>
+
                             <li>
                                 대학교, 병원, 법률 사무소, 제조기업, 협회 등{" "}
                                 <strong>다양한 업종 레퍼런스</strong> 보유
-                            </li>
-                            <li>
-                                <strong>1400여개 실 사용 고객</strong> 유지 보수
                             </li>
                             <li>
                                 포항공대, 서울여대, 인하대 등 대학교 작업을 통해{" "}
                                 <strong>
                                     웹 표준, 웹 접근성 인증 및 크로스 브라우징
                                 </strong>
-                            </li>
-                            <li>
-                                <strong>Git</strong>을 통한 버전 관리
-                            </li>
-                            <li>
-                                효율적인 퍼블리싱 작업 환경 개선을 위한{" "}
-                                <strong>공용 코드 컴포넌트 개발</strong>
-                            </li>
-                            <li>
-                                다양한 직군과 협업 진행 및{" "}
-                                <strong>원활한 커뮤니케이션</strong>
                             </li>
                             <li>
                                 PHP / CodeIgniter를 활용하여{" "}
@@ -115,15 +111,21 @@ function Resume() {
                         </ul>
                     </article>
                     <article className="at3">
-                        <h4>경력</h4>
+                        <h4>
+                            경력 <small>(6년 1개월)</small>
+                        </h4>
+                        <p>
+                            <span className="date">2023.04 - 2024.06</span>{" "}
+                            (주)아정네트웍스 / UI/UX 디자인팀 / 팀장 (연구원)
+                        </p>
                         <p>
                             <span className="date">2017.10 - 2022.09</span>{" "}
-                            (주)메일플러그 홈페이지 제작 부서 웹 개발 파트장
+                            (주)메일플러그 / 홈페이지 제작팀 / 퍼블리싱 파트장
                             (주임)
                         </p>
                         <h4>학력</h4>
                         <p>
-                            <span className="date">2009.03 - 2015.2</span>{" "}
+                            <span className="date">2009.03 - 2015.02</span>{" "}
                             경북대학교 영어영문학과 학사
                         </p>
                         <h4>수상 및 자격</h4>
@@ -139,319 +141,93 @@ function Resume() {
                             <span className="date">2017.03</span>{" "}
                             GTQ그래픽자격(1급) / GTQi 일러스트(1급) 취득
                         </p>
+
+                        <h4>교육</h4>
+                        <p>
+                            <span className="date">2023.06</span>바이럴 김선생 :
+                            구글·네이버 검색엔진최적화 세미나
+                        </p>
+                        <p>
+                            <span className="date">2017.02 ~ 2017.06</span>
+                            스마트기기 UI/UX 디자인 / 그린컴퓨터 성남
+                        </p>
                     </article>
                     <article className="at4">
                         <h4>스킬</h4>
                         <div className="flex-row">
-                            <div className="col">
-                                <dl>
-                                    <dt>[개발언어]</dt>
-                                    <dd>HTML5</dd>
-                                    <dd>CSS3 / Sass</dd>
-                                    <dd>Js / Jquery</dd>
-                                    <dd>PHP / CodeIgniter</dd>
-                                    <dd>Mysql</dd>
-                                </dl>
-                            </div>
-                            <div className="col">
-                                <dl>
-                                    <dt>[사용하는 툴]</dt>
-                                    <dd>Adobe Photoshop</dd>
-                                    <dd>Adobe Illustrator</dd>
-                                    <dd>
-                                        Imweb <small>(아임웹)</small>
-                                    </dd>
-                                    <dd>Xshell</dd>
-                                    <dd>Google Analytics</dd>
-                                    <dd>Naver Search Advisor</dd>
-                                </dl>
-                            </div>
-                            <div className="col">
-                                <dl>
-                                    <dt>[협업 툴]</dt>
-                                    <dd>Git</dd>
-                                    <dd>Jira / Confluence</dd>
-                                    <dd>Notion</dd>
-                                    <dd>Zeplin</dd>
-                                </dl>
-                            </div>
+                            {COMPETENCY.map((comp, i) => (
+                                <div
+                                    className={`col col_${comp.colWidth}`}
+                                    key={i}
+                                >
+                                    <dl className="skill-dl">
+                                        <dt>{comp.title}</dt>
+                                        {comp.skills.map((skill, i) => (
+                                            <dd
+                                                key={i}
+                                                data-level={skill.level}
+                                            >
+                                                {skill.name}
+                                            </dd>
+                                        ))}
+                                    </dl>
+                                </div>
+                            ))}
                         </div>
+                        <ul className="level-li">
+                            <li>
+                                <span className="circle" data-level="3"></span>{" "}
+                                무리 없이 단독 작업 가능
+                            </li>
+                            <li>
+                                <span className="circle" data-level="2"></span>{" "}
+                                단독 작업 시 상급자의 검수가 필요함
+                            </li>
+                            <li>
+                                <span className="circle" data-level="1"></span>{" "}
+                                다른 작업자의 보조 역할 가능
+                            </li>
+                        </ul>
                     </article>
                     <article className="at5">
                         <h4>주요 프로젝트</h4>
-                        <div className="table_responsive">
-                            <table className="project_table">
+                        <div className="table-responsive">
+                            <table className="project-table">
                                 <colgroup>
                                     <col width="30%" />
-                                    <col width="30%" />
-                                    <col width="30%" />
+                                    <col width="*" />
+                                    <col width="*" />
                                     <col width="10%" />
                                 </colgroup>
                                 <thead>
                                     <tr>
                                         <th>프로젝트명</th>
                                         <th>링크</th>
-                                        <th>기여</th>
+                                        <th>기술스택</th>
                                         <th>기여도</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>시사저널e - '신도시 30년'</td>
-                                        <td>
-                                            <a
-                                                href="http://newtown.sisajournal-e.com/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://newtown.sisajournal-e.com/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>포항공과대학교 기계공학과</td>
-                                        <td>
-                                            <a
-                                                href="https://me.postech.ac.kr/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                https://me.postech.ac.kr/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>서울여자대학교 교직지원센터</td>
-                                        <td>
-                                            <a
-                                                href="http://sweet.swu.ac.kr/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://sweet.swu.ac.kr/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>아주대학교 융합인재양성사업단 </td>
-                                        <td>
-                                            <a
-                                                href="http://aimed.ajou.ac.kr/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://aimed.ajou.ac.kr/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>웨스턴동물의료센터</td>
-                                        <td>
-                                            <a
-                                                href="http://westernamc.com/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://westernamc.com/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>선진병원</td>
-                                        <td>
-                                            <a
-                                                href="http://www.sunjin.or.kr/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://www.sunjin.or.kr/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>피츠인솔 공식스토어</td>
-                                        <td>
-                                            <a
-                                                href="http://phits.co.kr/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://phits.co.kr/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>70%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>오메르데이스파</td>
-                                        <td>
-                                            <a
-                                                href="http://www.ormerdayspa.com/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://www.ormerdayspa.com/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>한양3D팩토리</td>
-                                        <td>
-                                            <a
-                                                href="http://hanyang3d.kr/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://hanyang3d.kr/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>50%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>에치와이 프레시 매니저 채용</td>
-                                        <td>
-                                            <a
-                                                href="https://fmrecruit.hy.co.kr/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                https://fmrecruit.hy.co.kr/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>예건건축 </td>
-                                        <td>
-                                            <a
-                                                href="http://yekun-arc.com/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://yekun-arc.com/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>빅펀치 엔터테인먼트 </td>
-                                        <td>
-                                            <a
-                                                href="http://bigpunchent.com/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://bigpunchent.com/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>아셈노인인권정책센터</td>
-                                        <td>
-                                            <a
-                                                href="http://www.asemgac.org/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://www.asemgac.org/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>70%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>법무법인 혜암</td>
-                                        <td>
-                                            <a
-                                                href="http://www.gyeyanglaw.com/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://www.gyeyanglaw.com/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>50%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>관세법인 한주</td>
-                                        <td>
-                                            <a
-                                                href="http://www.hjcustoms.co.kr"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                http://www.hjcustoms.co.kr
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>70%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>형사전문로펌 온강</td>
-                                        <td>
-                                            <a
-                                                href="https://www.xn--939a100aw6drqg7pcjx7a.com/"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                https://형사전문온강.com/
-                                            </a>
-                                        </td>
-                                        <td>
-                                            홈페이지 레이아웃 기획 및 퍼블리싱
-                                        </td>
-                                        <td>50%</td>
-                                    </tr>
+                                    {PROJECTS.map((project, i) => (
+                                        <tr key={i}>
+                                            <td>{project.name}</td>
+                                            <td>
+                                                <a
+                                                    href={project.link}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+                                                    <span className="icon material-symbols-outlined">
+                                                        link
+                                                    </span>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {project.skills.join(" · ")}
+                                            </td>
+                                            <td>{project.contribution}</td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
@@ -459,7 +235,34 @@ function Resume() {
                     <article className="at6">
                         <h4>포트폴리오</h4>
                         <h5>
-                            ESG(효율적이고 협업하며 성장하는) <br />
+                            코드로 협업을 쓰다. (2024)
+                            <Link to="/">
+                                <span className="icon material-symbols-outlined">
+                                    link
+                                </span>
+                            </Link>
+                            <br />
+                            <small>
+                                작업기간 약 15일 / 기획, 디자인, 퍼블리싱 100%
+                            </small>
+                        </h5>
+                        <p className="des">
+                            기존 하드코딩으로 작업했던 포트폴리오를 React Create
+                            App을 이용하여 전체 구조를 리팩토링하였습니다.{" "}
+                            <br />
+                            Three.js를 활용하여 3D 모델링을 구현하는 트렌드를
+                            따라가도록 작업하였으며,
+                            <br /> 신규 프로젝트와 기존 반응형 프로젝트가
+                            자연스러운 흐름으로 이어질 수 있도록 작업하였습니다.
+                        </p>
+                        <h5>
+                            ESG(효율적이고 협업하며 성장하는 - 2023)
+                            <Link to="/2023">
+                                <span className="icon material-symbols-outlined">
+                                    link
+                                </span>
+                            </Link>
+                            <br />
                             <small>
                                 작업기간 약 15일 / 기획, 디자인, 퍼블리싱 100%
                             </small>
@@ -468,7 +271,7 @@ function Resume() {
                             지속가능한 경영을 위해 Environment, Social,
                             Governance 3가지 핵심 요소를 필요로 하는 것 처럼,
                             <br />
-                            뛰어난 팀원이 되기 위해 가장 중요하게 생각하는 3가치
+                            뛰어난 팀원이 되기 위해 가장 중요하게 생각하는 3가지
                             가치를 담아 메인 카피라이트로 잡았습니다. <br />
                             불필요한 프로세스를 줄이고, 팀으로서 함께 목표를
                             이루려고 노력하며, 성장하는 퍼블리셔의 모습을
@@ -477,12 +280,11 @@ function Resume() {
                     </article>
                 </div>
 
-                <a onClick={handleGoBack} id="back_btn">
+                <button onClick={handleGoBack} id="back_btn">
                     <span className="material-symbols-outlined">undo</span>
-                </a>
+                </button>
             </div>
             <ScrollBar />
-            {/* <!-- //nav-scroll --> */}
         </div>
     );
 }

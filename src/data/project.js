@@ -23,6 +23,7 @@ const PROJECTS = [
         link: "http://newtown.sisajournal-e.com/",
         duration: 18,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "포항공과대학교 기계공학과",
@@ -31,6 +32,7 @@ const PROJECTS = [
         link: "https://me.postech.ac.kr/",
         duration: 14,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "서울여자대학교 교직지원센터",
@@ -39,6 +41,7 @@ const PROJECTS = [
         link: "http://sweet.swu.ac.kr/",
         duration: 5,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "아주대학교 융합인재양성사업단",
@@ -47,6 +50,7 @@ const PROJECTS = [
         link: "http://aimed.ajou.ac.kr/",
         duration: 4,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "웨스턴동물의료센터",
@@ -55,6 +59,7 @@ const PROJECTS = [
         link: "http://westernamc.com/",
         duration: 5,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "선진병원",
@@ -63,6 +68,7 @@ const PROJECTS = [
         link: "http://www.sunjin.or.kr/",
         duration: 5,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "피츠인솔 공식스토어",
@@ -71,6 +77,7 @@ const PROJECTS = [
         link: "http://phits.co.kr/",
         duration: 4,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "70%",
     },
     {
         name: "오메르데이스파",
@@ -79,6 +86,7 @@ const PROJECTS = [
         link: "http://www.ormerdayspa.com/",
         duration: 5,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "한양3D팩토리",
@@ -87,6 +95,7 @@ const PROJECTS = [
         link: "http://hanyang3d.kr/",
         duration: 6,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "50%",
     },
     {
         name: "에치와이 프레시 매니저 채용",
@@ -95,6 +104,7 @@ const PROJECTS = [
         link: "https://fmrecruit.hy.co.kr/",
         duration: 6,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "예건건축",
@@ -103,6 +113,7 @@ const PROJECTS = [
         link: "http://yekun-arc.com/",
         duration: 4,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "빅펀치 엔터테인먼트",
@@ -111,6 +122,7 @@ const PROJECTS = [
         link: "http://bigpunchent.com/",
         duration: 4,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "100%",
     },
     {
         name: "아셈노인인권정책센터",
@@ -119,6 +131,7 @@ const PROJECTS = [
         link: "http://www.asemgac.org/",
         duration: 14,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "70%",
     },
     {
         name: "법무법인 혜암",
@@ -127,6 +140,7 @@ const PROJECTS = [
         link: "http://www.gyeyanglaw.com/",
         duration: 5,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "50%",
     },
     {
         name: "관세법인 한주",
@@ -135,6 +149,7 @@ const PROJECTS = [
         link: "http://www.hjcustoms.co.kr",
         duration: 6,
         skills: ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap"],
+        contribution: "70%",
     },
     // {
     //     name: "형사전문로펌 온강",
