@@ -26,7 +26,7 @@ function Renew() {
     const [bgBaseline, setBgBaseline] = useState(1000);
     const [isVisibleFloating, setIsVisibleFloating] = useState(false);
 
-    var _dev = 0; // 1= 인트로 생략 0=인트로 노출
+    var _dev = 1; // 1= 인트로 생략 0=인트로 노출
 
     //로딩 세션스토리지 정의
     var introOpened = sessionStorage.getItem("introOpen");
@@ -142,113 +142,6 @@ function Renew() {
         });
     }
 
-    function scrollBar() {
-        _windowTop = $(window).scrollTop();
-        _pageHeight = $(".renew").height() - _windowHeight;
-        var _ratio = (_windowTop / _pageHeight) * 100;
-        $("#scroll-bar .current-indicator").css("top", _ratio + "%");
-    }
-
-    function scrollFadein(tgt, sectionId) {
-        setBgBaseline(_windowTop + _windowHeight);
-        var _target = tgt; //섹션에 해당하는 엘리멘트
-        var _sectionId = sectionId; //특정 섹션 구분자
-
-        //타겟 기준 비율 설정
-        var _targetTop = _target.offset().top;
-        var _targetHeight = _target.outerHeight();
-        var _scrollProgress = (_baseline - _targetTop) / _targetHeight;
-        var _progessPercent = _scrollProgress * 100;
-
-        if (_targetTop - _baseline > 0) return false; //해당 위치 오기 전까지 실행금지
-
-        if (_sectionId === "history") {
-            //css 요소 정의
-            var _opacityValue = _scrollProgress;
-            var _bgSize = _progessPercent + 20;
-            var _grayscale = 1 - _scrollProgress;
-
-            //최대값
-            if (_opacityValue > 1) {
-                _opacityValue = 1;
-            }
-            if (_grayscale < 0) {
-                _grayscale = 0;
-            }
-            if (_bgSize > 100) {
-                _bgSize = "100";
-            }
-
-            //실행
-            if (_progessPercent < 115) {
-                $(_target).css({
-                    opacity: _opacityValue,
-                    filter: "grayscale(" + _grayscale + ")",
-                    "background-size": _bgSize + "%",
-                });
-            } else {
-                //최대값 이후
-                if (_target.attr("data-last") !== "true") {
-                    _progessPercent -= 100;
-                    _opacityValue = 1 - _progessPercent / 40;
-                    $(_target).css({
-                        opacity: _opacityValue,
-                    });
-                } else if (_target.attr("data-last") === "true") {
-                    //마지막 요소일 경우 최대값 지정
-                    $(_target).css({
-                        opacity: 1,
-                        filter: "grayscale(0)",
-                    });
-                }
-            }
-            //history section
-        } else if (_sectionId === "example") {
-            //포지션 가로축
-            var _minPositionLeft = $(_target).css("left").slice(0, -2);
-            var _fixedPostionLeft = $(_target).attr("data-hori"); //최초 x축 값 보존
-            if (!_fixedPostionLeft) {
-                $(_target).attr("data-hori", _minPositionLeft);
-            }
-            var _positionLeft = 0;
-            if (_fixedPostionLeft > 0) {
-                //최초 x축 값이 양수인경우
-                _positionLeft = (1 - _scrollProgress) * _fixedPostionLeft;
-            } else {
-                _positionLeft = (1 - _scrollProgress) * _fixedPostionLeft;
-            }
-
-            //밝기값
-            var _minBrightness = 0.2; //밝기 최소값
-            var _brightness = _minBrightness + _scrollProgress;
-
-            //최대값
-            if (_fixedPostionLeft > 0 && _positionLeft < 0) {
-                _positionLeft = "0";
-            }
-            if (_fixedPostionLeft < 0 && _positionLeft > 0) {
-                _positionLeft = "0";
-            }
-            if (_brightness > 1) {
-                _brightness = 1;
-            }
-
-            //실행
-            $(_target).css({
-                left: _positionLeft,
-                filter: "brightness(" + _brightness + ")",
-            });
-
-            //부모요소 활성화
-            if (_scrollProgress >= 0.8) {
-                $(_target).parent().addClass("active");
-            } else {
-                $(_target).parent().removeClass("active");
-            }
-            //example section
-        }
-    }
-
     function scrollClassing(target, siblingClass, menuChange) {
         var _targetBase = _windowTop + _windowHeight / 2;
         var _target = target; //섹션에 해당하는 엘리멘트
@@ -299,19 +192,16 @@ function Renew() {
 
     $(window).on("scroll", function () {
         //common
-        scrollBar();
+        _windowTop = $(window).scrollTop();
         if (_windowTop === 0) {
             //windowInit
             $(".main-content section").removeClass("active");
-            $("#navi").removeClass("on");
-        } else {
-            $("#navi").addClass("on");
         }
 
         //main-content
         scrollClassing($(".main-content section"), "true", "false");
 
-        //main_bg
+        //key visual
         _windowTop < bgBaseline ? $("#canvas").show() : $("#canvas").hide();
 
         const historyTop = document.querySelector("#history").offsetTop;
@@ -323,13 +213,6 @@ function Renew() {
         //common
         const bgBaselineCalc = $(".main-content section").eq(3).offset().top;
         setBgBaseline(bgBaselineCalc); //main_bg 토글 baseline
-
-        if (_windowTop === 0) {
-            //windowInit
-            $("#navi").removeClass("on");
-        } else {
-            $("#navi").addClass("on");
-        }
 
         //로딩페이지 세션스토리지
         if (introOpened == 0) {
@@ -343,39 +226,6 @@ function Renew() {
         }
 
         scrollClassing($(".main-content section"), "false");
-        scrollBar(); //스크롤바
-
-        //네비게이션
-        $("#menu-name .curr-name").on("click", function () {
-            $(".renew").toggleClass("blur");
-            $("#navi").toggleClass("active");
-        });
-
-        //스크롤 버튼
-        $('a[data-use="scroll"]').on("click", function (e) {
-            e.preventDefault();
-            var _target = $(this).attr("href");
-            var _targetTop = 0;
-            if (_target === "#") {
-                _targetTop = 0;
-            } else {
-                _targetTop = $(_target).offset().top;
-            }
-
-            $("body,html").animate(
-                {
-                    scrollTop: _targetTop,
-                },
-                1000,
-                "easeInOutCubic"
-            );
-
-            //네비게이션 초기화
-            $("#navi").removeClass("active");
-            $(".renew").removeClass("blur");
-
-            return false;
-        });
 
         return () => {
             $(window).off("scroll");

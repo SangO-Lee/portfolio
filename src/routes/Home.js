@@ -355,7 +355,10 @@ function Home() {
             {
                 scrollTop: 0,
             },
-            10
+            10,
+            function () {
+                console.log("home scrolling activated");
+            }
         );
 
         //로딩페이지 세션스토리지
@@ -393,8 +396,7 @@ function Home() {
                 {
                     scrollTop: _targetTop,
                 },
-                1000,
-                "easeInOut"
+                500
             );
 
             //네비게이션 초기화

@@ -18,6 +18,10 @@ function ScrollBar() {
             scrollBar("scroll bar - scrolling");
         });
         scrollBar("scroll bar - start"); //스크롤바
+
+        return () => {
+            $(window).off("scroll");
+        };
     });
     return (
         <aside id="nav-scroll">

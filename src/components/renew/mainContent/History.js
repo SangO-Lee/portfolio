@@ -24,10 +24,8 @@ function History() {
         //프로그레스바 비활성화
         if (scrollDistance > 0 && scrollDistance / 2 < 99) {
             setIsProgress(true);
-            console.log("set progress true " + scrollDistance / 2);
         } else {
             setIsProgress(false);
-            console.log("set progress false");
         }
     };
 
