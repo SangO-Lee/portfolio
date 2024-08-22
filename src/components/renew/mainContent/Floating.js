@@ -6,8 +6,6 @@ import gitHubLogo from "assets/img/renew/github-mark.svg";
 
 function Floating(isVisibleFloating) {
     const [toast, setToast] = useState(null);
-    console.log(isVisibleFloating);
-
     // const [isVisibleFloating, setIsVisibleFloating] = useState(visibleFloating);
     const [isVisibleSideMenu, setIsVisibleSideMenu] = useState(false);
     const onClickFloating = () => {

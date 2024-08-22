@@ -2,12 +2,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Resume from "./routes/Resume";
 import Renew from "./routes/Renew";
+import ScrollToTop from "components/renew/ScrollToTop";
 import "./assets/css/common.scss";
 
 function App() {
     return (
         <>
             <Router basename={`${process.env.PUBLIC_URL}`}>
+                <ScrollToTop />
                 <Routes>
                     <Route path={`/`} element={<Renew />}></Route>
                     <Route path={`/resume`} element={<Resume />}></Route>

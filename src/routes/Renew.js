@@ -5,26 +5,23 @@ import { useEffect, useState } from "react";
 
 //components
 import Loading from "components/renew/Loading";
-import Footer from "components/renew/Footer";
+import KeyVisual from "components/renew/KeyVisual";
 import Core from "components/renew/mainContent/Core";
 import History from "components/renew/mainContent/History";
 import Personality from "components/renew/mainContent/Personality";
 import Project from "components/renew/mainContent/Project";
 import Example from "components/renew/mainContent/Example";
 import Contact from "components/renew/mainContent/Contact";
+import Footer from "components/renew/Footer";
 import Floating from "components/renew/mainContent/Floating";
 
-//renew
-import KeyVisual from "components/renew/KeyVisual";
 import "assets/css/renew.scss";
 
 function Renew() {
-    var _windowTop = $(window).scrollTop();
-    var _windowHeight = $(window).height();
-    var _baseline = _windowTop + _windowHeight;
-    var _pageHeight = $(".renew").height() - $(window).height();
     const [bgBaseline, setBgBaseline] = useState(1000);
     const [isVisibleFloating, setIsVisibleFloating] = useState(false);
+    const [windowTop, setWindowTop] = useState(0);
+    const [isOverflow, setIsOverflow] = useState(true);
 
     var _dev = 1; // 1= 인트로 생략 0=인트로 노출
 
@@ -126,7 +123,7 @@ function Renew() {
                 setTimeout(() => {
                     //일정 시간이 지나면 네비와 스크롤바 노출
                     windowInit("interval error");
-                    $(".renew").addClass("on");
+                    setIsOverflow(false);
                 }, 300);
             }
         }, 100);
@@ -137,82 +134,61 @@ function Renew() {
             e.preventDefault();
             clearInterval(_loadingTimer);
             $("#loading").fadeOut(1000);
-            $(".renew").addClass("on");
+            setIsOverflow(false);
             console.log("close clicked");
         });
     }
 
-    function scrollClassing(target, siblingClass, menuChange) {
-        var _targetBase = _windowTop + _windowHeight / 2;
-        var _target = target; //섹션에 해당하는 엘리멘트
-        var _count = _target.length; // 총 엘리멘트 갯수
-        var _lastIdx = _count - 1; //마지막 엘리멘트
-        var _siblingClass = siblingClass;
-        var _menuChange = menuChange;
-        var _menuName;
-
-        for (var i = 0; i < _count; i++) {
-            var _cond1 = _target.eq(i).offset().top; //조건1 타겟의 오프셋 값
-            var _cond2;
-            if (_target.eq(i).next().length) {
-                _cond2 = _target.eq(i).next().offset().top; //조건2 다음 타겟의 오프셋 값
-            }
-
-            if (i !== _lastIdx) {
-                if (_targetBase > _cond1 && _targetBase < _cond2) {
-                    _target.eq(i).addClass("active");
-                    // if (_siblingClass == "true") {
-                    //     //true일때 형제노드 active 클래스 삭제
-                    //     _target.eq(i).siblings().removeClass("active");
-                    // }
-
-                    //네비게이션 메뉴명 전환
-                    if (_menuChange == "true") {
-                        _menuName = _target.eq(i).attr("data-title");
-                        $("#menu-name .curr-name").text(_menuName);
-                    }
+    //scroll section active
+    useEffect(() => {
+        const observeScroll = windowTop + window.innerHeight / 2;
+        const sections = document.querySelectorAll(".main-content section");
+        const sectionsTop = [];
+        sections.forEach((section, i) => {
+            sectionsTop.push(section.offsetTop);
+        });
+        for (let i = 0; i < sectionsTop.length; i++) {
+            if (i + 1 < sectionsTop.length) {
+                if (
+                    observeScroll > sectionsTop[i] &&
+                    observeScroll <= sectionsTop[i + 1]
+                ) {
+                    document
+                        .querySelector(`#${sections[i].getAttribute("id")}`)
+                        .classList.add("active");
                 }
             } else {
-                if (_targetBase > _cond1) {
-                    //마지막 엘리멘트 이후는 항상 마지막 엘리멘트에 active 추가
-                    _target.eq(i).addClass("active");
-                    // if (_siblingClass == "true") {
-                    //     _target.eq(i).siblings().removeClass("active");
-                    // }
-
-                    //네비게이션 메뉴명 전환
-                    if (_menuChange == "true") {
-                        _menuName = _target.eq(i).attr("data-title");
-                        $("#menu-name .curr-name").text(_menuName);
-                    }
+                if (observeScroll > sectionsTop[i]) {
+                    document
+                        .querySelector(`#${sections[i].getAttribute("id")}`)
+                        .classList.add("active");
                 }
             }
         }
-    }
-
-    $(window).on("scroll", function () {
-        //common
-        _windowTop = $(window).scrollTop();
-        if (_windowTop === 0) {
-            //windowInit
-            $(".main-content section").removeClass("active");
+        if (windowTop === 0) {
+            sections.forEach((section) => {
+                section.classList.remove("active");
+            });
         }
-
-        //main-content
-        scrollClassing($(".main-content section"), "true", "false");
 
         //key visual
-        _windowTop < bgBaseline ? $("#canvas").show() : $("#canvas").hide();
+        setBgBaseline(sectionsTop[2]);
+        windowTop < bgBaseline
+            ? (document.querySelector("#canvas").style.display = "block")
+            : (document.querySelector("#canvas").style.display = "none");
 
-        const historyTop = document.querySelector("#history").offsetTop;
-        if (_windowTop > historyTop) {
+        //active floating btn
+        if (windowTop > sectionsTop[1]) {
             setIsVisibleFloating(true);
+        } else {
+            setIsVisibleFloating(false);
         }
-    });
+    }, [windowTop]);
+
     useEffect(() => {
-        //common
-        const bgBaselineCalc = $(".main-content section").eq(3).offset().top;
-        setBgBaseline(bgBaselineCalc); //main_bg 토글 baseline
+        window.addEventListener("scroll", () => {
+            setWindowTop(window.scrollY);
+        });
 
         //로딩페이지 세션스토리지
         if (introOpened == 0) {
@@ -221,19 +197,13 @@ function Renew() {
             console.log("loading start..");
         } else if (introOpened == 1 || _dev == 1) {
             $("#loading").hide();
-            $(".renew").addClass("on");
+            setIsOverflow(false);
             console.log("loading skip..");
         }
-
-        scrollClassing($(".main-content section"), "false");
-
-        return () => {
-            $(window).off("scroll");
-        };
     }, []);
 
     return (
-        <div className="renew">
+        <div className={`renew ${isOverflow ? "" : "on"}`}>
             {/* <Loading /> */}
             <div className="main-content">
                 <KeyVisual />

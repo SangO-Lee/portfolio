@@ -4,9 +4,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { AnimationMixer } from "three";
 import MENU from "data/menu";
-
 import renderSrc from "../../assets/img/renew/mechanical_keyboard.glb";
-//technotron
 
 function KeyVisual() {
     useEffect(() => {
