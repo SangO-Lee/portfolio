@@ -41,3 +41,15 @@
         1px -1px 0 rgba(255, 255, 255, 0.15),
         -1px 1px 0 rgba(255, 255, 255, 0.15);
 }
+
+@media (max-width: 767px) {
+    @mixin hero {
+        font-size: 48px;
+    }
+    @mixin main-title {
+        font-size: 38px;
+    }
+    @mixin second-title {
+        font-size: 28px;
+    }
+}

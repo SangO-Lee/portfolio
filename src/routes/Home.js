@@ -41,6 +41,7 @@ function Home() {
     if (!introOpened) {
         introOpened = "0";
     }
+    sessionStorage.setItem("introOpen", "0");
 
     function windowInit(error) {
         var _error = error;
@@ -358,7 +359,8 @@ function Home() {
         //로딩페이지 세션스토리지
         if (introOpened == 0) {
             loading();
-            sessionStorage.setItem("introOpen", "1");
+            sessionStorage.setItem("introOpen", "0");
+            //강제 로딩화면 설정(1->0)
             console.log("loading start..");
         } else if (introOpened == 1 || _dev == 1) {
             $("#loading").hide();
