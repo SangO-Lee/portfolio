@@ -59,9 +59,7 @@ function Personality() {
                     <div className="col col_8 txt-box">
                         <h2 className="main-quote">
                             <span className="emp">차분하고</span>{" "}
-                            <br className="visible-xs" />
-                            <span className="emp">책임감</span> 있으며{" "}
-                            <br className="hidden-xs" />
+                            <span className="emp">책임감</span> 있으며 <br />
                             <span className="emp">팀으로 일하는 것</span>
                             을 <br />
                             중요하게 생각합니다.

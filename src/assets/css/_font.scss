@@ -1,15 +1,27 @@
 //계층구조
 @mixin hero {
     font-size: 64px;
+    @media (max-width: 999px) {
+        font-size: 40px;
+    }
 }
 @mixin main-title {
     font-size: 48px;
+    @media (max-width: 999px) {
+        font-size: 32px;
+    }
 }
 @mixin second-title {
     font-size: 32px;
+    @media (max-width: 999px) {
+        font-size: 24px;
+    }
 }
 @mixin content-title {
     font-size: 24px;
+    @media (max-width: 999px) {
+        font-size: 20px;
+    }
 }
 @mixin sub-title {
     font-size: 18px;
@@ -40,16 +52,4 @@
         -1px -1px 0 rgba(255, 255, 255, 0.15),
         1px -1px 0 rgba(255, 255, 255, 0.15),
         -1px 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-@media (max-width: 767px) {
-    @mixin hero {
-        font-size: 48px;
-    }
-    @mixin main-title {
-        font-size: 38px;
-    }
-    @mixin second-title {
-        font-size: 28px;
-    }
 }

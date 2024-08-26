@@ -115,7 +115,7 @@ function Resume() {
                             경력 <small>(6년 1개월)</small>
                         </h4>
                         <p>
-                            <span className="date">2023.04 - 2024.06</span>{" "}
+                            <span className="date">2023.04 - 2024.05</span>{" "}
                             (주)아정네트웍스 / UI/UX 디자인팀 / 팀장 (연구원)
                         </p>
                         <p>

@@ -6,19 +6,35 @@ import appIcon from "assets/img/renew/app_icon.webp";
 function Example() {
     const [progress, setProgress] = useState(0);
     const [isActive, setIsActive] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const onScroll = () => {
         const mobileWrap = document.querySelector(".mobile-wrap");
         const appScreen = document.querySelector(".app-screen");
 
         // 섹션의 위치 및 높이를 계산
         const sectionOffset = mobileWrap.offsetTop;
-        const scrollDistance =
-            ((sectionOffset - 120) / mobileWrap.offsetHeight) * 100;
+        let scrollDistance,
+            calcWidth,
+            calcHeight,
+            calcPositionTop,
+            calcBoardRadius;
+        if (windowWidth > 999) {
+            //pc
+            scrollDistance =
+                ((sectionOffset - 120) / mobileWrap.offsetHeight) * 100;
+            calcWidth = -0.88 * scrollDistance + 100;
+            calcHeight = -0.465 * scrollDistance + 100;
+            calcPositionTop = 0.232 * scrollDistance;
+        } else {
+            //mobile
+            scrollDistance =
+                ((sectionOffset - 60) / mobileWrap.offsetHeight) * 100;
+            calcWidth = -0.62 * scrollDistance + 100;
+            calcHeight = -0.62 * scrollDistance + 100;
+            calcPositionTop = 0.3 * scrollDistance;
+        }
+        calcBoardRadius = 0.3 * scrollDistance;
 
-        const calcWidth = -0.88 * scrollDistance + 100;
-        const calcHeight = -0.465 * scrollDistance + 100;
-        const calcPositionTop = 0.232 * scrollDistance;
-        const calcBoardRadius = 0.3 * scrollDistance;
         if (appScreen) {
             appScreen.style.width = `${calcWidth}%`;
             appScreen.style.height = `${calcHeight}%`;
@@ -28,7 +44,6 @@ function Example() {
 
         setProgress(scrollDistance);
     };
-
     useEffect(() => {
         if (progress >= 100) {
             setProgress(100);

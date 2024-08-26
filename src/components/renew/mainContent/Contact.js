@@ -6,6 +6,7 @@ import profileImg from "assets/img/2023ver/profile.jpg";
 
 function Contact() {
     const [toast, setToast] = useState(null);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const createShootingStar = () => {
         const star = document.createElement("div");
@@ -75,19 +76,27 @@ function Contact() {
         // 일정 시간마다 별똥별 생성
         setInterval(createShootingStar, 500);
 
+        //responsive
+        window.addEventListener("resize", function () {
+            setWindowWidth(window.innerWidth);
+        });
+
         //gradient shadow
         const targetObject = document.querySelector(".profile-img .aura");
-        document.addEventListener("mousemove", function (event) {
-            if (targetObject) {
-                const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-                const translateX = mouseX * -45;
-                const translateY = mouseY * 15;
-                targetObject.style.transform = `translateX(${translateX}px)  translateY(${translateY}px)`;
-            } else {
-                console.error("rotatingTargetObject is not initialized.");
-            }
-        });
+        if (windowWidth > 999) {
+            document.addEventListener("mousemove", function (event) {
+                if (targetObject) {
+                    const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                    const mouseY =
+                        -(event.clientY / window.innerHeight) * 2 + 1;
+                    const translateX = mouseX * -45;
+                    const translateY = mouseY * 15;
+                    targetObject.style.transform = `translateX(${translateX}px)  translateY(${translateY}px)`;
+                } else {
+                    console.error("rotatingTargetObject is not initialized.");
+                }
+            });
+        }
 
         return () => {
             clearInterval(createShootingStar);

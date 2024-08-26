@@ -422,7 +422,7 @@ function Home() {
         }, 2000);
 
         //project
-        $(".project_li li").on("mouseover", function () {
+        $(".project-li li").on("mouseover", function () {
             var _projectName = $(this).attr("data-img");
             if (_projectName !== 0) {
                 $(this).addClass("active").siblings().removeClass("active");
@@ -895,7 +895,7 @@ function Home() {
                         <div className="flex-row project-wrap">
                             <div className="col">
                                 <ul
-                                    className="project_li"
+                                    className="project-li"
                                     data-acive="fadeup"
                                     data-active-idx="1"
                                 >
@@ -1017,7 +1017,7 @@ function Home() {
                             </div>
                             <div className="col">
                                 <ul
-                                    className="project_li"
+                                    className="project-li"
                                     data-acive="fadeup"
                                     data-active-idx="1"
                                 >

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -7,11 +7,15 @@ import MENU from "data/menu";
 import renderSrc from "../../assets/img/renew/mechanical_keyboard.glb";
 
 function KeyVisual() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
     useEffect(() => {
         const canvas = document.querySelector("#canvas");
+        const canvasWrap = document.querySelector(".canvas-wrap");
         const width = canvas.clientWidth;
         const height = canvas.clientHeight;
-        const aspect = width / height;
+        const aspect = canvasWrap.clientWidth / canvasWrap.clientHeight;
+        document.querySelector("#key-visual").style.minHeight = windowHeight;
 
         let scene = new THREE.Scene();
         let renderer = new THREE.WebGLRenderer({
@@ -91,6 +95,14 @@ function KeyVisual() {
                     renderer.setSize(setWidth, setHeight);
                     camera.aspect = setWidth / setHeight;
                     camera.updateProjectionMatrix();
+
+                    setWindowWidth(window.innerWidth);
+
+                    if (windowWidth < 1000) {
+                        setWindowHeight(window.innerHeight);
+                        document.querySelector("#key-visual").style.minHeight =
+                            windowHeight + "px";
+                    }
                 };
                 handleResize();
                 window.addEventListener("resize", handleResize);
@@ -165,8 +177,10 @@ function KeyVisual() {
                       window.scrollY * scrollSpeed2 -
                       window.innerHeight / 1.25);
 
-            coworkText.style.bottom = `${scrollAmount}px`;
-            jobText.style.top = `${scrollAmount2}px`;
+            if (windowWidth > 999) {
+                coworkText.style.bottom = `${scrollAmount}px`;
+                jobText.style.top = `${scrollAmount2}px`;
+            }
         };
 
         setTextPosition();
