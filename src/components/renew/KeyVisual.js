@@ -12,8 +12,8 @@ function KeyVisual() {
     useEffect(() => {
         const canvas = document.querySelector("#canvas");
         const canvasWrap = document.querySelector(".canvas-wrap");
-        const width = canvas.clientWidth;
-        const height = canvas.clientHeight;
+        // const width = canvas.clientWidth;
+        // const height = canvas.clientHeight;
         const aspect = canvasWrap.clientWidth / canvasWrap.clientHeight;
         document.querySelector("#key-visual").style.minHeight = windowHeight;
 
@@ -100,7 +100,7 @@ function KeyVisual() {
 
                     if (windowWidth < 1000) {
                         setWindowHeight(window.innerHeight);
-                        document.querySelector("#key-visual").style.minHeight =
+                        document.querySelector("#key-visual").style.height =
                             windowHeight + "px";
                     }
                 };

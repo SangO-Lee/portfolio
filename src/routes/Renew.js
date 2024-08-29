@@ -173,9 +173,13 @@ function Renew() {
 
         //key visual
         setBgBaseline(sectionsTop[2]);
-        windowTop < bgBaseline
-            ? (document.querySelector("#canvas").style.display = "block")
-            : (document.querySelector("#canvas").style.display = "none");
+        if (windowTop < bgBaseline) {
+            document.querySelector("#canvas").style.display = "block";
+            document.querySelector(".job-text").style.display = "block";
+        } else {
+            document.querySelector("#canvas").style.display = "none";
+            document.querySelector(".job-text").style.display = "none";
+        }
 
         //active floating btn
         if (windowTop > sectionsTop[1]) {
@@ -192,7 +196,7 @@ function Renew() {
 
         //로딩페이지 세션스토리지
         if (introOpened == 0) {
-            loading();
+            // loading();
             sessionStorage.setItem("introOpen", "1");
             console.log("loading start..");
         } else if (introOpened == 1 || _dev == 1) {

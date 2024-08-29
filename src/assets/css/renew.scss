@@ -655,6 +655,7 @@
             cursor: default;
 
             perspective: 1000px;
+            overflow: hidden;
 
             &::after {
                 content: "";
@@ -668,6 +669,7 @@
                 background-color: #478bff;
                 background-image: linear-gradient(145deg, #00ffff, #478bff);
                 mix-blend-mode: soft-light;
+                border-radius: 20px;
                 opacity: 0;
             }
             &:hover::after {
@@ -1588,7 +1590,7 @@
             }
             .job-text {
                 top: auto;
-                bottom: 8vh;
+                bottom: 40px;
                 right: auto;
                 left: 50%;
             }
@@ -1596,6 +1598,7 @@
             .visual-wrap {
                 .txt-box {
                     h2 {
+                        margin-top: 0px;
                         @include hero;
                         small {
                             display: block;
@@ -1607,7 +1610,17 @@
                 }
             }
             .canvas-wrap {
+                position: relative;
                 aspect-ratio: 1/1;
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
 
@@ -1750,10 +1763,16 @@
                 }
             }
         }
+        #core {
+            .skill-dl::after {
+                display: none;
+            }
+        }
 
         #contact {
-            margin-bottom: 64px;
-            padding-top: 100px;
+            margin-bottom: 71px;
+            padding-top: 60px;
+            padding-bottom: 40px;
             .main-title {
                 margin-bottom: 30px;
             }
@@ -1784,6 +1803,7 @@
             max-width: 100vw;
             .copy {
                 text-align: left;
+                @include caption;
             }
         }
 
@@ -1801,6 +1821,23 @@
             padding: 0 40px;
             .menu-list button {
                 @include content-title;
+            }
+        }
+        #toast-message {
+            width: calc(100vw - 16px);
+            height: auto;
+            &.active .inner {
+                padding: 20px;
+                white-space: wrap;
+                justify-content: center;
+            }
+            .message {
+                @include body-text;
+                gap: 16px;
+                .value {
+                    text-align: left;
+                    line-height: 1.2;
+                }
             }
         }
     }
