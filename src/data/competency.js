@@ -50,11 +50,11 @@ const COMPETENCY = [
             },
             {
                 name: "Photoshop",
-                level: 1,
+                level: 2,
             },
             {
                 name: "Illustrator",
-                level: 1,
+                level: 2,
             },
             {
                 name: "Zeplin",
